@@ -1,11 +1,11 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('mainwords').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: `The hands on coding bootcamp
+      return knex('mainwords').insert([
+        {id: 1, article: `The hands on coding bootcamp
         that will transform your career
         Our intensive program helps you master the in-demand skills you need to accelerate your career and change your life. Our graduates work at all types of companies, from small startups to some of NZ's technology giants and our alumni network is robust, active and welcoming.
         WHY BE A WEB DEVELOPER
@@ -13,7 +13,7 @@ exports.seed = function(knex, Promise) {
         Web development is an amazingly satisfying profession – it’s highly dynamic, beautifully creative and ridiculously rewarding. Web development professionals say that even the master is always the learner – it is a lifelong engagement in which you will always be unravelling new things. Web development is also an enabler – you get to build things from conception to implementation, from idea to reality and its possibilities are endless. Read more here.
         “Everyone consumes the internet, but it’s a small group of people who ultimately determine what it looks like and decide how people are going to engage with it. Being a web developer means you can cross that divide and therefore engage in new and meaningful ways”
         – Hannah Salmon, Loomio Web Developer and Graduate of Dev Academy`},
-        {id: 2, colName: `We focus on creating a holistic education experience
+        {id: 2, article: `We focus on creating a holistic education experience
         Our mission to design a rigorous yet accessible programme, driven by our unique culture, has produced a set of values that guides everything we do:
         Empathy – we care about people more than machines
         Learning – we empower students to learn more than they thought possible
@@ -23,7 +23,7 @@ exports.seed = function(knex, Promise) {
         Our curriculum has been carefully crafted in collaboration with employers and the latest research on immersive learning. We use student feedback to improve our curriculum every three weeks – a rate of change that very few educational institutions can match.
         Our course is not for the faint hearted. Be prepared to work harder than you have ever worked before. We look for individuals who have tenacity, commitment and a passion for problem solving. We do not base our admissions on prior programming experience, and you do not need to be good at maths or science to excel in the field of web development.
         Because culture is at the heart of everything we do, we look for students who will work well in a team and who fit our 3 core values: Integrity, Kindness and Effort.`},
-        {id: 3, colName: `Te Uru Rangi
+        {id: 3, article: `Te Uru Rangi
         Engaging Māori in the Digital Economy as technologists, entrepreneurs, innovators, owners and investors.
         The digital economy represents jobs and industries of the future, but Māori have very low participation in the digital economy.
         In conjunction with Te Puni Kōkiri and MBIE, Dev Academy is proud to announce 42 scholarships for Māori students. We welcome you to apply and take your first steps towards your future career.
@@ -31,7 +31,7 @@ exports.seed = function(knex, Promise) {
         Te Uru Rangi is a scholarship programme designed to help Māori into high-value jobs and to support the development of Māori language and culture within technology. Recipients of the scholarship complete an online preparation course (from anywhere in the country) at their own pace before participating in the full immersion web development bootcamp for 9 weeks in either Auckland or Wellington.
         Recipients of Te Uru Rangi scholarships also receive tailored support from our Kaiāwhina Māori to navigate the programme.
         The fund is part of the Ka Hao Māori Digital Technology Fund, managed by Te Puni Kōkiri and MBIE. There are 42 scholarships in total, each worth $7,000.`},
-        {id: 4, colName: `"Jabberwocky"
+        {id: 4, article: `"Jabberwocky"
         ’Twas brillig, and the slithy toves
         Did gyre and gimble in the wabe;
         All mimsy were the borogoves,
@@ -62,8 +62,8 @@ exports.seed = function(knex, Promise) {
         And the mome raths outgrabe.
         from Through the Looking-Glass, and
         What Alice Found There (1871)`},
-        {id: 5, colName: `An emotionally fragile woman recently released from a mental hospital for self mutilation goes to school to gain secretarial skills to gain employment. She has an alcoholic father and a co-dependent mother who are clueless as to who she really is which a tormented soul who really wants to find something with which she can find success. She is a great secretary and finds a job with a unique, old fashioned, but off center in charge boss with a somewhat sadistic sexual proclivity. She grows and evolves and so does he.`},
-        {id: 6, colName: `Now, this is a story all about how
+        {id: 5, article: `An emotionally fragile woman recently released from a mental hospital for self mutilation goes to school to gain secretarial skills to gain employment. She has an alcoholic father and a co-dependent mother who are clueless as to who she really is which a tormented soul who really wants to find something with which she can find success. She is a great secretary and finds a job with a unique, old fashioned, but off center in charge boss with a somewhat sadistic sexual proclivity. She grows and evolves and so does he.`},
+        {id: 6, article: `Now, this is a story all about how
         My life got flipped-turned upside down
         And I'd like to take a minute
         Just sit right there
@@ -85,7 +85,7 @@ exports.seed = function(knex, Promise) {
         I looked at my kingdom
         I was finally there
         To sit on my throne as the Prince of Bel Air`},
-        {id: 7, colName: `Our Father who art in heaven,
+        {id: 7, article: `Our Father who art in heaven,
         Hallowed be thy name.
         Thy kingdom come.
         Thy will be done
@@ -99,14 +99,14 @@ exports.seed = function(knex, Promise) {
         and the power, and the glory,
         for ever and ever
         Amen.`},
-        {id: 8, colName: `Ranginui and Papatūānuku are the primordial parents, the sky father and the earth mother who lie locked together in a tight embrace. They have many children all of whom are male, who are forced to live in the cramped darkness between them. These children grow and discuss among themselves what it would be like to live in the light. Tūmatauenga, the fiercest of the children, proposes that the best solution to their predicament is to kill their parents.
+        {id: 8, article: `Ranginui and Papatūānuku are the primordial parents, the sky father and the earth mother who lie locked together in a tight embrace. They have many children all of whom are male, who are forced to live in the cramped darkness between them. These children grow and discuss among themselves what it would be like to live in the light. Tūmatauenga, the fiercest of the children, proposes that the best solution to their predicament is to kill their parents.
         But his brother Tāne disagrees, suggesting that it is better to push them apart, to let Ranginui be as a stranger to them in the sky above while Papatūānuku will remain below to nurture them. The others put their plans into action—Rongo, the god of cultivated food, tries to push his parents apart, then Tangaroa, the god of the sea, and his sibling Haumia-tiketike, the god of wild food, join him. In spite of their joint efforts Rangi and Papa remain close together in their loving embrace. After many attempts Tāne, god of forests and birds, forces his parents apart. Instead of standing upright and pushing with his hands as his brothers have done, he lies on his back and pushes with his strong legs. Stretching every sinew Tāne pushes and pushes until, with cries of grief and surprise, Ranginui and Papatūānuku were pried apart...`},
-        {id: 9, colName: `Plush dark fruits are paired with delightful aromas of dried violets and white pepper imparted from the Viognier. On the palate, a lovely fruity core is supported by a fine-grained tannin structure that combines with a freshness and balance that carries through to the back of the palate.`},
-        {id: 10, colName: `Aping the high-gloss androgyny of the New York Dolls, David Bowie, and the half-forgotten and openly gay glam rock pioneer Jobraith, John Cameron Mitchell’s Hedwig and the Angry Inch is a band (and a film) lousy with camp ethos and ultra-literate pop culture references. The music of “The Angry Inch” mixes Lou Reed with Iggy Pop, but the aesthetic is pure Diamond Dog — well, Diamond Dog if you replace Bowie with a Streisand impersonator, which, funny enough, this film includes (she goes by the stage name “Krystal Nacht” and her extended medley is mind-blowing!). What began as an off-Broadway, monologue-motivated production, Hedwig and the Angry Inch had big success in ancillaries (like the soundtrack) and now rotates like an anatomically graphic Rocky Horror Picture Show, with costume attendees in tow.`},
-        {id: 11, colName: `All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. 
+        {id: 9, article: `Plush dark fruits are paired with delightful aromas of dried violets and white pepper imparted from the Viognier. On the palate, a lovely fruity core is supported by a fine-grained tannin structure that combines with a freshness and balance that carries through to the back of the palate.`},
+        {id: 10, article: `Aping the high-gloss androgyny of the New York Dolls, David Bowie, and the half-forgotten and openly gay glam rock pioneer Jobraith, John Cameron Mitchell’s Hedwig and the Angry Inch is a band (and a film) lousy with camp ethos and ultra-literate pop culture references. The music of “The Angry Inch” mixes Lou Reed with Iggy Pop, but the aesthetic is pure Diamond Dog — well, Diamond Dog if you replace Bowie with a Streisand impersonator, which, funny enough, this film includes (she goes by the stage name “Krystal Nacht” and her extended medley is mind-blowing!). What began as an off-Broadway, monologue-motivated production, Hedwig and the Angry Inch had big success in ancillaries (like the soundtrack) and now rotates like an anatomically graphic Rocky Horror Picture Show, with costume attendees in tow.`},
+        {id: 11, article: `All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. 
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.`},
-        {id: 12, colName: `When I was a young man I carried my pack
+        {id: 12, article: `When I was a young man I carried my pack
         And I lived the free life of a rover
         From the murrays green basin to the dusty outback
         I waltzed my matilda all over
@@ -174,7 +174,7 @@ exports.seed = function(knex, Promise) {
         Some day no one will march there at all
         Waltzing Matilda, Waltzing Matilda
         Who'll go a-Waltzing Matilda with me?`},
-        {id: 13, colName: `The Maori Jesus - James K. Baxter
+        {id: 13, article: `The Maori Jesus - James K. Baxter
         I saw the Maori Jesus
         Walking on Wellington Harbour.
         He wore blue dungarees,
@@ -223,8 +223,8 @@ exports.seed = function(knex, Promise) {
         The darkness of the Void,
         Mountainous, mile-deep, civilised darkness
         Sat on the earth from then till now.`},
-        {id: 14, colName: `01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001`},
-        {id: 15, colName: `It's time to play the music
+        {id: 14, article: `01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001 01001000 01100101 01101100 01101100 01101111 00100001`},
+        {id: 15, article: `It's time to play the music
         It's time to light the lights
         It's time to meet the Muppets on the Muppet Show tonight
         It's time to put on makeup
@@ -244,7 +244,7 @@ exports.seed = function(knex, Promise) {
         It's time to get things started
         On the most sensational inspirational, celebrational, Muppetational
         This is what we call the Muppet Show!`},
-        {id: 16, colName: `As I walk through the valley of the shadow of death
+        {id: 16, article: `As I walk through the valley of the shadow of death
         I take a look at my life and realize there's nothin' left
         ‘Cause I've been blastin' and laughin' so long
         That even my momma thinks that my mind is gone
@@ -286,8 +286,8 @@ exports.seed = function(knex, Promise) {
         Livin' in a gangsta's paradise
         Keep spendin' most our lives
         Livin' in a gangsta's paradise`},
-        {id: 17, colName: `The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of the darkness. For he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know I am the Lord when I lay my vengeance upon you.`},
-        {id: 18, colName: `Say your prayers little one
+        {id: 17, article: `The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of the darkness. For he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know I am the Lord when I lay my vengeance upon you.`},
+        {id: 18, article: `Say your prayers little one
         Don't forget, my son
         To include everyone
         Tuck you in, warm within
@@ -319,7 +319,7 @@ exports.seed = function(knex, Promise) {
         If I die before I wake
         I pray the lord my soul to take
         I pray…`},
-        {id: 19, colName: `i like my body when it is with your 
+        {id: 19, article: `i like my body when it is with your 
         body.    It is so quite new a thing. 
         Muscles better and nerves more. 
         i like your body.   i like what it does, 
@@ -333,7 +333,7 @@ exports.seed = function(knex, Promise) {
         over parting flesh....And eyes big love-crumbs, 
         and possibly i like the thrill 
         of under me you so quite new`},
-        {id: 20, colName: `Once upon a midnight dreary, while I pondered, weak and weary,
+        {id: 20, article: `Once upon a midnight dreary, while I pondered, weak and weary,
         Over many a quaint and curious volume of forgotten lore—
         While I nodded, nearly napping, suddenly there came a tapping,
         As of some one gently rapping, rapping at my chamber door.
@@ -345,9 +345,9 @@ exports.seed = function(knex, Promise) {
         It shall clasp a sainted maiden whom the angels name Lenore—
         Clasp a rare and radiant maiden whom the angels name Lenore.”
         Quoth the Raven “Nevermore.”`},
-        {id: 21, colName: `Odysseus and his men then sail through the murky night to the land of the Cyclopes, a rough and uncivilized race of one-eyed giants. After making a meal of wild goats captured on an island offshore, they cross to the mainland. There they immediately come upon a cave full of sheep and crates of milk and cheese. The men advise Odysseus to snatch some of the food and hurry off, but, to his and his crew’s detriment, he decides to linger. The cave’s inhabitant soon returns—it is the Cyclops Polyphemus, the son of Poseidon. Polyphemus makes a show of hospitality at first, but he soon turns hostile. He devours two of Odysseus’s men on the spot and imprisons Odysseus and the rest in his cave for future meals.
+        {id: 21, article: `Odysseus and his men then sail through the murky night to the land of the Cyclopes, a rough and uncivilized race of one-eyed giants. After making a meal of wild goats captured on an island offshore, they cross to the mainland. There they immediately come upon a cave full of sheep and crates of milk and cheese. The men advise Odysseus to snatch some of the food and hurry off, but, to his and his crew’s detriment, he decides to linger. The cave’s inhabitant soon returns—it is the Cyclops Polyphemus, the son of Poseidon. Polyphemus makes a show of hospitality at first, but he soon turns hostile. He devours two of Odysseus’s men on the spot and imprisons Odysseus and the rest in his cave for future meals.
         Odysseus wants to take his sword to Polyphemus right then, but he knows that only Polyphemus is strong enough to move the rock that he has placed across the door of his cave. Odysseus thus devises and executes a plan. The next day, while Polyphemus is outside pasturing his sheep, Odysseus finds a wooden staff in the cave and hardens it in the fire. When Polyphemus returns, Odysseus gets him drunk on wine that he brought along from the ship. Feeling jovial, Polyphemus asks Odysseus his name. Odysseus replies that his name is “Nobody”. As soon as Polyphemus collapses with intoxication, Odysseus and a select group of his men drive the red-hot staff into his eye. Polyphemus wakes with a shriek, and his neighbors come to see what is wrong, but they leave as soon as he calls out, “Nobody’s killing me”. When morning comes, Odysseus and his men escape from the cave, unseen by the blind Polyphemus, by clinging to the bellies of the monster’s sheep as they go out to graze. Safe on board their ships and with Polyphemus’s flock on board as well, Odysseus calls to land and reveals his true identity. With his former prisoners now out of reach, the blind giant lifts up a prayer to his father, Poseidon, calling for vengeance on Odysseus.`},
-        {id: 22, colName: `The details of my life are quite inconsequential... very well, where do I begin? My father was a relentlessly self-improving boulangerie owner from Belgium with low grade narcolepsy and a penchant for buggery. My mother was a fifteen year old French prostitute named Chloe with webbed feet. My father would womanize, he would drink. He would make outrageous claims like he invented the question mark. Sometimes he would accuse chestnuts of being lazy. The sort of general malaise that only the genius possess and the insane lament. My childhood was typical. Summers in Rangoon, luge lessons. In the spring we'd make meat helmets. When I was insolent I was placed in a burlap bag and beaten with reeds- pretty standard really. At the age of twelve I received my first scribe. At the age of fourteen a Zoroastrian named Vilma ritualistically shaved my testicles. There really is nothing like a shorn scrotum... it's breathtaking- I highly suggest you try it.`}
+        {id: 22, article: `The details of my life are quite inconsequential... very well, where do I begin? My father was a relentlessly self-improving boulangerie owner from Belgium with low grade narcolepsy and a penchant for buggery. My mother was a fifteen year old French prostitute named Chloe with webbed feet. My father would womanize, he would drink. He would make outrageous claims like he invented the question mark. Sometimes he would accuse chestnuts of being lazy. The sort of general malaise that only the genius possess and the insane lament. My childhood was typical. Summers in Rangoon, luge lessons. In the spring we'd make meat helmets. When I was insolent I was placed in a burlap bag and beaten with reeds- pretty standard really. At the age of twelve I received my first scribe. At the age of fourteen a Zoroastrian named Vilma ritualistically shaved my testicles. There really is nothing like a shorn scrotum... it's breathtaking- I highly suggest you try it.`}
       ]);
     });
 };
