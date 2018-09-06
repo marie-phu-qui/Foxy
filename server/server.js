@@ -10,7 +10,7 @@ const server = express()
 server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
 
-server.get('/', (req, res) => {
+server.get('/fox', (req, res) => {
   request.get('https://randomfox.ca/floof/')
   .then(ApiRes => { 
      res.json(ApiRes.body.image)
