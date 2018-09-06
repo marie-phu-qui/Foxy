@@ -1,8 +1,11 @@
 import request from 'superagent'
 
-const apiEndpointBase = '/'
+
 
 export function getFox() {
- return request.get(apiEndpointBase + '/*our foximage*/')
+ return request.get('/')
 }
 
+// export function getMyFox() {
+//   return request.get('/fox')
+//  }
