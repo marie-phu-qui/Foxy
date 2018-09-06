@@ -14,6 +14,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getFox()
+
   }
 
   getFox() {
@@ -21,20 +22,19 @@ class App extends React.Component {
     .then(res => {
       this.setState({
         foxImage: res.body
+        
       })
     })
+    console.log(this.state.foxImage)
   }
 
   render() {
     return (
       <div>
-        {console.log('hello?')}
+      
         <h1>Fox Fox Fox</h1>
-      
-        <p>
-          {this.state.foxImage.value}
-        </p>
-      
+        <img id='fox-image' src={this.state.foxImage}/>
+        {console.log('hello?')}
       </div>
     )
   }
