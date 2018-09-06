@@ -21587,7 +21587,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _FoxApiClient = __webpack_require__(19);
+var _ArticleWithFox = __webpack_require__(19);
+
+var _ArticleWithFox2 = _interopRequireDefault(_ArticleWithFox);
+
+var _FoxApiClient = __webpack_require__(20);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21626,8 +21630,10 @@ var App = function (_React$Component) {
       (0, _FoxApiClient.getFox)().then(function (res) {
         _this2.setState({
           foxImage: res.body
+
         });
       });
+      console.log(this.state.foxImage);
     }
   }, {
     key: 'render',
@@ -21635,17 +21641,7 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        console.log('hello?'),
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Fox Fox Fox'
-        ),
-        _react2.default.createElement(
-          'p',
-          null,
-          this.state.foxImage.value
-        )
+        _react2.default.createElement(_ArticleWithFox2.default, { X: this.state.foxImage })
       );
     }
   }]);
@@ -21665,22 +21661,84 @@ exports.default = App;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ArticleWithFox = function (_React$Component) {
+  _inherits(ArticleWithFox, _React$Component);
+
+  function ArticleWithFox() {
+    _classCallCheck(this, ArticleWithFox);
+
+    return _possibleConstructorReturn(this, (ArticleWithFox.__proto__ || Object.getPrototypeOf(ArticleWithFox)).apply(this, arguments));
+  }
+
+  _createClass(ArticleWithFox, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        console.log('hello?'),
+        _react2.default.createElement(
+          'div',
+          { id: 'main-article' },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Fox Fox Fox'
+          ),
+          _react2.default.createElement('img', { id: 'fox-image', src: this.props.foxImage })
+        )
+      );
+    }
+  }]);
+
+  return ArticleWithFox;
+}(_react2.default.Component);
+
+exports.default = ArticleWithFox;
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.getFox = getFox;
 
-var _superagent = __webpack_require__(20);
+var _superagent = __webpack_require__(21);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var apiEndpointBase = '/';
-
 function getFox() {
-  return _superagent2.default.get(apiEndpointBase + '/*our foximage*/');
+  return _superagent2.default.get('/fox');
 }
 
+// export function getMyFox() {
+//   return request.get('/fox')
+//  }
+
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -21697,11 +21755,11 @@ if (typeof window !== 'undefined') { // Browser window
   root = this;
 }
 
-var Emitter = __webpack_require__(21);
-var RequestBase = __webpack_require__(22);
+var Emitter = __webpack_require__(22);
+var RequestBase = __webpack_require__(23);
 var isObject = __webpack_require__(5);
-var ResponseBase = __webpack_require__(23);
-var Agent = __webpack_require__(25);
+var ResponseBase = __webpack_require__(24);
+var Agent = __webpack_require__(26);
 
 /**
  * Noop.
@@ -22606,7 +22664,7 @@ request.put = function(url, data, fn) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -22775,7 +22833,7 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23476,7 +23534,7 @@ RequestBase.prototype._setTimeouts = function() {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23486,7 +23544,7 @@ RequestBase.prototype._setTimeouts = function() {
  * Module dependencies.
  */
 
-var utils = __webpack_require__(24);
+var utils = __webpack_require__(25);
 
 /**
  * Expose `ResponseBase`.
@@ -23619,7 +23677,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23697,7 +23755,7 @@ exports.cleanHeader = function(header, changesOrigin){
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 function Agent() {
