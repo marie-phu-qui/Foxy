@@ -25663,7 +25663,7 @@ exports.default = TrumpQuote;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(process) {
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -25695,10 +25695,12 @@ var ChatApp = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (ChatApp.__proto__ || Object.getPrototypeOf(ChatApp)).call(this, props));
 
+        var url = process.env.NODE_ENV == 'production' ? 'https://foxy-news.herokuapp.com' : 'http://localhost:3000';
+
         _this.state = {
             currentMessage: '',
             messages: [],
-            socket: (0, _socket2.default)('/')
+            socket: (0, _socket2.default)(url)
         };
 
         _this.submitMessage = _this.submitMessage.bind(_this);
@@ -25785,6 +25787,7 @@ var ChatApp = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = ChatApp;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 46 */
