@@ -76,12 +76,21 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id ="main">
-        <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article}/>
-        <Comics comics={this.state.comics}/>
-        <ChatApp/>
-        <TrumpQuote quote={this.state.quote}/>
-      </div>
+      <React.Fragment>
+        <div id="header"><img src="images/foxy.png"/></div>
+        <div id ="main">
+          <div id= "article">
+            <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article}/>
+          </div>  
+          <div id="sidebar">
+            <ChatApp/>
+            <TrumpQuote quote={this.state.quote}/>
+          </div>
+        </div>
+        <div id= "comic">
+          <Comics comics={this.state.comics}/>
+        </div>  
+      </React.Fragment>
       
 
     )
