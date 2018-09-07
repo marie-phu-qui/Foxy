@@ -10,3 +10,6 @@ export function getComics() {
   return request.get('/comics')
  }
  
+ export function getQuote() {
+   return request.get('/quote')
+ }

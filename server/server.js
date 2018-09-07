@@ -29,6 +29,16 @@ server.get('/comics/', (req, res) => {
   })
 })
 
+server.get('/quote', (req, res) => {
+  request.get('https://api.whatdoestrumpthink.com/api/v1/quotes/random')
+  .then(ApiRes => { 
+     res.json(ApiRes.body.message)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+})
+
 
 // let io = require ('socket.io')(http);
 
