@@ -92,7 +92,7 @@ class App extends React.Component {
     <React.Fragment>
     <div id="header"><img src="images/foxy.png"/></div>
     <div id ="main">
-    <a><button onClick={this.refresh}>Refresh Page</button></a>
+    <button onClick={this.refresh}><a href='/'>Refresh Page</a></button>
       <div id= "article">
         <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article}/>
       </div>  
