@@ -21640,8 +21640,8 @@ var App = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
-        _react2.default.createElement(_ArticleWithFox2.default, { X: this.state.foxImage })
+        { id: 'main' },
+        _react2.default.createElement(_ArticleWithFox2.default, { foxImage: this.state.foxImage })
       );
     }
   }]);
