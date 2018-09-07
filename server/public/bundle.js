@@ -25411,6 +25411,8 @@ var App = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this7 = this;
+
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
@@ -25422,14 +25424,13 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { id: 'main' },
+          console.log(this.refresh),
           _react2.default.createElement(
             'button',
-            { onClick: this.refresh },
-            _react2.default.createElement(
-              'a',
-              { href: '/' },
-              'Refresh Page'
-            )
+            { onClick: function onClick() {
+                return _this7.refresh();
+              } },
+            'Refresh Page'
           ),
           _react2.default.createElement(
             'div',
@@ -25767,7 +25768,7 @@ var ChatApp = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                null,
+                { id: 'chat' },
                 _react2.default.createElement(
                     'ul',
                     null,

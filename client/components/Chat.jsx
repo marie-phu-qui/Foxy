@@ -41,7 +41,7 @@ class ChatApp extends React.Component {
     handleMessage(message) {
         let messages = this.state.messages;
         messages.push(message);
-        this.setState({ messages: messages });
+        this.setState({  messages: messages});
     }
 
     handleChange(e) {
@@ -65,11 +65,12 @@ class ChatApp extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id ="chat">
                 <ul>
                     {this.renderMessages()}
                 </ul>
-                <form  onSubmit={this.submitMessage}><input id="message" type="text" value={this.state.currentMessage} onChange={this.handleChange}/><input type='submit'/></form>
+                <form  onSubmit={this.submitMessage}>
+                    <input  id="message" type="text" value={this.state.currentMessage} onChange={this.handleChange}/><input type='submit'/></form>
             </div>
         )
     }
