@@ -34,8 +34,12 @@ server.get('/articles/', (req, res) => {
   .then(articles => { 
     console.log(articles[0]);
      res.json(articles[Math.floor(Math.random()*23)].article)
- 
-     
+  })
+  })   
+server.get('/quote', (req, res) => {
+  request.get('https://api.whatdoestrumpthink.com/api/v1/quotes/random')
+  .then(ApiRes => { 
+     res.json(ApiRes.body.message)
   })
   .catch(err => {
     console.log(err)
