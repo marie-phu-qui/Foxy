@@ -5,6 +5,7 @@ body{
   background-color: #f9f7f1;
   max-width: 1200px;
   margin: auto;
+
 }
 
 #app {
@@ -27,12 +28,21 @@ body{
     padding: 5px;
 }
 
+#header {
+  /* background-image: url(images/foxy.png); */
+  width: 100%;
+}
+
 
 #main {
-  width: 1000px
+  width: 100%;
+  display: flex;
+  flex: wrap;
+  background: #eee
 }
+
 #main-article {
-  background: rgb(207, 206, 206);
+  background: rgb(228, 225, 225);
 }
 
 img, #fox-image {
@@ -44,3 +54,20 @@ h1 {
   font-size: 100px;
   background: rgb(207, 206, 206);
 }
+
+#article {
+  width: 70%;
+  padding: 20px;
+  display: flex;
+  flex: wrap;
+}
+
+
+#sidebar {
+  width: 30%;
+  padding: 20px;
+
+}
+ i {
+   font-size: 24px;
+ }

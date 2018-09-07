@@ -5,8 +5,9 @@ class TrumpQuote extends React.Component {
     return (
       <React.Fragment>
         <div id='quotes'>
-          <h1>Inspirational Quotes</h1>
-          <p>{this.props.quote}</p>
+          <h2>Inspirational Quotes</h2>
+          <i>{this.props.quote}</i>
+          <h3><strong>{this.props.names}</strong></h3>
         </div>
       </React.Fragment>
     )

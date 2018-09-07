@@ -32,7 +32,6 @@ server.get('/comics/', (req, res) => {
 server.get('/articles/', (req, res) => {
   db.getArticles()
   .then(articles => { 
-    console.log(articles[0]);
      res.json(articles[Math.floor(Math.random()*23)].article)
   })
   })   
@@ -46,6 +45,12 @@ server.get('/quote', (req, res) => {
   })
 })
 
+server.get('/quotenames/', (req, res) => {
+  db.getQuoteNames()
+  .then(names => { 
+     res.json(names[Math.floor(Math.random()*21)].trumps)
+  })
+})
 
 // let io = require ('socket.io')(http);
 
