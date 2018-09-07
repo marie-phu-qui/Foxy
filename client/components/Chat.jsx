@@ -1,50 +1,76 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import io from 'socket.io-client'
 
-class ChatApp extends React.Component({
-    constructor(props){
+class ChatApp extends React.Component {
+    constructor(props) {
+        super(props)
+
         this.state = {
-            message:[],
-            socket: window.io('http://localhost:5000')
+            currentMessage: '',
+            messages: [],
+            socket: io('http://localhost:3000')
         }
+
         this.submitMessage = this.submitMessage.bind(this)
-        this.submitMessage = this.submitMessage.bind(this)
-    },
+        this.handleChange = this.handleChange.bind(this)
+        this.setUpSockets = this.setUpSockets.bind(this)
+        this.handleMessage = this.handleMessage.bind(this)
 
-    componentDidMount: function(){
-        let self = this;
-        this.state.socket.on('receive-message',function(msg){
-            let messages = self.state.messages;
-            messages.push(msg);
-            self.setState({messages: messages});
-    
-        });
-    },
+    }
 
-    submitMessage: function(){
-        let message = document.getElementById(message).value;
-        this.state.socket.emit('new-message', message);
-    },
+    componentDidMount() {
+        this.setUpSockets()
 
-    render: function(){
-        
-        let self = this
+    }
 
-        let messages = self.state.messages.map(function(msg){
+    // setUpSockets() {
+    //     let self = this
+    //     this.state.socket.on('receive-message', function (msg) {
+    //         let messages = self.state.messages;
+    //         messages.push(msg);
+    //         self.setState({ messages: messages });
+    //     })
+    // }
+
+    setUpSockets() {
+        this.state.socket.on('receive-message', this.handleMessage)
+    }
+
+    handleMessage(message) {
+        let messages = this.state.messages;
+        messages.push(message);
+        this.setState({ messages: messages });
+    }
+
+    handleChange(e) {
+        let currentMessage = e.target.value
+        this.setState({currentMessage: currentMessage})
+    }
+
+    submitMessage(e) {
+        e.preventDefault()
+        this.state.socket.emit('new-message', this.state.currentMessage)
+        this.setState({currentMessage: ""})
+    }
+
+    renderMessages() {
+        return this.state.messages.map(function (msg) {
             return (
                 <li>{msg}</li>
-            ); 
-        }.bind(this),);
+            );
+        });
+    }
 
-      let self = this;
-
+    render() {
         return (
             <div>
                 <ul>
-                    {messages}
+                    {this.renderMessages()}
                 </ul>
-                <input id="message" type="text"/><button onClick={() => self.submitMessage()}></button>
+                <form  onSubmit={this.submitMessage}><input id="message" type="text" value={this.state.currentMessage} onChange={this.handleChange}/><input type='submit'/></form>
             </div>
         )
     }
-});
+}
+
+export default ChatApp;
