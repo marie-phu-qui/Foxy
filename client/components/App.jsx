@@ -1,6 +1,7 @@
 import React from 'react'
 import ArticleWithFox from './ArticleWithFox'
 import Comics from './Comics'
+import ChatApp from './Chat'
 
 import {getFox, getComics} from '../FoxApi-client'
 
@@ -51,6 +52,7 @@ class App extends React.Component {
       <div id ="main">
         <ArticleWithFox foxImage={this.state.foxImage}/>
         <Comics comics={this.state.comics}/>
+        <ChatApp/>
       </div>
     )
   }
