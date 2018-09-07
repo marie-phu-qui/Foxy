@@ -21,7 +21,7 @@ class App extends React.Component {
     this.getComics = this.getComics.bind(this)
     this.getArticles = this.getArticles.bind(this)
     this.getQuote = this.getQuote.bind(this)
-
+    
   }
 
   componentDidMount() {
@@ -77,6 +77,7 @@ class App extends React.Component {
   render() {
     return (
       <div id ="main">
+        <a><button onClick={this.refresh}>Refresh Page</button></a>
         <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article}/>
         <Comics comics={this.state.comics}/>
         <ChatApp/>
