@@ -92,7 +92,8 @@ class App extends React.Component {
     <React.Fragment>
     <div id="header"><img src="images/foxy.png"/></div>
     <div id ="main">
-    <button onClick={this.refresh}><a href='/'>Refresh Page</a></button>
+    {console.log(this.refresh)}
+    <button onClick={() => this.refresh()}>Refresh Page</button>
       <div id= "article">
         <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article}/>
       </div>  

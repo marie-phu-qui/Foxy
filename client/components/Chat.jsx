@@ -5,10 +5,12 @@ class ChatApp extends React.Component {
     constructor(props) {
         super(props)
 
+        let url = process.env.NODE_ENV == 'production' ? 'https://foxy-news.herokuapp.com' : 'http://localhost:3000'
+
         this.state = {
             currentMessage: '',
             messages: [],
-            socket: io('/')
+            socket: io(url)
         }
 
         this.submitMessage = this.submitMessage.bind(this)
@@ -63,7 +65,7 @@ class ChatApp extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id ="chat">
                 <ul>
                     {this.renderMessages()}
                 </ul>
