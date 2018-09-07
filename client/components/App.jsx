@@ -34,7 +34,6 @@ class App extends React.Component {
         comics: res.body
       })
     })
-    console.log(this.state.comics)
   }
 
   getFox() {
@@ -45,7 +44,6 @@ class App extends React.Component {
         
       })
     })
-    console.log(this.state.foxImage)
   }
 
   render() {
