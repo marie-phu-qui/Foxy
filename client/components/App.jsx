@@ -33,6 +33,7 @@ class App extends React.Component {
     this.getComics()
     this.getArticles()
     this.getQuote()
+    console.log("Hi")
   }
 
   getComics() {
@@ -77,7 +78,7 @@ class App extends React.Component {
   render() {
     return (
       <div id ="main">
-        <a><button onClick={this.refresh}>Refresh Page</button></a>
+        <button onClick={this.refresh}><a href ="/">Refresh Page></a></button>
         <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article}/>
         <Comics comics={this.state.comics}/>
         <ChatApp/>
