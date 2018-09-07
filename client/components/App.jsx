@@ -1,4 +1,6 @@
 import React from 'react'
+import ArticleWithFox from './ArticleWithFox'
+
 import {getFox} from '../FoxApi-client'
 
 class App extends React.Component {
@@ -31,10 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      
-        <h1>Fox Fox Fox</h1>
-        <img id='fox-image' src={this.state.foxImage}/>
-        {console.log('hello?')}
+        <ArticleWithFox foxImage={this.state.foxImage}/>
       </div>
     )
   }
