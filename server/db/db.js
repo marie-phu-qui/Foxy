@@ -14,10 +14,14 @@ function getComics() {
   return db('comics').select()
  }
 
+ function getArticles(){
+return db('mainwords').select()
+ }
 
 //  server.get('/comics', (req, res) => {
 //  }
 
 module.exports = {
-  getComics
+  getComics,
+  getArticles
 }

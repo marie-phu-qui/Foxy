@@ -25316,11 +25316,13 @@ var App = function (_React$Component) {
 
     _this.state = {
       foxImage: '',
-      comics: ''
+      comics: '',
+      article: ''
     };
 
     _this.getFox = _this.getFox.bind(_this);
     _this.getComics = _this.getComics.bind(_this);
+    _this.getArticles = _this.getArticles.bind(_this);
 
     return _this;
   }
@@ -25335,6 +25337,7 @@ var App = function (_React$Component) {
     value: function refresh() {
       this.getFox();
       this.getComics();
+      this.getArticles();
     }
   }, {
     key: 'getComics',
@@ -25348,12 +25351,24 @@ var App = function (_React$Component) {
       });
     }
   }, {
-    key: 'getFox',
-    value: function getFox() {
+    key: 'getArticles',
+    value: function getArticles() {
       var _this3 = this;
 
-      (0, _FoxApiClient.getFox)().then(function (res) {
+      (0, _FoxApiClient.getArticles)().then(function (res) {
         _this3.setState({
+          article: res.body
+
+        });
+      });
+    }
+  }, {
+    key: 'getFox',
+    value: function getFox() {
+      var _this4 = this;
+
+      (0, _FoxApiClient.getFox)().then(function (res) {
+        _this4.setState({
           foxImage: res.body
 
         });
@@ -25365,7 +25380,7 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { id: 'main' },
-        _react2.default.createElement(_ArticleWithFox2.default, { foxImage: this.state.foxImage }),
+        _react2.default.createElement(_ArticleWithFox2.default, { foxImage: this.state.foxImage, article: this.state.article }),
         _react2.default.createElement(_Comics2.default, { comics: this.state.comics }),
         _react2.default.createElement(_Chat2.default, null)
       );
@@ -25425,7 +25440,12 @@ var ArticleWithFox = function (_React$Component) {
             null,
             'Fox Fox Fox'
           ),
-          _react2.default.createElement('img', { id: 'fox-image', src: this.props.foxImage })
+          _react2.default.createElement('img', { id: 'fox-image', src: this.props.foxImage }),
+          _react2.default.createElement(
+            'p',
+            null,
+            this.props.article
+          )
         )
       );
     }
@@ -31341,6 +31361,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getFox = getFox;
 exports.getComics = getComics;
+exports.getArticles = getArticles;
 
 var _superagent = __webpack_require__(74);
 
@@ -31354,6 +31375,10 @@ function getFox() {
 
 function getComics() {
   return _superagent2.default.get('/comics');
+}
+
+function getArticles() {
+  return _superagent2.default.get('/articles');
 }
 
 /***/ }),

@@ -9,4 +9,8 @@ export function getFox() {
 export function getComics() {
   return request.get('/comics')
  }
+
+ export function getArticles() {
+  return request.get('/articles')
+ }
  

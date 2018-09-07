@@ -29,6 +29,19 @@ server.get('/comics/', (req, res) => {
   })
 })
 
+server.get('/articles/', (req, res) => {
+  db.getArticles()
+  .then(articles => { 
+    console.log(articles[0]);
+     res.json(articles[Math.floor(Math.random()*23)].article)
+ 
+     
+  })
+  .catch(err => {
+    console.log(err)
+  })
+})
+
 
 // let io = require ('socket.io')(http);
 
