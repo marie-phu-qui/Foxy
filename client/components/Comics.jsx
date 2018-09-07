@@ -12,6 +12,7 @@ class Comics extends React.Component {
 
         <div id='comics'>
           <h4>GARFIIIEL where are yhou?</h4>
+          {console.log(Math.floor(Math.random()))}
           {this.props.comics.length > 0 && <img id='garfields' src={this.props.comics[Math.floor(Math.random *(this.props.comics.length-1))].comicImage}/>}
         </div>
       </React.Fragment>
