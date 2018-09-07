@@ -8,7 +8,6 @@ class ChatApp extends React.Component {
         let url = process.env.NODE_ENV == 'production' ? 'https://foxy-news.herokuapp.com' : 'http://localhost:3000'
 
         this.state = {
-      
             currentMessage: '',
             messages: [],
             socket: io(url)

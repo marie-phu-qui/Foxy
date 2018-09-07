@@ -25699,7 +25699,6 @@ var ChatApp = function (_React$Component) {
         var url = process.env.NODE_ENV == 'production' ? 'https://foxy-news.herokuapp.com' : 'http://localhost:3000';
 
         _this.state = {
-
             currentMessage: '',
             messages: [],
             socket: (0, _socket2.default)(url)
