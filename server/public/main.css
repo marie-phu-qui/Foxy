@@ -80,7 +80,13 @@ h1 {
    max-width: 100%;
    max-height: 200%;
    background-color: rgb(155, 151, 151);
+   border-radius: 7px
  }
+
+form{
+  padding-left: 15%;
+  padding-bottom:2%
+}
 
  button {
    width: 10%;

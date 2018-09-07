@@ -8,6 +8,7 @@ class ChatApp extends React.Component {
         let url = process.env.NODE_ENV == 'production' ? 'https://foxy-news.herokuapp.com' : 'http://localhost:3000'
 
         this.state = {
+      
             currentMessage: '',
             messages: [],
             socket: io(url)
@@ -41,7 +42,7 @@ class ChatApp extends React.Component {
     handleMessage(message) {
         let messages = this.state.messages;
         messages.push(message);
-        this.setState({ messages: messages });
+        this.setState({  messages: messages});
     }
 
     handleChange(e) {
@@ -69,7 +70,8 @@ class ChatApp extends React.Component {
                 <ul>
                     {this.renderMessages()}
                 </ul>
-                <form  onSubmit={this.submitMessage}><input id="message" type="text" value={this.state.currentMessage} onChange={this.handleChange}/><input type='submit'/></form>
+                <form  onSubmit={this.submitMessage}>
+                    <input  id="message" type="text" value={this.state.currentMessage} onChange={this.handleChange}/><input type='submit'/></form>
             </div>
         )
     }
