@@ -21645,7 +21645,6 @@ var App = function (_React$Component) {
           comics: res.body
         });
       });
-      console.log(this.state.comics);
     }
   }, {
     key: 'getFox',
@@ -21658,7 +21657,6 @@ var App = function (_React$Component) {
 
         });
       });
-      console.log(this.state.foxImage);
     }
   }, {
     key: 'render',
@@ -21717,7 +21715,6 @@ var ArticleWithFox = function (_React$Component) {
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
-        console.log('hello?'),
         _react2.default.createElement(
           'div',
           { id: 'main-article' },
@@ -21762,9 +21759,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// {let randomness = Math.floor(Math.random *(this.props.comics.length))}
-
-
 var Comics = function (_React$Component) {
   _inherits(Comics, _React$Component);
 
@@ -21780,7 +21774,6 @@ var Comics = function (_React$Component) {
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
-        console.log('GARFIIIEL where are yhou?'),
         _react2.default.createElement(
           'div',
           { id: 'comics' },
@@ -21789,8 +21782,7 @@ var Comics = function (_React$Component) {
             null,
             'GARFIIIEL where are yhou?'
           ),
-          console.log(Math.floor(Math.random())),
-          this.props.comics.length > 0 && _react2.default.createElement('img', { id: 'garfields', src: this.props.comics[Math.floor(Math.random * (this.props.comics.length - 1))].comicImage })
+          this.props.comics.length > 0 && _react2.default.createElement('img', { id: 'garfields', src: this.props.comics[Math.floor(Math.random() * 25)].comicImage })
         )
       );
     }
