@@ -25321,12 +25321,20 @@ var App = function (_React$Component) {
     _this.state = {
       foxImage: '',
       comics: '',
+<<<<<<< HEAD
+      article: ''
+=======
       quote: ''
+>>>>>>> d4c26f415852012686662e4e4fd392cdf8dcdd8c
     };
 
     _this.getFox = _this.getFox.bind(_this);
     _this.getComics = _this.getComics.bind(_this);
+<<<<<<< HEAD
+    _this.getArticles = _this.getArticles.bind(_this);
+=======
     _this.getQuote = _this.getQuote.bind(_this);
+>>>>>>> d4c26f415852012686662e4e4fd392cdf8dcdd8c
 
     return _this;
   }
@@ -25341,7 +25349,11 @@ var App = function (_React$Component) {
     value: function refresh() {
       this.getFox();
       this.getComics();
+<<<<<<< HEAD
+      this.getArticles();
+=======
       this.getQuote();
+>>>>>>> d4c26f415852012686662e4e4fd392cdf8dcdd8c
     }
   }, {
     key: 'getComics',
@@ -25355,12 +25367,24 @@ var App = function (_React$Component) {
       });
     }
   }, {
-    key: 'getFox',
-    value: function getFox() {
+    key: 'getArticles',
+    value: function getArticles() {
       var _this3 = this;
 
-      (0, _FoxApiClient.getFox)().then(function (res) {
+      (0, _FoxApiClient.getArticles)().then(function (res) {
         _this3.setState({
+          article: res.body
+
+        });
+      });
+    }
+  }, {
+    key: 'getFox',
+    value: function getFox() {
+      var _this4 = this;
+
+      (0, _FoxApiClient.getFox)().then(function (res) {
+        _this4.setState({
           foxImage: res.body
 
         });
@@ -25384,7 +25408,7 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { id: 'main' },
-        _react2.default.createElement(_ArticleWithFox2.default, { foxImage: this.state.foxImage }),
+        _react2.default.createElement(_ArticleWithFox2.default, { foxImage: this.state.foxImage, article: this.state.article }),
         _react2.default.createElement(_Comics2.default, { comics: this.state.comics }),
         _react2.default.createElement(_Chat2.default, null),
         _react2.default.createElement(_TrumpQuote2.default, { quote: this.state.quote })
@@ -25445,7 +25469,12 @@ var ArticleWithFox = function (_React$Component) {
             null,
             'Fox Fox Fox'
           ),
-          _react2.default.createElement('img', { id: 'fox-image', src: this.props.foxImage })
+          _react2.default.createElement('img', { id: 'fox-image', src: this.props.foxImage }),
+          _react2.default.createElement(
+            'p',
+            null,
+            this.props.article
+          )
         )
       );
     }
@@ -31424,7 +31453,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getFox = getFox;
 exports.getComics = getComics;
+<<<<<<< HEAD
+exports.getArticles = getArticles;
+=======
 exports.getQuote = getQuote;
+>>>>>>> d4c26f415852012686662e4e4fd392cdf8dcdd8c
 
 var _superagent = __webpack_require__(75);
 
@@ -31440,8 +31473,13 @@ function getComics() {
   return _superagent2.default.get('/comics');
 }
 
+<<<<<<< HEAD
+function getArticles() {
+  return _superagent2.default.get('/articles');
+=======
 function getQuote() {
   return _superagent2.default.get('/quote');
+>>>>>>> d4c26f415852012686662e4e4fd392cdf8dcdd8c
 }
 
 /***/ }),
