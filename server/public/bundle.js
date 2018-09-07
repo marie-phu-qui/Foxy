@@ -25412,10 +25412,6 @@ var App = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 34d4deb620f0ff4b7c45ea10fbdc0de0be679b95
         _react2.default.Fragment,
         null,
         _react2.default.createElement(
@@ -25423,32 +25419,6 @@ var App = function (_React$Component) {
           { id: 'header' },
           _react2.default.createElement('img', { src: 'images/foxy.png' })
         ),
-<<<<<<< HEAD
-        _react2.default.createElement(
-          'div',
-          { id: 'main' },
-          _react2.default.createElement(
-            'div',
-            { id: 'article' },
-            _react2.default.createElement(_ArticleWithFox2.default, { foxImage: this.state.foxImage, article: this.state.article })
-          ),
-          _react2.default.createElement(
-            'div',
-            { id: 'sidebar' },
-            _react2.default.createElement(_Chat2.default, null),
-            _react2.default.createElement(_TrumpQuote2.default, { quote: this.state.quote })
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { id: 'comic' },
-          _react2.default.createElement(_Comics2.default, { comics: this.state.comics })
-        )
-=======
-        'div',
-        { id: 'main' },
-=======
->>>>>>> 34d4deb620f0ff4b7c45ea10fbdc0de0be679b95
         _react2.default.createElement(
           'div',
           { id: 'main' },
@@ -25469,23 +25439,21 @@ var App = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { id: 'sidebar' },
-            _react2.default.createElement(_Chat2.default, null),
+            _react2.default.createElement(
+              'i',
+              null,
+              'Chat to me, sweetie!',
+              _react2.default.createElement(_Chat2.default, null)
+            ),
+            _react2.default.createElement('br', null),
             _react2.default.createElement(_TrumpQuote2.default, { quote: this.state.quote, names: this.state.names })
           )
         ),
-<<<<<<< HEAD
-        _react2.default.createElement(_ArticleWithFox2.default, { foxImage: this.state.foxImage, article: this.state.article }),
-        _react2.default.createElement(_Comics2.default, { comics: this.state.comics }),
-        _react2.default.createElement(_Chat2.default, null),
-        _react2.default.createElement(_TrumpQuote2.default, { quote: this.state.quote })
->>>>>>> 8ff9c819706df624f46c1c45622d7a5e6cc53628
-=======
         _react2.default.createElement(
           'div',
           { id: 'comic' },
           _react2.default.createElement(_Comics2.default, { comics: this.state.comics })
         )
->>>>>>> 34d4deb620f0ff4b7c45ea10fbdc0de0be679b95
       );
     }
   }]);
@@ -25541,7 +25509,7 @@ var ArticleWithFox = function (_React$Component) {
           _react2.default.createElement(
             'h1',
             null,
-            'Fox Fox Fox'
+            'breaking news'
           ),
           _react2.default.createElement('img', { id: 'fox-image', src: this.props.foxImage }),
           _react2.default.createElement(
@@ -25664,7 +25632,7 @@ var TrumpQuote = function (_React$Component) {
           _react2.default.createElement(
             'h2',
             null,
-            'Quote of the day'
+            'Inspirational Quotes'
           ),
           _react2.default.createElement(
             'i',
@@ -25672,7 +25640,7 @@ var TrumpQuote = function (_React$Component) {
             this.props.quote
           ),
           _react2.default.createElement(
-            'p',
+            'h3',
             null,
             _react2.default.createElement(
               'strong',
