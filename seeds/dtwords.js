@@ -12,7 +12,7 @@ exports.seed = function(knex, Promise) {
         {id: 5, trumps: 'Ghandi'},
         {id: 6, trumps: 'Dalai Lama'},
         {id: 7, trumps: 'Steve Jobs'},
-        {id: 8, trumps: 'Batman'},
+        {id: 8, trumps: 'Sir Peter Jackson'},
         {id: 9, trumps: 'Suzie Cato'},
         {id: 10, trumps: 'Tom Hanks'},
         {id: 11, trumps: 'Ross EDA'},
