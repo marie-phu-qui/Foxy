@@ -25322,13 +25322,15 @@ var App = function (_React$Component) {
       foxImage: '',
       comics: '',
       article: '',
-      quote: ''
+      quote: '',
+      names: ''
     };
 
     _this.getFox = _this.getFox.bind(_this);
     _this.getComics = _this.getComics.bind(_this);
     _this.getArticles = _this.getArticles.bind(_this);
     _this.getQuote = _this.getQuote.bind(_this);
+    _this.getQuoteNames = _this.getQuoteNames.bind(_this);
 
     return _this;
   }
@@ -25345,6 +25347,7 @@ var App = function (_React$Component) {
       this.getComics();
       this.getArticles();
       this.getQuote();
+      this.getQuoteNames();
     }
   }, {
     key: 'getComics',
@@ -25394,10 +25397,25 @@ var App = function (_React$Component) {
       });
     }
   }, {
+    key: 'getQuoteNames',
+    value: function getQuoteNames() {
+      var _this6 = this;
+
+      (0, _FoxApiClient.getQuoteNames)().then(function (res) {
+        _this6.setState({
+          names: res.body
+
+        });
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34d4deb620f0ff4b7c45ea10fbdc0de0be679b95
         _react2.default.Fragment,
         null,
         _react2.default.createElement(
@@ -25405,6 +25423,7 @@ var App = function (_React$Component) {
           { id: 'header' },
           _react2.default.createElement('img', { src: 'images/foxy.png' })
         ),
+<<<<<<< HEAD
         _react2.default.createElement(
           'div',
           { id: 'main' },
@@ -25428,20 +25447,45 @@ var App = function (_React$Component) {
 =======
         'div',
         { id: 'main' },
+=======
+>>>>>>> 34d4deb620f0ff4b7c45ea10fbdc0de0be679b95
         _react2.default.createElement(
-          'a',
-          null,
+          'div',
+          { id: 'main' },
           _react2.default.createElement(
-            'button',
-            { onClick: this.refresh },
-            'Refresh Page'
+            'a',
+            null,
+            _react2.default.createElement(
+              'button',
+              { onClick: this.refresh },
+              'Refresh Page'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { id: 'article' },
+            _react2.default.createElement(_ArticleWithFox2.default, { foxImage: this.state.foxImage, article: this.state.article })
+          ),
+          _react2.default.createElement(
+            'div',
+            { id: 'sidebar' },
+            _react2.default.createElement(_Chat2.default, null),
+            _react2.default.createElement(_TrumpQuote2.default, { quote: this.state.quote, names: this.state.names })
           )
         ),
+<<<<<<< HEAD
         _react2.default.createElement(_ArticleWithFox2.default, { foxImage: this.state.foxImage, article: this.state.article }),
         _react2.default.createElement(_Comics2.default, { comics: this.state.comics }),
         _react2.default.createElement(_Chat2.default, null),
         _react2.default.createElement(_TrumpQuote2.default, { quote: this.state.quote })
 >>>>>>> 8ff9c819706df624f46c1c45622d7a5e6cc53628
+=======
+        _react2.default.createElement(
+          'div',
+          { id: 'comic' },
+          _react2.default.createElement(_Comics2.default, { comics: this.state.comics })
+        )
+>>>>>>> 34d4deb620f0ff4b7c45ea10fbdc0de0be679b95
       );
     }
   }]);
@@ -25623,9 +25667,18 @@ var TrumpQuote = function (_React$Component) {
             'Quote of the day'
           ),
           _react2.default.createElement(
-            'p',
+            'i',
             null,
             this.props.quote
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            _react2.default.createElement(
+              'strong',
+              null,
+              this.props.names
+            )
           )
         )
       );
@@ -31485,6 +31538,7 @@ exports.getFox = getFox;
 exports.getComics = getComics;
 exports.getArticles = getArticles;
 exports.getQuote = getQuote;
+exports.getQuoteNames = getQuoteNames;
 
 var _superagent = __webpack_require__(75);
 
@@ -31506,6 +31560,10 @@ function getArticles() {
 
 function getQuote() {
   return _superagent2.default.get('/quote');
+}
+
+function getQuoteNames() {
+  return _superagent2.default.get('/quotenames');
 }
 
 /***/ }),
