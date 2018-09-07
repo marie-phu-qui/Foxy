@@ -21591,7 +21591,11 @@ var _ArticleWithFox = __webpack_require__(19);
 
 var _ArticleWithFox2 = _interopRequireDefault(_ArticleWithFox);
 
-var _FoxApiClient = __webpack_require__(20);
+var _Comics = __webpack_require__(20);
+
+var _Comics2 = _interopRequireDefault(_Comics);
+
+var _FoxApiClient = __webpack_require__(21);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21610,25 +21614,46 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      foxImage: ''
+      foxImage: '',
+      comics: ''
     };
 
     _this.getFox = _this.getFox.bind(_this);
+    _this.getComics = _this.getComics.bind(_this);
+
     return _this;
   }
 
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      this.refresh();
+    }
+  }, {
+    key: 'refresh',
+    value: function refresh() {
       this.getFox();
+      this.getComics();
+    }
+  }, {
+    key: 'getComics',
+    value: function getComics() {
+      var _this2 = this;
+
+      (0, _FoxApiClient.getComics)().then(function (res) {
+        _this2.setState({
+          comics: res.body
+        });
+      });
+      console.log(this.state.comics);
     }
   }, {
     key: 'getFox',
     value: function getFox() {
-      var _this2 = this;
+      var _this3 = this;
 
       (0, _FoxApiClient.getFox)().then(function (res) {
-        _this2.setState({
+        _this3.setState({
           foxImage: res.body
 
         });
@@ -21640,8 +21665,14 @@ var App = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
+<<<<<<< HEAD
         { id: 'main' },
         _react2.default.createElement(_ArticleWithFox2.default, { foxImage: this.state.foxImage })
+=======
+        null,
+        _react2.default.createElement(_ArticleWithFox2.default, { foxImage: this.state.foxImage }),
+        _react2.default.createElement(_Comics2.default, { comics: this.state.comics })
+>>>>>>> 6543fffb6066d20d4984c6462997048ec82d81ae
       );
     }
   }]);
@@ -21721,9 +21752,74 @@ exports.default = ArticleWithFox;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getFox = getFox;
 
-var _superagent = __webpack_require__(21);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// {let randomness = Math.floor(Math.random *(this.props.comics.length))}
+
+
+var Comics = function (_React$Component) {
+  _inherits(Comics, _React$Component);
+
+  function Comics() {
+    _classCallCheck(this, Comics);
+
+    return _possibleConstructorReturn(this, (Comics.__proto__ || Object.getPrototypeOf(Comics)).apply(this, arguments));
+  }
+
+  _createClass(Comics, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        console.log('GARFIIIEL where are yhou?'),
+        _react2.default.createElement(
+          'div',
+          { id: 'comics' },
+          _react2.default.createElement(
+            'h4',
+            null,
+            'GARFIIIEL where are yhou?'
+          ),
+          console.log(Math.floor(Math.random())),
+          this.props.comics.length > 0 && _react2.default.createElement('img', { id: 'garfields', src: this.props.comics[Math.floor(Math.random * (this.props.comics.length - 1))].comicImage })
+        )
+      );
+    }
+  }]);
+
+  return Comics;
+}(_react2.default.Component);
+
+exports.default = Comics;
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getFox = getFox;
+exports.getComics = getComics;
+
+var _superagent = __webpack_require__(22);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
@@ -21733,12 +21829,12 @@ function getFox() {
   return _superagent2.default.get('/fox');
 }
 
-// export function getMyFox() {
-//   return request.get('/fox')
-//  }
+function getComics() {
+  return _superagent2.default.get('/comics');
+}
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -21755,11 +21851,11 @@ if (typeof window !== 'undefined') { // Browser window
   root = this;
 }
 
-var Emitter = __webpack_require__(22);
-var RequestBase = __webpack_require__(23);
+var Emitter = __webpack_require__(23);
+var RequestBase = __webpack_require__(24);
 var isObject = __webpack_require__(5);
-var ResponseBase = __webpack_require__(24);
-var Agent = __webpack_require__(26);
+var ResponseBase = __webpack_require__(25);
+var Agent = __webpack_require__(27);
 
 /**
  * Noop.
@@ -22664,7 +22760,7 @@ request.put = function(url, data, fn) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -22833,7 +22929,7 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23534,7 +23630,7 @@ RequestBase.prototype._setTimeouts = function() {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23544,7 +23640,7 @@ RequestBase.prototype._setTimeouts = function() {
  * Module dependencies.
  */
 
-var utils = __webpack_require__(25);
+var utils = __webpack_require__(26);
 
 /**
  * Expose `ResponseBase`.
@@ -23677,7 +23773,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23755,7 +23851,7 @@ exports.cleanHeader = function(header, changesOrigin){
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 function Agent() {
