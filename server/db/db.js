@@ -17,11 +17,16 @@ function getComics() {
  function getArticles(){
 return db('mainwords').select()
  }
+ 
+ function getQuoteNames(){
+   return db('dtwords').select()
+ }
 
 //  server.get('/comics', (req, res) => {
 //  }
 
 module.exports = {
   getComics,
-  getArticles
+  getArticles,
+  getQuoteNames
 }

@@ -18,3 +18,7 @@ export function getComics() {
  export function getQuote() {
    return request.get('/quote')
  }
+
+ export function getQuoteNames(){
+  return request.get('/quotenames')
+ }

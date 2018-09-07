@@ -4,7 +4,7 @@ import Comics from './Comics'
 import TrumpQuote from './TrumpQuote'
 import ChatApp from './Chat'
 
-import {getFox, getComics, getQuote, getArticles} from '../FoxApi-client'
+import {getFox, getComics, getQuote, getArticles, getQuoteNames} from '../FoxApi-client'
 
 class App extends React.Component {
   constructor(props) {
@@ -14,13 +14,15 @@ class App extends React.Component {
       foxImage: '',
       comics:'',
       article:'',
-      quote: ''
+      quote: '',
+      names: ''
     }
 
     this.getFox = this.getFox.bind(this)
     this.getComics = this.getComics.bind(this)
     this.getArticles = this.getArticles.bind(this)
     this.getQuote = this.getQuote.bind(this)
+    this.getQuoteNames = this.getQuoteNames.bind(this)
 
   }
 
@@ -33,6 +35,7 @@ class App extends React.Component {
     this.getComics()
     this.getArticles()
     this.getQuote()
+    this.getQuoteNames()
   }
 
   getComics() {
@@ -74,13 +77,25 @@ class App extends React.Component {
     })
   }
 
+  getQuoteNames(){
+    getQuoteNames()
+    .then(res => {
+      this.setState({
+        names: res.body
+        
+      })
+    })
+  }
+
   render() {
     return (
       <div id ="main">
         <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article}/>
         <Comics comics={this.state.comics}/>
         <ChatApp/>
-        <TrumpQuote quote={this.state.quote}/>
+        <div>
+        <TrumpQuote quote={this.state.quote} names={this.state.names}/>
+        </div>
       </div>
       
 
