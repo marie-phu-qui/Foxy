@@ -89,15 +89,22 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id ="main">
-        <a><button onClick={this.refresh}>Refresh Page</button></a>
+    <React.Fragment>
+    <div id="header"><img src="images/foxy.png"/></div>
+    <div id ="main">
+    <a><button onClick={this.refresh}>Refresh Page</button></a>
+      <div id= "article">
         <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article}/>
-        <Comics comics={this.state.comics}/>
+      </div>  
+      <div id="sidebar">
         <ChatApp/>
-        <div>
         <TrumpQuote quote={this.state.quote} names={this.state.names}/>
-        </div>
       </div>
+    </div>
+    <div id= "comic">
+      <Comics comics={this.state.comics}/>
+    </div>  
+    </React.Fragment>
       
 
     )
