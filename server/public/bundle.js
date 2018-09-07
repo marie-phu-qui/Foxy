@@ -25397,6 +25397,7 @@ var App = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
+<<<<<<< HEAD
         _react2.default.Fragment,
         null,
         _react2.default.createElement(
@@ -25424,6 +25425,23 @@ var App = function (_React$Component) {
           { id: 'comic' },
           _react2.default.createElement(_Comics2.default, { comics: this.state.comics })
         )
+=======
+        'div',
+        { id: 'main' },
+        _react2.default.createElement(
+          'a',
+          null,
+          _react2.default.createElement(
+            'button',
+            { onClick: this.refresh },
+            'Refresh Page'
+          )
+        ),
+        _react2.default.createElement(_ArticleWithFox2.default, { foxImage: this.state.foxImage, article: this.state.article }),
+        _react2.default.createElement(_Comics2.default, { comics: this.state.comics }),
+        _react2.default.createElement(_Chat2.default, null),
+        _react2.default.createElement(_TrumpQuote2.default, { quote: this.state.quote })
+>>>>>>> 8ff9c819706df624f46c1c45622d7a5e6cc53628
       );
     }
   }]);

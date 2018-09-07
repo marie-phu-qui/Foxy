@@ -21,7 +21,7 @@ class App extends React.Component {
     this.getComics = this.getComics.bind(this)
     this.getArticles = this.getArticles.bind(this)
     this.getQuote = this.getQuote.bind(this)
-
+    
   }
 
   componentDidMount() {
