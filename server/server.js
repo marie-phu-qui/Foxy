@@ -1,10 +1,9 @@
 const path = require('path')
 const express = require('express')
 const request = require('superagent')
+const db = require('./db/db')
 
 const server = express()
-
-
 
 
 server.use(express.json())
@@ -19,6 +18,17 @@ server.get('/fox', (req, res) => {
     console.log(err)
   })
 })
+
+server.get('/comics/', (req, res) => {
+  db.getComics()
+  .then(comics => { 
+     res.json(comics)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+})
+
 
 // let io = require ('socket.io')(http);
 
