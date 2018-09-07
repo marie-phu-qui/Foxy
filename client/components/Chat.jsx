@@ -8,7 +8,7 @@ class ChatApp extends React.Component {
         this.state = {
             currentMessage: '',
             messages: [],
-            socket: io('http://localhost:3000')
+            socket: io('/')
         }
 
         this.submitMessage = this.submitMessage.bind(this)
