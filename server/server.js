@@ -52,6 +52,20 @@ server.get('/quotenames/', (req, res) => {
   })
 })
 
+
+server.get('/add/', (req, res) => {
+  request.get('http://itsthisforthat.com/api.php?json')
+  .then(ApiRes => { 
+    let randomThis = ApiRes.body.this;
+    let randomThat = ApiRes.body.that
+    const addText = 'Looking for '+ toLowerCase(randomThis)+ 'for ' + toLowerCase(randomThat)+ '. Please.'
+     res.json(addText)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+})
+
 // let io = require ('socket.io')(http);
 
 // io.on('connection', function(socket){

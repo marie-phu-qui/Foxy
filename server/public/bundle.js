@@ -25323,7 +25323,8 @@ var App = function (_React$Component) {
       comics: '',
       article: '',
       quote: '',
-      names: ''
+      names: '',
+      add: ''
     };
 
     _this.getFox = _this.getFox.bind(_this);
@@ -25331,7 +25332,7 @@ var App = function (_React$Component) {
     _this.getArticles = _this.getArticles.bind(_this);
     _this.getQuote = _this.getQuote.bind(_this);
     _this.getQuoteNames = _this.getQuoteNames.bind(_this);
-
+    _this.getAdvertising = _this.getAdvertising.bind(_this);
     return _this;
   }
 
@@ -25348,6 +25349,7 @@ var App = function (_React$Component) {
       this.getArticles();
       this.getQuote();
       this.getQuoteNames();
+      this.getAdvertising();
     }
   }, {
     key: 'getComics',
@@ -25409,9 +25411,20 @@ var App = function (_React$Component) {
       });
     }
   }, {
+    key: 'getAdvertising',
+    value: function getAdvertising() {
+      var _this7 = this;
+
+      (0, _FoxApiClient.getAdvertising)().then(function (res) {
+        _this7.setState({
+          add: res.body
+        });
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var _this7 = this;
+      var _this8 = this;
 
       return _react2.default.createElement(
         _react2.default.Fragment,
@@ -25428,7 +25441,7 @@ var App = function (_React$Component) {
           _react2.default.createElement(
             'button',
             { onClick: function onClick() {
-                return _this7.refresh();
+                return _this8.refresh();
               } },
             'Refresh Page'
           ),
@@ -25447,7 +25460,13 @@ var App = function (_React$Component) {
               _react2.default.createElement(_Chat2.default, null)
             ),
             _react2.default.createElement('br', null),
-            _react2.default.createElement(_TrumpQuote2.default, { quote: this.state.quote, names: this.state.names })
+            _react2.default.createElement(_TrumpQuote2.default, { quote: this.state.quote, names: this.state.names }),
+            _react2.default.createElement('br', null),
+            _react2.default.createElement(
+              'div',
+              { id: 'advertising' },
+              _react2.default.createElement(Advertising, { add: this.state.add })
+            )
           )
         ),
         _react2.default.createElement(
@@ -31511,6 +31530,7 @@ exports.getComics = getComics;
 exports.getArticles = getArticles;
 exports.getQuote = getQuote;
 exports.getQuoteNames = getQuoteNames;
+exports.getAdvertising = getAdvertising;
 
 var _superagent = __webpack_require__(75);
 
@@ -31536,6 +31556,10 @@ function getQuote() {
 
 function getQuoteNames() {
   return _superagent2.default.get('/quotenames');
+}
+
+function getAdvertising() {
+  return _superagent2.default.get('/add');
 }
 
 /***/ }),
