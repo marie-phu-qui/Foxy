@@ -25300,7 +25300,11 @@ var _Chat = __webpack_require__(45);
 
 var _Chat2 = _interopRequireDefault(_Chat);
 
-var _FoxApiClient = __webpack_require__(74);
+var _Advertising = __webpack_require__(74);
+
+var _Advertising2 = _interopRequireDefault(_Advertising);
+
+var _FoxApiClient = __webpack_require__(75);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25464,8 +25468,8 @@ var App = function (_React$Component) {
             _react2.default.createElement('br', null),
             _react2.default.createElement(
               'div',
-              { id: 'advertising' },
-              _react2.default.createElement(Advertising, { add: this.state.add })
+              null,
+              _react2.default.createElement(_Advertising2.default, { add: this.state.add })
             )
           )
         ),
@@ -31525,6 +31529,60 @@ Backoff.prototype.setJitter = function(jitter){
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Advertising = function (_React$Component) {
+  _inherits(Advertising, _React$Component);
+
+  function Advertising() {
+    _classCallCheck(this, Advertising);
+
+    return _possibleConstructorReturn(this, (Advertising.__proto__ || Object.getPrototypeOf(Advertising)).apply(this, arguments));
+  }
+
+  _createClass(Advertising, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          'p',
+          null,
+          this.props.add
+        )
+      );
+    }
+  }]);
+
+  return Advertising;
+}(_react2.default.Component);
+
+exports.default = Advertising;
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.getFox = getFox;
 exports.getComics = getComics;
 exports.getArticles = getArticles;
@@ -31532,7 +31590,7 @@ exports.getQuote = getQuote;
 exports.getQuoteNames = getQuoteNames;
 exports.getAdvertising = getAdvertising;
 
-var _superagent = __webpack_require__(75);
+var _superagent = __webpack_require__(76);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
@@ -31563,7 +31621,7 @@ function getAdvertising() {
 }
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -31581,10 +31639,10 @@ if (typeof window !== 'undefined') { // Browser window
 }
 
 var Emitter = __webpack_require__(3);
-var RequestBase = __webpack_require__(76);
+var RequestBase = __webpack_require__(77);
 var isObject = __webpack_require__(28);
-var ResponseBase = __webpack_require__(77);
-var Agent = __webpack_require__(79);
+var ResponseBase = __webpack_require__(78);
+var Agent = __webpack_require__(80);
 
 /**
  * Noop.
@@ -32489,7 +32547,7 @@ request.put = function(url, data, fn) {
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33190,7 +33248,7 @@ RequestBase.prototype._setTimeouts = function() {
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33200,7 +33258,7 @@ RequestBase.prototype._setTimeouts = function() {
  * Module dependencies.
  */
 
-var utils = __webpack_require__(78);
+var utils = __webpack_require__(79);
 
 /**
  * Expose `ResponseBase`.
@@ -33333,7 +33391,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33411,7 +33469,7 @@ exports.cleanHeader = function(header, changesOrigin){
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports) {
 
 function Agent() {

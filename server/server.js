@@ -56,9 +56,12 @@ server.get('/quotenames/', (req, res) => {
 server.get('/add/', (req, res) => {
   request.get('http://itsthisforthat.com/api.php?json')
   .then(ApiRes => { 
-    let randomThis = ApiRes.body.this;
-    let randomThat = ApiRes.body.that
-    const addText = 'Looking for '+ toLowerCase(randomThis)+ 'for ' + toLowerCase(randomThat)+ '. Please.'
+    let response = JSON.parse(ApiRes.text)
+    console.log(response)
+    let randomThis = response.this
+    let randomThat = response.that
+    console.log(randomThat, randomThat)
+    const addText = 'Looking for '+ randomThis+ ' for ' + randomThat+ '. Please.'
      res.json(addText)
   })
   .catch(err => {
