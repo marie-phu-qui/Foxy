@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node server",
     "postinstall": "webpack",
-    "dev": "nodemon server & webpack --watch",
+    "webpack": "webpack --watch",
+    "dev": "nodemon server",
     "test": "jest --watchAll"
   },
   "babel": {
