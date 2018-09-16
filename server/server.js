@@ -1,13 +1,15 @@
 const path = require('path')
 const express = require('express')
 const request = require('superagent')
-const db = require('./db/db')
-
+const db = require('../db/db')
+const auth = require('./routes/auth')
 const server = express()
 
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
+
+// server.use('/auth', auth)
 
 server.get('/fox', (req, res) => {
   request.get('https://randomfox.ca/floof/')
@@ -51,6 +53,8 @@ server.get('/quotenames/', (req, res) => {
      res.json(names[Math.floor(Math.random()*21)].trumps)
   })
 })
+
+
 
 // let io = require ('socket.io')(http);
 
