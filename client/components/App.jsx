@@ -3,8 +3,9 @@ import ArticleWithFox from './ArticleWithFox'
 import Comics from './Comics'
 import TrumpQuote from './TrumpQuote'
 import ChatApp from './Chat'
+import Advertising from './Advertising'
 
-import {getFox, getComics, getQuote, getArticles, getQuoteNames} from '../FoxApi-client'
+import {getFox, getComics, getQuote, getArticles, getQuoteNames, getAdvertising} from '../FoxApi-client'
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class App extends React.Component {
       comics:'',
       article:'',
       quote: '',
-      names: ''
+      names: '',
+      add : ''
     }
 
     this.getFox = this.getFox.bind(this)
@@ -23,7 +25,7 @@ class App extends React.Component {
     this.getArticles = this.getArticles.bind(this)
     this.getQuote = this.getQuote.bind(this)
     this.getQuoteNames = this.getQuoteNames.bind(this)
-
+    this.getAdvertising = this.getAdvertising.bind(this)
   }
 
   componentDidMount() {
@@ -36,6 +38,7 @@ class App extends React.Component {
     this.getArticles()
     this.getQuote()
     this.getQuoteNames()
+    this.getAdvertising()
   }
 
   getComics() {
@@ -87,6 +90,15 @@ class App extends React.Component {
     })
   }
 
+  getAdvertising() {
+    getAdvertising()
+    .then(res => {
+      this.setState({
+        add: res.body
+      })
+    })
+  }
+
   render() {
     return (
     <React.Fragment>
@@ -101,6 +113,10 @@ class App extends React.Component {
         <i>Chat to me, sweetie!<ChatApp/></i>
         <br />
         <TrumpQuote quote={this.state.quote} names={this.state.names}/>
+        <br />
+        <div>
+        <Advertising add={this.state.add}/>
+        </div>
       </div>
     </div>
     <div id= "comic">
