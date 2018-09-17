@@ -2,6 +2,7 @@
 const environment = process.env.NODE_ENV || 'development'
 const config = require('../knexfile')[environment]
 const db = require('knex')(config)
+const hash = require('../server/routes/auth')
 
 
 
@@ -29,8 +30,9 @@ return db('mainwords').select()
 
 
 function createUser (users, password) {
+  const passwordHashed = hash.generate(password)
   return db('users')
-    .insert({users, hash: password})
+    .insert({users, hash: passwordHashed})
 }
 
 function userExists (users) {

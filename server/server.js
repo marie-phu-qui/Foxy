@@ -5,7 +5,7 @@ const db = require('../db/db')
 // const auth = require('./routes/auth')
 const server = express()
 const {userExists, createUser}  = require('../db/db')
-
+// const sodium = require('sodium').api
 
 
 server.use(express.json())
@@ -13,6 +13,14 @@ server.use(express.static(path.join(__dirname, './public')))
 
 // server.use('/auth', auth)
 
+// function generate (password) {
+//   const passwordBuffer = Buffer.from(password, 'utf8')
+//   return sodium.crypto_pwhash_str(
+//     passwordBuffer,
+//     sodium.crypto_pwhash_OPSLIMIT_INTERACTIVE,
+//     sodium.crypto_pwhash_MEMLIMIT_INTERACTIVE
+//   )
+// }
 
 server.get('/register', (req, res) => {
   res.send('we are going somewhere')
@@ -106,4 +114,6 @@ server.get('/add/', (req, res) => {
 
 
 
-module.exports = server
+module.exports = {
+  server
+}

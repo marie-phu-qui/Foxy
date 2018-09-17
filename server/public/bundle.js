@@ -26440,11 +26440,11 @@ var _Login = __webpack_require__(76);
 
 var _Login2 = _interopRequireDefault(_Login);
 
-var _Secret = __webpack_require__(82);
+var _Secret = __webpack_require__(81);
 
 var _Secret2 = _interopRequireDefault(_Secret);
 
-var _FoxApiClient = __webpack_require__(81);
+var _FoxApiClient = __webpack_require__(82);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26772,7 +26772,7 @@ var Comics = function (_React$Component) {
           _react2.default.createElement(
             'h4',
             null,
-            'GARFIIIEL where are yhou?'
+            'GARFIIIELD where are you?'
           ),
           this.props.comics.length > 0 && _react2.default.createElement('img', { id: 'garfields', src: this.props.comics[Math.floor(Math.random() * 25)].comicImage })
         )
@@ -26974,7 +26974,7 @@ var ChatApp = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'form',
-                    { onSubmit: this.submitMessage },
+                    { className: 'chat-form', onSubmit: this.submitMessage },
                     _react2.default.createElement('input', { id: 'message', type: 'text', value: this.state.currentMessage, onChange: this.handleChange }),
                     _react2.default.createElement('input', { type: 'submit' })
                 )
@@ -32818,17 +32818,31 @@ var Login = function (_React$Component) {
       var _this3 = this;
 
       return _react2.default.createElement(
-        'form',
-        { onSubmit: function onSubmit(e) {
-            e.preventDefault();
-            _this3.handleSubmit();
-          } },
-        _react2.default.createElement('input', { id: 'name', name: 'users', type: 'text', placeholder: 'your pretty name' }),
-        _react2.default.createElement('input', { id: 'password', name: 'password', type: 'text', placeholder: 'your secret code' }),
+        'div',
+        null,
         _react2.default.createElement(
-          'button',
-          { value: 'submit' },
-          'Sent it away'
+          'h4',
+          { className: 'title-form' },
+          'Psssst.... Wanna see something cool ?'
+        ),
+        _react2.default.createElement(
+          'form',
+          { onSubmit: function onSubmit(e) {
+              e.preventDefault();
+              _this3.handleSubmit();
+            } },
+          _react2.default.createElement('input', { id: 'name', name: 'users', type: 'text', placeholder: 'your pretty name' }),
+          _react2.default.createElement('input', { id: 'password', name: 'password', type: 'text', placeholder: 'your secret code' }),
+          _react2.default.createElement(
+            'button',
+            { value: 'submit' },
+            'I am new - be nice'
+          ),
+          _react2.default.createElement(
+            'button',
+            { value: 'submit' },
+            'I have been here before'
+          )
         )
       );
     }
@@ -33797,6 +33811,61 @@ module.exports = Agent;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Secret = function (_React$Component) {
+  _inherits(Secret, _React$Component);
+
+  function Secret() {
+    _classCallCheck(this, Secret);
+
+    return _possibleConstructorReturn(this, (Secret.__proto__ || Object.getPrototypeOf(Secret)).apply(this, arguments));
+  }
+
+  _createClass(Secret, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "secret-video" },
+        _react2.default.createElement(
+          "h1",
+          null,
+          " What does the Fox say?"
+        ),
+        _react2.default.createElement("iframe", { width: "560", height: "315", src: "https://www.youtube.com/embed/jofNR_WkoCE", frameborder: "0", allow: "autoplay; encrypted-media", allowfullscreen: true })
+      );
+    }
+  }]);
+
+  return Secret;
+}(_react2.default.Component);
+
+exports.default = Secret;
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.getFox = getFox;
 exports.getComics = getComics;
 exports.getArticles = getArticles;
@@ -33838,61 +33907,6 @@ function getAdvertising() {
 function getAuthentication() {
   return _superagent2.default.get('/register');
 }
-
-/***/ }),
-/* 82 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Secret = function (_React$Component) {
-  _inherits(Secret, _React$Component);
-
-  function Secret() {
-    _classCallCheck(this, Secret);
-
-    return _possibleConstructorReturn(this, (Secret.__proto__ || Object.getPrototypeOf(Secret)).apply(this, arguments));
-  }
-
-  _createClass(Secret, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement(
-          "h1",
-          null,
-          " What does the Fox say?"
-        ),
-        _react2.default.createElement("iframe", { width: "560", height: "315", src: "https://www.youtube.com/embed/jofNR_WkoCE", frameborder: "0", allow: "autoplay; encrypted-media", allowfullscreen: true })
-      );
-    }
-  }]);
-
-  return Secret;
-}(_react2.default.Component);
-
-exports.default = Secret;
 
 /***/ })
 /******/ ]);

@@ -32,13 +32,18 @@ class Login extends React.Component {
 
   render() {
     return (
+      <div>
+        <h4 className='title-form'>Psssst.... Wanna see something cool ?</h4>
         <form onSubmit={(e)=> {
           e.preventDefault()
           this.handleSubmit()}}>
           <input id ="name"name='users' type='text' placeholder='your pretty name'/>
           <input id="password" name='password' type='text' placeholder='your secret code'/>
-          <button value="submit">Sent it away</button>
+          <button value="submit">I am new - be nice</button>
+          <button value="submit">I have been here before</button>
         </form>
+      </div>
+          
     )
 }
 }
