@@ -23,3 +23,7 @@ export function getComics() {
  export function getAdvertising(){
   return request.get('/add')
  }
+
+ export function getAuthentication(){
+  return request.get('/register')
+ }

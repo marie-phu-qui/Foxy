@@ -2,14 +2,39 @@ const path = require('path')
 const express = require('express')
 const request = require('superagent')
 const db = require('../db/db')
-const auth = require('./routes/auth')
+// const auth = require('./routes/auth')
 const server = express()
+const {userExists, createUser}  = require('../db/db')
+
 
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
 
 // server.use('/auth', auth)
+
+
+server.get('/register', (req, res) => {
+  res.send('we are going somewhere')
+})
+
+
+server.post('/register', (req, res)=> {
+  console.log('Hi');
+  console.log(req.body)
+  userExists(req.body.users)
+  .then(exists => {
+    if (exists) {
+      return res.status(400).send({ message: 'User exists' })
+    }
+    createUser(req.body.users, req.body.password)
+    .then(() => res.status(201).end())
+  })
+  .catch(err => {
+    res.status(500).send({ message: err.message })
+  })
+})
+
 
 server.get('/fox', (req, res) => {
   request.get('https://randomfox.ca/floof/')
