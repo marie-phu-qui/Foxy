@@ -28,11 +28,8 @@ server.get('/register', (req, res) => {
 
 
 server.post('/register', (req, res)=> {
-  console.log('Hi');
-  console.log(req.body)
   userExists(req.body.users)
   .then(exists => {
-    console.log('Hi 2');
     if (exists) {
       return res.status(400).send({ message: 'User exists' })
     }
@@ -40,7 +37,6 @@ server.post('/register', (req, res)=> {
     .then(() => res.status(201).end())
   })
   .catch(err => {
-    console.log('Hi Err');
     res.status(500).send({ message: err.message })
   })
 })

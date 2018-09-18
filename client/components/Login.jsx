@@ -14,19 +14,20 @@ class Login extends React.Component {
 
 
   handleSubmit() {
-    console.log('clicliclcicliclcilci')
-    let thisUser = document.getElementById("name").value
-    let thisPassword = document.getElementById("password").value
-    request.post('/register')
-    .send({ users: thisUser, password: thisPassword })
-    .then(() => {
-      console.log('send')  
-      this.props.authentication()
-    })
-    .catch((err) => {
-      console.log('error', err)
-    })
   }
+  
+  //   let thisUser = document.getElementById("name").value
+  //   let thisPassword = document.getElementById("password").value
+  //   request.post('/register')
+  //   .send({ users: thisUser, password: thisPassword })
+  //   .then(() => {
+  //     console.log('send')  
+  //     this.props.authentication()
+  //   })
+  //   .catch((err) => {
+  //     console.log('error', err)
+  //   })
+  // }
 
 
 
@@ -37,8 +38,6 @@ class Login extends React.Component {
         <form onSubmit={(e)=> {
           e.preventDefault()
           this.handleSubmit()}}>
-          <input id ="name"name='users' type='text' placeholder='your pretty name'/>
-          <input id="password" name='password' type='text' placeholder='your secret code'/>
           <button value="submit">I am new - be nice</button>
           <button value="submit">I have been here before</button>
         </form>

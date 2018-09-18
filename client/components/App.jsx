@@ -8,7 +8,7 @@ import Login from './Login'
 import Secret from './Secret'
 
 
-import {getFox, getComics, getQuote, getArticles, getQuoteNames, getAdvertising, getAuthentication} from '../FoxApi-client'
+import {getFoxApi, getComics, getQuote, getArticles, getQuoteNames, getAdvertising, getAuthentication} from '../FoxApi-client'
 
 class App extends React.Component {
   constructor(props) {
@@ -68,7 +68,7 @@ class App extends React.Component {
   }
 
   getFox() {
-    getFox()
+    getFoxApi()
     .then(res => {
       this.setState({
         foxImage: res.body,

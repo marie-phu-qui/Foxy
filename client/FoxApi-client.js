@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-export function getFox() {
+export function getFoxApi() {
  return request.get('/fox')
 }
 
