@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getFoxApi} from '..FoxApi-client/'
+// import {getFoxApi} from '../FoxApi-client/'
 
 
 class ArticleWithFox extends React.Component {
@@ -8,9 +8,9 @@ class ArticleWithFox extends React.Component {
   constructor(props){
     super(props)
   }
-  componentDidMount() {
-    this.getFoxApi()
-  }
+  // componentDidMount() {
+  //   this.getFoxApi()
+  // }
 
   render() {
     return (
