@@ -31,6 +31,7 @@ return db('mainwords').select()
 
 function createUser (users, password) {
   const passwordHashed = hash.generate(password)
+  console.log('Hi 22');
   return db('users')
     .insert({users, hash: passwordHashed})
 }

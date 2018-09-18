@@ -5,25 +5,25 @@ export function getFox() {
 }
 
 export function getComics() {
-  return request.get('/comics')
- }
+return request.get('/comics')
+}
 
- export function getArticles() {
-  return request.get('/articles')
- }
- 
- export function getQuote() {
-   return request.get('/quote')
- }
+export function getArticles() {
+return request.get('/articles')
+}
 
- export function getQuoteNames(){
+export function getQuote() {
+  return request.get('/quote')
+}
+
+export function getQuoteNames(){
   return request.get('/quotenames')
- }
+}
 
- export function getAdvertising(){
+export function getAdvertising(){
   return request.get('/add')
- }
+}
 
- export function getAuthentication(){
+export function getAuthentication(){
   return request.get('/register')
- }
+}

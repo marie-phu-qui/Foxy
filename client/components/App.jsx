@@ -130,7 +130,7 @@ class App extends React.Component {
           <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article}/>
         </div>  
         <div id="sidebar">
-          <i>Chat to me, sweetie!<ChatApp/></i>
+          {/* <i>Chat to me, sweetie!<ChatApp/></i> */}
           <br />
           <TrumpQuote quote={this.state.quote} names={this.state.names}/>
           <br />

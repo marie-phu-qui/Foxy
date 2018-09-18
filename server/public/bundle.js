@@ -26610,12 +26610,6 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { id: 'sidebar' },
-          _react2.default.createElement(
-            'i',
-            null,
-            'Chat to me, sweetie!',
-            _react2.default.createElement(_Chat2.default, null)
-          ),
           _react2.default.createElement('br', null),
           _react2.default.createElement(_TrumpQuote2.default, { quote: this.state.quote, names: this.state.names }),
           _react2.default.createElement('br', null),
