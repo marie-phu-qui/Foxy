@@ -43,7 +43,7 @@ export function fetchFoxImage () {
 }
 
 export const receiveAD = (ad) => {
-  console.log("receive: ", ad)
+  // console.log("receive: ", ad)
   return {
     type: "RECEIVE_AD",
     ad: ad
@@ -51,15 +51,38 @@ export const receiveAD = (ad) => {
 }
 
 export function fetchAD () {
+  return (dispatch) => {
+    dispatch(requestDATA())
+    return request
+      .get(`/ad`)
+      .then(res => {
+        dispatch(receiveAD(res.body))
+      })
+      .catch(err => {
+        dispatch(showError(err.message))
+      })
+  }
+}
+
+export const receiveCOMICS = (comics) => {
+  console.log(comics)
+  return {
+    type: "RECEIVE_COMICS",
+    comics: comics
+  }
+}
+
+export function fetchCOMICS () {
   console.log('hello2')
   return (dispatch) => {
     console.log('hello3')
     dispatch(requestDATA())
     console.log('hello4')
     return request
-      .get(`/ad`)
+      .get(`/comics`)
       .then(res => {
-        dispatch(receiveAD(res.body))
+        console.log(res.body[0].comicImage)
+        dispatch(receiveCOMICS(res.body[Math.floor(Math.random()*25)].comicImage))
       })
       .catch(err => {
         console.log('HelloERR');        

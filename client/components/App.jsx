@@ -24,7 +24,7 @@ class App extends React.Component {
       authentication:false
     }
 
-    this.getComics = this.getComics.bind(this)
+    // this.getComics = this.getComics.bind(this)
     this.getArticles = this.getArticles.bind(this)
     this.getQuote = this.getQuote.bind(this)
     this.getQuoteNames = this.getQuoteNames.bind(this)
@@ -39,21 +39,21 @@ class App extends React.Component {
   }
 
   refresh(){
-    this.getComics()
+    // this.getComics()
     this.getArticles()
     this.getQuote()
     this.getQuoteNames()
     // this.getAdvertising()
   }
 
-  getComics() {
-    getComics()
-    .then(res => {
-      this.setState({
-        comics: res.body
-      })
-    })
-  }
+  // getComics() {
+  //   getComics()
+  //   .then(res => {
+  //     this.setState({
+  //       comics: res.body
+  //     })
+  //   })
+  // }
 
   getArticles() {
     getArticles()

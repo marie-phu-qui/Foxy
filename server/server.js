@@ -52,7 +52,7 @@ server.get('/fox', (req, res) => {
   })
 })
 
-server.get('/comics/', (req, res) => {
+server.get('/comics', (req, res) => {
   db.getComics()
   .then(comics => { 
      res.json(comics)

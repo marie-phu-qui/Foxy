@@ -4614,9 +4614,10 @@ var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.receiveAD = exports.receiveFOX = exports.showError = exports.requestDATA = undefined;
+exports.receiveCOMICS = exports.receiveAD = exports.receiveFOX = exports.showError = exports.requestDATA = undefined;
 exports.fetchFoxImage = fetchFoxImage;
 exports.fetchAD = fetchAD;
+exports.fetchCOMICS = fetchCOMICS;
 
 var _superagent = __webpack_require__(15);
 
@@ -4664,7 +4665,7 @@ function fetchFoxImage() {
 }
 
 var receiveAD = exports.receiveAD = function receiveAD(ad) {
-  console.log("receive: ", ad);
+  // console.log("receive: ", ad)
   return {
     type: "RECEIVE_AD",
     ad: ad
@@ -4672,13 +4673,33 @@ var receiveAD = exports.receiveAD = function receiveAD(ad) {
 };
 
 function fetchAD() {
+  return function (dispatch) {
+    dispatch(requestDATA());
+    return _superagent2.default.get("/ad").then(function (res) {
+      dispatch(receiveAD(res.body));
+    }).catch(function (err) {
+      dispatch(showError(err.message));
+    });
+  };
+}
+
+var receiveCOMICS = exports.receiveCOMICS = function receiveCOMICS(comics) {
+  console.log(comics);
+  return {
+    type: "RECEIVE_COMICS",
+    comics: comics
+  };
+};
+
+function fetchCOMICS() {
   console.log('hello2');
   return function (dispatch) {
     console.log('hello3');
     dispatch(requestDATA());
     console.log('hello4');
-    return _superagent2.default.get("/ad").then(function (res) {
-      dispatch(receiveAD(res.body));
+    return _superagent2.default.get("/comics").then(function (res) {
+      console.log(res.body[0].comicImage);
+      dispatch(receiveCOMICS(res.body[Math.floor(Math.random() * 25)].comicImage));
     }).catch(function (err) {
       console.log('HelloERR');
       dispatch(showError(err.message));
@@ -29394,11 +29415,16 @@ var _ad = __webpack_require__(80);
 
 var _ad2 = _interopRequireDefault(_ad);
 
+var _comics = __webpack_require__(122);
+
+var _comics2 = _interopRequireDefault(_comics);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
     foxImage: _foxImage2.default,
-    ad: _ad2.default
+    ad: _ad2.default,
+    comics: _comics2.default
 });
 
 /***/ }),
@@ -29521,10 +29547,9 @@ var App = function (_React$Component) {
       names: '',
       ad: '',
       authentication: false
-    };
 
-    _this.getComics = _this.getComics.bind(_this);
-    _this.getArticles = _this.getArticles.bind(_this);
+      // this.getComics = this.getComics.bind(this)
+    };_this.getArticles = _this.getArticles.bind(_this);
     _this.getQuote = _this.getQuote.bind(_this);
     _this.getQuoteNames = _this.getQuoteNames.bind(_this);
     // this.getAdvertising = this.getAdvertising.bind(this)
@@ -29542,30 +29567,29 @@ var App = function (_React$Component) {
   }, {
     key: 'refresh',
     value: function refresh() {
-      this.getComics();
+      // this.getComics()
       this.getArticles();
       this.getQuote();
       this.getQuoteNames();
       // this.getAdvertising()
     }
-  }, {
-    key: 'getComics',
-    value: function getComics() {
-      var _this2 = this;
 
-      (0, _FoxApiClient.getComics)().then(function (res) {
-        _this2.setState({
-          comics: res.body
-        });
-      });
-    }
+    // getComics() {
+    //   getComics()
+    //   .then(res => {
+    //     this.setState({
+    //       comics: res.body
+    //     })
+    //   })
+    // }
+
   }, {
     key: 'getArticles',
     value: function getArticles() {
-      var _this3 = this;
+      var _this2 = this;
 
       (0, _FoxApiClient.getArticles)().then(function (res) {
-        _this3.setState({
+        _this2.setState({
           article: res.body
 
         });
@@ -29574,10 +29598,10 @@ var App = function (_React$Component) {
   }, {
     key: 'getQuote',
     value: function getQuote() {
-      var _this4 = this;
+      var _this3 = this;
 
       (0, _FoxApiClient.getQuote)().then(function (res) {
-        _this4.setState({
+        _this3.setState({
           quote: res.body
 
         });
@@ -29586,10 +29610,10 @@ var App = function (_React$Component) {
   }, {
     key: 'getQuoteNames',
     value: function getQuoteNames() {
-      var _this5 = this;
+      var _this4 = this;
 
       (0, _FoxApiClient.getQuoteNames)().then(function (res) {
-        _this5.setState({
+        _this4.setState({
           names: res.body
 
         });
@@ -29608,10 +29632,10 @@ var App = function (_React$Component) {
   }, {
     key: 'getAuthentication',
     value: function getAuthentication() {
-      var _this6 = this;
+      var _this5 = this;
 
       (0, _FoxApiClient.getAuthentication)().then(function (res) {
-        _this6.setState({
+        _this5.setState({
           authentication: res.body
         });
       });
@@ -29626,7 +29650,7 @@ var App = function (_React$Component) {
   }, {
     key: 'renderTheRest',
     value: function renderTheRest() {
-      var _this7 = this;
+      var _this6 = this;
 
       return _react2.default.createElement(
         'div',
@@ -29634,7 +29658,7 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
-              return _this7.refresh();
+              return _this6.refresh();
             } },
           'Refresh Page'
         ),
@@ -30742,53 +30766,42 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRedux = __webpack_require__(12);
+
+var _actions = __webpack_require__(27);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var Comics = function Comics(props) {
+  console.log(props);
+  return _react2.default.createElement(
+    'div',
+    { id: 'comics' },
+    _react2.default.createElement(
+      'h4',
+      null,
+      'GARFIIIELD where are you?'
+    ),
+    props.comics.length > 0 && _react2.default.createElement('img', { id: 'garfields', src: props.comics })
+  );
+};
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function mapStateToProps(state) {
+  return {
+    comics: state.comics
+  };
+}
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  dispatch((0, _actions.fetchCOMICS)());
+  return {};
+};
 
-var Comics = function (_React$Component) {
-  _inherits(Comics, _React$Component);
-
-  function Comics() {
-    _classCallCheck(this, Comics);
-
-    return _possibleConstructorReturn(this, (Comics.__proto__ || Object.getPrototypeOf(Comics)).apply(this, arguments));
-  }
-
-  _createClass(Comics, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        _react2.default.Fragment,
-        null,
-        _react2.default.createElement(
-          'div',
-          { id: 'comics' },
-          _react2.default.createElement(
-            'h4',
-            null,
-            'GARFIIIELD where are you?'
-          ),
-          this.props.comics.length > 0 && _react2.default.createElement('img', { id: 'garfields', src: this.props.comics[Math.floor(Math.random() * 25)].comicImage })
-        )
-      );
-    }
-  }]);
-
-  return Comics;
-}(_react2.default.Component);
-
-exports.default = Comics;
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Comics);
 
 /***/ }),
 /* 88 */
@@ -36966,6 +36979,30 @@ function getAdvertising() {
 function getAuthentication() {
   return _superagent2.default.get('/register');
 }
+
+/***/ }),
+/* 122 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function comics() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+  var action = arguments[1];
+
+  switch (action.type) {
+    case "RECEIVE_COMICS":
+      return action.comics;
+    default:
+      return state;
+  }
+}
+
+exports.default = comics;
 
 /***/ })
 /******/ ]);
