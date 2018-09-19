@@ -8,7 +8,7 @@ import Login from './Login'
 import Secret from './Secret'
 
 
-import {getFoxApi, getComics, getQuote, getArticles, getQuoteNames, getAdvertising, getAuthentication} from '../FoxApi-client'
+import {getComics, getQuote, getArticles, getQuoteNames, getAuthentication} from '../FoxApi-client'
 
 class App extends React.Component {
   constructor(props) {
@@ -20,16 +20,15 @@ class App extends React.Component {
       article:'',
       quote: '',
       names: '',
-      add : '',
+      ad : '',
       authentication:false
     }
 
-    this.getFox = this.getFox.bind(this)
     this.getComics = this.getComics.bind(this)
     this.getArticles = this.getArticles.bind(this)
     this.getQuote = this.getQuote.bind(this)
     this.getQuoteNames = this.getQuoteNames.bind(this)
-    this.getAdvertising = this.getAdvertising.bind(this)
+    // this.getAdvertising = this.getAdvertising.bind(this)
     this.getAuthentication = this.getAuthentication.bind(this)
     this.renderFoxVideo = this.renderFoxVideo.bind(this)
 
@@ -40,12 +39,11 @@ class App extends React.Component {
   }
 
   refresh(){
-    this.getFox()
     this.getComics()
     this.getArticles()
     this.getQuote()
     this.getQuoteNames()
-    this.getAdvertising()
+    // this.getAdvertising()
   }
 
   getComics() {
@@ -62,16 +60,6 @@ class App extends React.Component {
     .then(res => {
       this.setState({
         article: res.body,
-              
-      })
-    })
-  }
-
-  getFox() {
-    getFoxApi()
-    .then(res => {
-      this.setState({
-        foxImage: res.body,
               
       })
     })
@@ -97,14 +85,14 @@ class App extends React.Component {
     })
   }
 
-  getAdvertising() {
-    getAdvertising()
-    .then(res => {
-      this.setState({
-        add: res.body
-      })
-    })
-  }
+  // getAdvertising() {
+  //   getAdvertising()
+  //   .then(res => {
+  //     this.setState({
+  //       add: res.body
+  //     })
+  //   })
+  // }
 
   getAuthentication() {
     getAuthentication()
@@ -135,7 +123,7 @@ class App extends React.Component {
           <TrumpQuote quote={this.state.quote} names={this.state.names}/>
           <br />
           <div>
-          <Advertising add={this.state.add}/>
+          <Advertising ad={this.state.ad}/>
           </div>
         </div>
       </div>

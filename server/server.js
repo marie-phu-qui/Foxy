@@ -86,16 +86,14 @@ server.get('/quotenames/', (req, res) => {
 })
 
 
-server.get('/add/', (req, res) => {
+server.get('/ad', (req, res) => {
   request.get('http://itsthisforthat.com/api.php?json')
   .then(ApiRes => { 
     let response = JSON.parse(ApiRes.text)
-    console.log(response)
     let randomThis = response.this
     let randomThat = response.that
-    console.log(randomThat, randomThat)
-    const addText = 'Looking for '+ randomThis+ ' for ' + randomThat+ '. Please.'
-     res.json(addText)
+    const adText = 'Looking for '+ randomThis+ ' for ' + randomThat+ '. Please.'
+     res.json(adText)
   })
   .catch(err => {
     console.log(err)

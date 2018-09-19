@@ -1,14 +1,9 @@
 
-import {RECEIVE_FOX} from '../actions'
-
-function foxImage (state = '', action) {
+function foxImage (state = "", action) {
   switch (action.type) {
-    case RECEIVE_FOX:
-    console.log("Hello")
-      return action.image
-
+    case "RECEIVE_FOX":
+      return action.foxImage
     default:
-    console.log("Hello2")
       return state
   }
 }

@@ -21,7 +21,7 @@ export function getQuoteNames(){
 }
 
 export function getAdvertising(){
-  return request.get('/add')
+  return request.get('/ad')
 }
 
 export function getAuthentication(){
