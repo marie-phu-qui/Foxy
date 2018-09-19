@@ -25,7 +25,7 @@ class App extends React.Component {
     }
 
     // this.getComics = this.getComics.bind(this)
-    this.getArticles = this.getArticles.bind(this)
+    // this.getArticles = this.getArticles.bind(this)
     this.getQuote = this.getQuote.bind(this)
     this.getQuoteNames = this.getQuoteNames.bind(this)
     // this.getAdvertising = this.getAdvertising.bind(this)
@@ -40,7 +40,7 @@ class App extends React.Component {
 
   refresh(){
     // this.getComics()
-    this.getArticles()
+    // this.getArticles()
     this.getQuote()
     this.getQuoteNames()
     // this.getAdvertising()
@@ -55,15 +55,15 @@ class App extends React.Component {
   //   })
   // }
 
-  getArticles() {
-    getArticles()
-    .then(res => {
-      this.setState({
-        article: res.body,
+  // getArticles() {
+  //   getArticles()
+  //   .then(res => {
+  //     this.setState({
+  //       article: res.body,
               
-      })
-    })
-  }
+  //     })
+  //   })
+  // }
 
   getQuote() {
     getQuote()

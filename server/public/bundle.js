@@ -2412,8 +2412,14 @@ if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+<<<<<<< HEAD
 exports.receiveCOMICS = exports.receiveAD = exports.receiveFOX = exports.showError = exports.requestDATA = undefined;
 exports.fetchFoxImage = fetchFoxImage;
+=======
+exports.receiveCOMICS = exports.receiveAD = exports.receiveARTICLE = exports.receiveFOX = exports.showError = exports.requestDATA = undefined;
+exports.fetchFoxImage = fetchFoxImage;
+exports.fetchArticle = fetchArticle;
+>>>>>>> e30bf7f8eaed4824c8b5c65da31f5fa422a1c63a
 exports.fetchAD = fetchAD;
 exports.fetchCOMICS = fetchCOMICS;
 
@@ -2462,6 +2468,27 @@ function fetchFoxImage() {
   };
 }
 
+<<<<<<< HEAD
+=======
+var receiveARTICLE = exports.receiveARTICLE = function receiveARTICLE(article) {
+  return {
+    type: "RECEIVE_ARTICLE",
+    article: article
+  };
+};
+
+function fetchArticle() {
+  return function (dispatch) {
+    dispatch(requestDATA());
+    return _superagent2.default.get("/article").then(function (res) {
+      dispatch(receiveARTICLE(res.body));
+    }).catch(function (err) {
+      dispatch(showError(err.message));
+    });
+  };
+}
+
+>>>>>>> e30bf7f8eaed4824c8b5c65da31f5fa422a1c63a
 var receiveAD = exports.receiveAD = function receiveAD(ad) {
   // console.log("receive: ", ad)
   return {
@@ -6417,7 +6444,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/** @license React v16.5.1
+/** @license React v16.5.2
  * react.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -6439,7 +6466,7 @@ function S(a,b,d,c){var e=typeof a;if("undefined"===e||"boolean"===e)a=null;var 
 function aa(a,b,d){var c=a.result,e=a.keyPrefix;a=a.func.call(a.context,b,a.count++);Array.isArray(a)?W(a,c,d,function(a){return a}):null!=a&&(N(a)&&(a=M(a,e+(!a.key||b&&b.key===a.key?"":(""+a.key).replace(O,"$&/")+"/")+d)),c.push(a))}function W(a,b,d,c,e){var g="";null!=d&&(g=(""+d).replace(O,"$&/")+"/");b=Q(b,g,c,e);U(a,aa,b);R(b)}function ba(a,b){var d=I.currentDispatcher;null===d?B("277"):void 0;return d.readContext(a,b)}
 var X={Children:{map:function(a,b,d){if(null==a)return a;var c=[];W(a,c,null,b,d);return c},forEach:function(a,b,d){if(null==a)return a;b=Q(null,null,b,d);U(a,V,b);R(b)},count:function(a){return U(a,function(){return null},null)},toArray:function(a){var b=[];W(a,b,null,function(a){return a});return b},only:function(a){N(a)?void 0:B("143");return a}},createRef:function(){return{current:null}},Component:E,PureComponent:G,createContext:function(a,b){void 0===b&&(b=null);a={$$typeof:w,_calculateChangedBits:b,
 _currentValue:a,_currentValue2:a,Provider:null,Consumer:null,unstable_read:null};a.Provider={$$typeof:v,_context:a};a.Consumer=a;a.unstable_read=ba.bind(null,a);return a},forwardRef:function(a){return{$$typeof:y,render:a}},Fragment:r,StrictMode:t,unstable_AsyncMode:x,unstable_Profiler:u,createElement:L,cloneElement:function(a,b,d){null===a||void 0===a?B("267",a):void 0;var c=void 0,e=m({},a.props),g=a.key,h=a.ref,f=a._owner;if(null!=b){void 0!==b.ref&&(h=b.ref,f=I.current);void 0!==b.key&&(g=""+b.key);
-var k=void 0;a.type&&a.type.defaultProps&&(k=a.type.defaultProps);for(c in b)J.call(b,c)&&!K.hasOwnProperty(c)&&(e[c]=void 0===b[c]&&void 0!==k?k[c]:b[c])}c=arguments.length-2;if(1===c)e.children=d;else if(1<c){k=Array(c);for(var l=0;l<c;l++)k[l]=arguments[l+2];e.children=k}return{$$typeof:p,type:a.type,key:g,ref:h,props:e,_owner:f}},createFactory:function(a){var b=L.bind(null,a);b.type=a;return b},isValidElement:N,version:"16.5.1",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:I,
+var k=void 0;a.type&&a.type.defaultProps&&(k=a.type.defaultProps);for(c in b)J.call(b,c)&&!K.hasOwnProperty(c)&&(e[c]=void 0===b[c]&&void 0!==k?k[c]:b[c])}c=arguments.length-2;if(1===c)e.children=d;else if(1<c){k=Array(c);for(var l=0;l<c;l++)k[l]=arguments[l+2];e.children=k}return{$$typeof:p,type:a.type,key:g,ref:h,props:e,_owner:f}},createFactory:function(a){var b=L.bind(null,a);b.type=a;return b},isValidElement:N,version:"16.5.2",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:I,
 assign:m}},Y={default:X},Z=Y&&X||Y;module.exports=Z.default||Z;
 
 
@@ -6448,7 +6475,7 @@ assign:m}},Y={default:X},Z=Y&&X||Y;module.exports=Z.default||Z;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/** @license React v16.5.1
+/* WEBPACK VAR INJECTION */(function(process) {/** @license React v16.5.2
  * react.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -6470,7 +6497,7 @@ var checkPropTypes = __webpack_require__(11);
 
 // TODO: this is special because it gets imported during build.
 
-var ReactVersion = '16.5.1';
+var ReactVersion = '16.5.2';
 
 // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
 // nor polyfill, then a plain number is used for performance.
@@ -6531,7 +6558,7 @@ var enableSuspense = false;
 // Gather advanced timing metrics for Profiler subtrees.
 
 
-// Track which interactions trigger each commit.
+// Trace which interactions trigger each commit.
 
 
 // Only used in www builds.
@@ -8228,7 +8255,7 @@ if (process.env.NODE_ENV === 'production') {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/** @license React v16.5.1
+/** @license React v16.5.2
  * react-dom.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -8323,7 +8350,7 @@ var be={eventTypes:Wd,extractEvents:function(a,b,c,d){var e=d.window===d?d.docum
 case "keydown":case "keyup":return ae(c,d)}return null}};Ea.injectEventPluginOrder("ResponderEventPlugin SimpleEventPlugin EnterLeaveEventPlugin ChangeEventPlugin SelectEventPlugin BeforeInputEventPlugin".split(" "));ua=Na;va=La;wa=Ma;Ea.injectEventPluginsByName({SimpleEventPlugin:Cd,EnterLeaveEventPlugin:fd,ChangeEventPlugin:Uc,SelectEventPlugin:be,BeforeInputEventPlugin:Eb});function ce(a){var b="";aa.Children.forEach(a,function(a){null!=a&&(b+=a)});return b}
 function de(a,b){a=n({children:void 0},b);if(b=ce(b.children))a.children=b;return a}function ee(a,b,c,d){a=a.options;if(b){b={};for(var e=0;e<c.length;e++)b["$"+c[e]]=!0;for(c=0;c<a.length;c++)e=b.hasOwnProperty("$"+a[c].value),a[c].selected!==e&&(a[c].selected=e),e&&d&&(a[c].defaultSelected=!0)}else{c=""+yc(c);b=null;for(e=0;e<a.length;e++){if(a[e].value===c){a[e].selected=!0;d&&(a[e].defaultSelected=!0);return}null!==b||a[e].disabled||(b=a[e])}null!==b&&(b.selected=!0)}}
 function fe(a,b){null!=b.dangerouslySetInnerHTML?t("91"):void 0;return n({},b,{value:void 0,defaultValue:void 0,children:""+a._wrapperState.initialValue})}function ge(a,b){var c=b.value;null==c&&(c=b.defaultValue,b=b.children,null!=b&&(null!=c?t("92"):void 0,Array.isArray(b)&&(1>=b.length?void 0:t("93"),b=b[0]),c=b),null==c&&(c=""));a._wrapperState={initialValue:yc(c)}}
-function he(a,b){var c=yc(b.value);null!=c&&(c=""+c,c!==a.value&&(a.value=c),null==b.defaultValue&&(a.defaultValue=c));null!=b.defaultValue&&(a.defaultValue=""+yc(b.defaultValue))}function ie(a){var b=a.textContent;b===a._wrapperState.initialValue&&(a.value=b)}var je={html:"http://www.w3.org/1999/xhtml",mathml:"http://www.w3.org/1998/Math/MathML",svg:"http://www.w3.org/2000/svg"};
+function he(a,b){var c=yc(b.value),d=yc(b.defaultValue);null!=c&&(c=""+c,c!==a.value&&(a.value=c),null==b.defaultValue&&a.defaultValue!==c&&(a.defaultValue=c));null!=d&&(a.defaultValue=""+d)}function ie(a){var b=a.textContent;b===a._wrapperState.initialValue&&(a.value=b)}var je={html:"http://www.w3.org/1999/xhtml",mathml:"http://www.w3.org/1998/Math/MathML",svg:"http://www.w3.org/2000/svg"};
 function ke(a){switch(a){case "svg":return"http://www.w3.org/2000/svg";case "math":return"http://www.w3.org/1998/Math/MathML";default:return"http://www.w3.org/1999/xhtml"}}function le(a,b){return null==a||"http://www.w3.org/1999/xhtml"===a?ke(b):"http://www.w3.org/2000/svg"===a&&"foreignObject"===b?"http://www.w3.org/1999/xhtml":a}
 var me=void 0,ne=function(a){return"undefined"!==typeof MSApp&&MSApp.execUnsafeLocalFunction?function(b,c,d,e){MSApp.execUnsafeLocalFunction(function(){return a(b,c,d,e)})}:a}(function(a,b){if(a.namespaceURI!==je.svg||"innerHTML"in a)a.innerHTML=b;else{me=me||document.createElement("div");me.innerHTML="<svg>"+b+"</svg>";for(b=me.firstChild;a.firstChild;)a.removeChild(a.firstChild);for(;b.firstChild;)a.appendChild(b.firstChild)}});
 function oe(a,b){if(b){var c=a.firstChild;if(c&&c===a.lastChild&&3===c.nodeType){c.nodeValue=b;return}}a.textContent=b}
@@ -8439,11 +8466,11 @@ function rh(a,b,c){var d=a.firstBatch;if(null!==d&&d._expirationTime<=c&&(null==
 e)break b;P===f&&++A===h&&(m=l);P===k&&++S===g&&(r=l);if(null!==(v=B.nextSibling))break;B=P;P=B.parentNode}B=v}f=-1===m||-1===r?null:{start:m,end:r}}else f=null}f=f||{start:0,end:0}}else f=null;ye={focusedElem:e,selectionRange:f};Gd=!1;for(Q=d;null!==Q;){e=!1;f=void 0;try{for(;null!==Q;){if(Q.effectTag&256){var p=Q.alternate;a:switch(h=Q,h.tag){case 2:case 3:if(h.effectTag&256&&null!==p){var u=p.memoizedProps,x=p.memoizedState,R=h.stateNode;R.props=h.memoizedProps;R.state=h.memoizedState;var yh=R.getSnapshotBeforeUpdate(u,
 x);R.__reactInternalSnapshotBeforeUpdate=yh}break a;case 5:case 7:case 8:case 6:break a;default:t("163")}}Q=Q.nextEffect}}catch(Xa){e=!0,f=Xa}e&&(null===Q?t("178"):void 0,wg(Q,f),null!==Q&&(Q=Q.nextEffect))}for(Q=d;null!==Q;){p=!1;u=void 0;try{for(;null!==Q;){var w=Q.effectTag;w&16&&oe(Q.stateNode,"");if(w&128){var y=Q.alternate;if(null!==y){var q=y.ref;null!==q&&("function"===typeof q?q(null):q.current=null)}}switch(w&14){case 2:Ag(Q);Q.effectTag&=-3;break;case 6:Ag(Q);Q.effectTag&=-3;Bg(Q.alternate,
 Q);break;case 4:Bg(Q.alternate,Q);break;case 8:x=Q,yg(x),x.return=null,x.child=null,x.alternate&&(x.alternate.child=null,x.alternate.return=null)}Q=Q.nextEffect}}catch(Xa){p=!0,u=Xa}p&&(null===Q?t("178"):void 0,wg(Q,u),null!==Q&&(Q=Q.nextEffect))}q=ye;y=Td();w=q.focusedElem;u=q.selectionRange;if(y!==w&&w&&w.ownerDocument&&Sd(w.ownerDocument.documentElement,w)){null!==u&&Ud(w)&&(y=u.start,q=u.end,void 0===q&&(q=y),"selectionStart"in w?(w.selectionStart=y,w.selectionEnd=Math.min(q,w.value.length)):
-(p=w.ownerDocument||document,y=(p?p.defaultView:window).getSelection(),x=w.textContent.length,q=Math.min(u.start,x),u=void 0===u.end?q:Math.min(u.end,x),!y.extend&&q>u&&(x=u,u=q,q=x),x=Rd(w,q),R=Rd(w,u),x&&R&&(1!==y.rangeCount||y.anchorNode!==x.node||y.anchorOffset!==x.offset||y.focusNode!==R.node||y.focusOffset!==R.offset)&&(p=p.createRange(),p.setStart(x.node,x.offset),y.removeAllRanges(),q>u?(y.addRange(p),y.extend(R.node,R.offset)):(p.setEnd(R.node,R.offset),y.addRange(p)))));y=[];for(q=w;q=q.parentNode;)1===
-q.nodeType&&y.push({element:q,left:q.scrollLeft,top:q.scrollTop});"function"===typeof w.focus&&w.focus();for(w=0;w<y.length;w++)q=y[w],q.element.scrollLeft=q.left,q.element.scrollTop=q.top}ye=null;Gd=!!xe;xe=null;a.current=b;for(Q=d;null!==Q;){d=!1;w=void 0;try{for(y=c;null!==Q;){var Sa=Q.effectTag;if(Sa&36){var oc=Q.alternate;q=Q;p=y;switch(q.tag){case 2:case 3:var X=q.stateNode;if(q.effectTag&4)if(null===oc)X.props=q.memoizedProps,X.state=q.memoizedState,X.componentDidMount();else{var Ih=oc.memoizedProps,
-Jh=oc.memoizedState;X.props=q.memoizedProps;X.state=q.memoizedState;X.componentDidUpdate(Ih,Jh,X.__reactInternalSnapshotBeforeUpdate)}var kg=q.updateQueue;null!==kg&&(X.props=q.memoizedProps,X.state=q.memoizedState,lf(q,kg,X,p));break;case 5:var lg=q.updateQueue;if(null!==lg){u=null;if(null!==q.child)switch(q.child.tag){case 7:u=q.child.stateNode;break;case 2:case 3:u=q.child.stateNode}lf(q,lg,u,p)}break;case 7:var Kh=q.stateNode;null===oc&&q.effectTag&4&&ze(q.type,q.memoizedProps)&&Kh.focus();break;
-case 8:break;case 6:break;case 15:break;case 16:break;default:t("163")}}if(Sa&128){var Ac=Q.ref;if(null!==Ac){var mg=Q.stateNode;switch(Q.tag){case 7:var Pd=mg;break;default:Pd=mg}"function"===typeof Ac?Ac(Pd):Ac.current=Pd}}var Lh=Q.nextEffect;Q.nextEffect=null;Q=Lh}}catch(Xa){d=!0,w=Xa}d&&(null===Q?t("178"):void 0,wg(Q,w),null!==Q&&(Q=Q.nextEffect))}Lg=Og=!1;"function"===typeof Oe&&Oe(b.stateNode);Sa=b.expirationTime;b=b.childExpirationTime;b=0===Sa||0!==b&&b<Sa?b:Sa;0===b&&(Fg=null);a.expirationTime=
-b;a.finishedWork=null}function Tg(){return eh?!0:null===hh||hh.timeRemaining()>nh?!1:eh=!0}function Dg(a){null===Y?t("246"):void 0;Y.expirationTime=0;fh||(fh=!0,gh=a)}function sh(a,b){var c=W;W=!0;try{return a(b)}finally{(W=c)||V||Yg(1,null)}}function th(a,b){if(W&&!Wg){Wg=!0;try{return a(b)}finally{Wg=!1}}return a(b)}function uh(a,b,c){if(Ug)return a(b,c);W||V||0===Vg||(Yg(Vg,null),Vg=0);var d=Ug,e=W;W=Ug=!0;try{return a(b,c)}finally{Ug=d,(W=e)||V||Yg(1,null)}}
+(p=w.ownerDocument||document,y=(p&&p.defaultView||window).getSelection(),x=w.textContent.length,q=Math.min(u.start,x),u=void 0===u.end?q:Math.min(u.end,x),!y.extend&&q>u&&(x=u,u=q,q=x),x=Rd(w,q),R=Rd(w,u),x&&R&&(1!==y.rangeCount||y.anchorNode!==x.node||y.anchorOffset!==x.offset||y.focusNode!==R.node||y.focusOffset!==R.offset)&&(p=p.createRange(),p.setStart(x.node,x.offset),y.removeAllRanges(),q>u?(y.addRange(p),y.extend(R.node,R.offset)):(p.setEnd(R.node,R.offset),y.addRange(p)))));y=[];for(q=w;q=
+q.parentNode;)1===q.nodeType&&y.push({element:q,left:q.scrollLeft,top:q.scrollTop});"function"===typeof w.focus&&w.focus();for(w=0;w<y.length;w++)q=y[w],q.element.scrollLeft=q.left,q.element.scrollTop=q.top}ye=null;Gd=!!xe;xe=null;a.current=b;for(Q=d;null!==Q;){d=!1;w=void 0;try{for(y=c;null!==Q;){var Sa=Q.effectTag;if(Sa&36){var oc=Q.alternate;q=Q;p=y;switch(q.tag){case 2:case 3:var X=q.stateNode;if(q.effectTag&4)if(null===oc)X.props=q.memoizedProps,X.state=q.memoizedState,X.componentDidMount();
+else{var Ih=oc.memoizedProps,Jh=oc.memoizedState;X.props=q.memoizedProps;X.state=q.memoizedState;X.componentDidUpdate(Ih,Jh,X.__reactInternalSnapshotBeforeUpdate)}var kg=q.updateQueue;null!==kg&&(X.props=q.memoizedProps,X.state=q.memoizedState,lf(q,kg,X,p));break;case 5:var lg=q.updateQueue;if(null!==lg){u=null;if(null!==q.child)switch(q.child.tag){case 7:u=q.child.stateNode;break;case 2:case 3:u=q.child.stateNode}lf(q,lg,u,p)}break;case 7:var Kh=q.stateNode;null===oc&&q.effectTag&4&&ze(q.type,q.memoizedProps)&&
+Kh.focus();break;case 8:break;case 6:break;case 15:break;case 16:break;default:t("163")}}if(Sa&128){var Ac=Q.ref;if(null!==Ac){var mg=Q.stateNode;switch(Q.tag){case 7:var Pd=mg;break;default:Pd=mg}"function"===typeof Ac?Ac(Pd):Ac.current=Pd}}var Lh=Q.nextEffect;Q.nextEffect=null;Q=Lh}}catch(Xa){d=!0,w=Xa}d&&(null===Q?t("178"):void 0,wg(Q,w),null!==Q&&(Q=Q.nextEffect))}Lg=Og=!1;"function"===typeof Oe&&Oe(b.stateNode);Sa=b.expirationTime;b=b.childExpirationTime;b=0===Sa||0!==b&&b<Sa?b:Sa;0===b&&(Fg=
+null);a.expirationTime=b;a.finishedWork=null}function Tg(){return eh?!0:null===hh||hh.timeRemaining()>nh?!1:eh=!0}function Dg(a){null===Y?t("246"):void 0;Y.expirationTime=0;fh||(fh=!0,gh=a)}function sh(a,b){var c=W;W=!0;try{return a(b)}finally{(W=c)||V||Yg(1,null)}}function th(a,b){if(W&&!Wg){Wg=!0;try{return a(b)}finally{Wg=!1}}return a(b)}function uh(a,b,c){if(Ug)return a(b,c);W||V||0===Vg||(Yg(Vg,null),Vg=0);var d=Ug,e=W;W=Ug=!0;try{return a(b,c)}finally{Ug=d,(W=e)||V||Yg(1,null)}}
 function vh(a){if(!a)return Fe;a=a._reactInternalFiber;a:{2!==jd(a)||2!==a.tag&&3!==a.tag?t("170"):void 0;var b=a;do{switch(b.tag){case 5:b=b.stateNode.context;break a;case 2:if(K(b.type)){b=b.stateNode.__reactInternalMemoizedMergedChildContext;break a}break;case 3:if(K(b.type._reactResult)){b=b.stateNode.__reactInternalMemoizedMergedChildContext;break a}}b=b.return}while(null!==b);t("171");b=void 0}if(2===a.tag){var c=a.type;if(K(c))return Le(a,c,b)}else if(3===a.tag&&(c=a.type._reactResult,K(c)))return Le(a,
 c,b);return b}function wh(a,b,c,d,e){var f=b.current;c=vh(c);null===b.context?b.context=c:b.pendingContext=c;b=e;e=df(d);e.payload={element:a};b=void 0===b?null:b;null!==b&&(e.callback=b);ff(f,e);If(f,d);return d}function xh(a,b,c,d){var e=b.current,f=Gf();e=Hf(f,e);return wh(a,b,c,e,d)}function zh(a){a=a.current;if(!a.child)return null;switch(a.child.tag){case 7:return a.child.stateNode;default:return a.child.stateNode}}
 function Ah(a,b,c){var d=3<arguments.length&&void 0!==arguments[3]?arguments[3]:null;return{$$typeof:ac,key:null==d?null:""+d,children:a,containerInfo:b,implementation:c}}
@@ -8461,7 +8488,7 @@ function Gh(a,b,c,d,e){Eh(c)?void 0:t("200");var f=c._reactRootContainer;if(f){i
 function Hh(a,b){var c=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null;Eh(b)?void 0:t("200");return Ah(a,b,null,c)}
 var Mh={createPortal:Hh,findDOMNode:function(a){if(null==a)return null;if(1===a.nodeType)return a;var b=a._reactInternalFiber;void 0===b&&("function"===typeof a.render?t("188"):t("268",Object.keys(a)));a=md(b);a=null===a?null:a.stateNode;return a},hydrate:function(a,b,c){return Gh(null,a,b,!0,c)},render:function(a,b,c){return Gh(null,a,b,!1,c)},unstable_renderSubtreeIntoContainer:function(a,b,c,d){null==a||void 0===a._reactInternalFiber?t("38"):void 0;return Gh(a,b,c,!1,d)},unmountComponentAtNode:function(a){Eh(a)?
 void 0:t("40");return a._reactRootContainer?(th(function(){Gh(null,null,a,!1,function(){a._reactRootContainer=null})}),!0):!1},unstable_createPortal:function(){return Hh.apply(void 0,arguments)},unstable_batchedUpdates:sh,unstable_interactiveUpdates:uh,flushSync:function(a,b){V?t("187"):void 0;var c=W;W=!0;try{return bh(a,b)}finally{W=c,Yg(1,null)}},unstable_flushControlled:function(a){var b=W;W=!0;try{bh(a)}finally{(W=b)||V||Yg(1,null)}},__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{Events:[La,
-Ma,Na,Ea.injectEventPluginsByName,qa,Ua,function(a){za(a,Ta)},Jb,Kb,Id,Ga]},unstable_createRoot:function(a,b){Eh(a)?void 0:t("278");return new Dh(a,!0,null!=b&&!0===b.hydrate)}};(function(a){var b=a.findFiberByHostInstance;return Re(n({},a,{findHostInstanceByFiber:function(a){a=md(a);return null===a?null:a.stateNode},findFiberByHostInstance:function(a){return b?b(a):null}}))})({findFiberByHostInstance:Ka,bundleType:0,version:"16.5.1",rendererPackageName:"react-dom"});
+Ma,Na,Ea.injectEventPluginsByName,qa,Ua,function(a){za(a,Ta)},Jb,Kb,Id,Ga]},unstable_createRoot:function(a,b){Eh(a)?void 0:t("278");return new Dh(a,!0,null!=b&&!0===b.hydrate)}};(function(a){var b=a.findFiberByHostInstance;return Re(n({},a,{findHostInstanceByFiber:function(a){a=md(a);return null===a?null:a.stateNode},findFiberByHostInstance:function(a){return b?b(a):null}}))})({findFiberByHostInstance:Ka,bundleType:0,version:"16.5.2",rendererPackageName:"react-dom"});
 var Nh={default:Mh},Oh=Nh&&Mh||Nh;module.exports=Oh.default||Oh;
 
 
@@ -8470,7 +8497,7 @@ var Nh={default:Mh},Oh=Nh&&Mh||Nh;module.exports=Oh.default||Oh;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/** @license React v16.5.1
+/** @license React v16.5.2
  * schedule.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -8479,12 +8506,13 @@ var Nh={default:Mh},Oh=Nh&&Mh||Nh;module.exports=Oh.default||Oh;
  * LICENSE file in the root directory of this source tree.
  */
 
-Object.defineProperty(exports,"__esModule",{value:!0});var d=!("undefined"===typeof window||!window.document||!window.document.createElement),f=Date,g="function"===typeof setTimeout?setTimeout:void 0,h="function"===typeof clearTimeout?clearTimeout:void 0,l="function"===typeof requestAnimationFrame?requestAnimationFrame:void 0,m="function"===typeof cancelAnimationFrame?cancelAnimationFrame:void 0,n="object"===typeof performance&&"function"===typeof performance.now;
-exports.unstable_now=void 0;if(n){var p=performance;exports.unstable_now=function(){return p.now()}}else exports.unstable_now=function(){return f.now()};exports.unstable_scheduleWork=void 0;exports.unstable_cancelScheduledWork=void 0;
-if(d){var q=null,r=null,t=-1,u=!1,v=!1,w=void 0,x=void 0,y=function(a){w=l(function(b){h(x);a(b)});x=g(function(){m(w);a(exports.unstable_now())},100)},z=0,A=33,B=33,C={didTimeout:!1,timeRemaining:function(){var a=z-exports.unstable_now();return 0<a?a:0}},E=function(a,b){var c=a.scheduledCallback,e=!1;try{c(b),e=!0}finally{exports.unstable_cancelScheduledWork(a),e||(u=!0,window.postMessage(D,"*"))}},D="__reactIdleCallback$"+Math.random().toString(36).slice(2);window.addEventListener("message",function(a){if(a.source===
-window&&a.data===D&&(u=!1,null!==q)){if(null!==q){var b=exports.unstable_now();if(!(-1===t||t>b)){a=-1;for(var c=[],e=q;null!==e;){var k=e.timeoutTime;-1!==k&&k<=b?c.push(e):-1!==k&&(-1===a||k<a)&&(a=k);e=e.next}if(0<c.length)for(C.didTimeout=!0,b=0,e=c.length;b<e;b++)E(c[b],C);t=a}}for(a=exports.unstable_now();0<z-a&&null!==q;)a=q,C.didTimeout=!1,E(a,C),a=exports.unstable_now();null===q||v||(v=!0,y(F))}},!1);var F=function(a){v=!1;var b=a-z+B;b<B&&A<B?(8>b&&(b=8),B=b<A?A:b):A=b;z=a+B;u||(u=!0,window.postMessage(D,
-"*"))};exports.unstable_scheduleWork=function(a,b){var c=-1;null!=b&&"number"===typeof b.timeout&&(c=exports.unstable_now()+b.timeout);if(-1===t||-1!==c&&c<t)t=c;a={scheduledCallback:a,timeoutTime:c,prev:null,next:null};null===q?q=a:(b=a.prev=r,null!==b&&(b.next=a));r=a;v||(v=!0,y(F));return a};exports.unstable_cancelScheduledWork=function(a){if(null!==a.prev||q===a){var b=a.next,c=a.prev;a.next=null;a.prev=null;null!==b?null!==c?(c.next=b,b.prev=c):(b.prev=null,q=b):null!==c?(c.next=null,r=c):r=
-q=null}}}else{var G=new Map;exports.unstable_scheduleWork=function(a){var b={scheduledCallback:a,timeoutTime:0,next:null,prev:null},c=g(function(){a({timeRemaining:function(){return Infinity},didTimeout:!1})});G.set(a,c);return b};exports.unstable_cancelScheduledWork=function(a){var b=G.get(a.scheduledCallback);G.delete(a);h(b)}};
+Object.defineProperty(exports,"__esModule",{value:!0});var c=null,e=!1,f=!1,g="object"===typeof performance&&"function"===typeof performance.now,l={timeRemaining:g?function(){var a=h()-performance.now();return 0<a?a:0}:function(){var a=h()-Date.now();return 0<a?a:0},didTimeout:!1};function m(){if(!e){var a=c.timesOutAt;f?n():f=!0;p(q,a)}}function r(){var a=c,b=c.next;if(c===b)c=null;else{var d=c.previous;c=d.next=b;b.previous=d}a.next=a.previous=null;a=a.callback;a(l)}
+function q(a){e=!0;l.didTimeout=a;try{if(a)for(;null!==c;){var b=exports.unstable_now();if(c.timesOutAt<=b){do r();while(null!==c&&c.timesOutAt<=b)}else break}else if(null!==c){do r();while(null!==c&&0<h()-exports.unstable_now())}}finally{e=!1,null!==c?m(c):f=!1}}
+var t=Date,u="function"===typeof setTimeout?setTimeout:void 0,v="function"===typeof clearTimeout?clearTimeout:void 0,w="function"===typeof requestAnimationFrame?requestAnimationFrame:void 0,x="function"===typeof cancelAnimationFrame?cancelAnimationFrame:void 0,y,z;function A(a){y=w(function(b){v(z);a(b)});z=u(function(){x(y);a(exports.unstable_now())},100)}if(g){var B=performance;exports.unstable_now=function(){return B.now()}}else exports.unstable_now=function(){return t.now()};var p,n,h;
+if("undefined"===typeof window){var C=-1;p=function(a){C=setTimeout(a,0,!0)};n=function(){clearTimeout(C)};h=function(){return 0}}else if(window._schedMock){var D=window._schedMock;p=D[0];n=D[1];h=D[2]}else{"undefined"!==typeof console&&("function"!==typeof w&&console.error("This browser doesn't support requestAnimationFrame. Make sure that you load a polyfill in older browsers. https://fb.me/react-polyfills"),"function"!==typeof x&&console.error("This browser doesn't support cancelAnimationFrame. Make sure that you load a polyfill in older browsers. https://fb.me/react-polyfills"));
+var E=null,F=!1,G=-1,H=!1,I=!1,J=0,K=33,L=33;h=function(){return J};var M="__reactIdleCallback$"+Math.random().toString(36).slice(2);window.addEventListener("message",function(a){if(a.source===window&&a.data===M){F=!1;var b=exports.unstable_now();a=!1;if(0>=J-b)if(-1!==G&&G<=b)a=!0;else{H||(H=!0,A(N));return}G=-1;b=E;E=null;if(null!==b){I=!0;try{b(a)}finally{I=!1}}}},!1);var N=function(a){H=!1;var b=a-J+L;b<L&&K<L?(8>b&&(b=8),L=b<K?K:b):K=b;J=a+L;F||(F=!0,window.postMessage(M,"*"))};p=function(a,
+b){E=a;G=b;I?window.postMessage(M,"*"):H||(H=!0,A(N))};n=function(){E=null;F=!1;G=-1}}exports.unstable_scheduleWork=function(a,b){var d=exports.unstable_now();b=void 0!==b&&null!==b&&null!==b.timeout&&void 0!==b.timeout?d+b.timeout:d+5E3;a={callback:a,timesOutAt:b,next:null,previous:null};if(null===c)c=a.next=a.previous=a,m(c);else{d=null;var k=c;do{if(k.timesOutAt>b){d=k;break}k=k.next}while(k!==c);null===d?d=c:d===c&&(c=a,m(c));b=d.previous;b.next=d.previous=a;a.next=d;a.previous=b}return a};
+exports.unstable_cancelScheduledWork=function(a){var b=a.next;if(null!==b){if(b===a)c=null;else{a===c&&(c=b);var d=a.previous;d.next=b;b.previous=d}a.next=a.previous=null}};
 
 
 /***/ }),
@@ -8492,7 +8520,7 @@ q=null}}}else{var G=new Map;exports.unstable_scheduleWork=function(a){var b={sch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/** @license React v16.5.1
+/* WEBPACK VAR INJECTION */(function(process) {/** @license React v16.5.2
  * schedule.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -8511,50 +8539,244 @@ if (process.env.NODE_ENV !== "production") {
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+/* eslint-disable no-var */
 
-/**
- * A scheduling library to allow scheduling work with more granular priority and
- * control than requestAnimationFrame and requestIdleCallback.
- * Current TODO items:
- * X- Pull out the scheduleWork polyfill built into React
- * X- Initial test coverage
- * X- Support for multiple callbacks
- * - Support for two priorities; serial and deferred
- * - Better test coverage
- * - Better docblock
- * - Polish documentation, API
- */
+// TODO: Currently there's only a single priority level, Deferred. Will add
+// additional priorities.
+var DEFERRED_TIMEOUT = 5000;
 
-// This is a built-in polyfill for requestIdleCallback. It works by scheduling
-// a requestAnimationFrame, storing the time for the start of the frame, then
-// scheduling a postMessage which gets scheduled after paint. Within the
-// postMessage handler do as much work as possible until time + frame rate.
-// By separating the idle call into a separate event tick we ensure that
+// Callbacks are stored as a circular, doubly linked list.
+var firstCallbackNode = null;
+
+var isPerformingWork = false;
+
+var isHostCallbackScheduled = false;
+
+var hasNativePerformanceNow = typeof performance === 'object' && typeof performance.now === 'function';
+
+var timeRemaining;
+if (hasNativePerformanceNow) {
+  timeRemaining = function () {
+    // We assume that if we have a performance timer that the rAF callback
+    // gets a performance timer value. Not sure if this is always true.
+    var remaining = getFrameDeadline() - performance.now();
+    return remaining > 0 ? remaining : 0;
+  };
+} else {
+  timeRemaining = function () {
+    // Fallback to Date.now()
+    var remaining = getFrameDeadline() - Date.now();
+    return remaining > 0 ? remaining : 0;
+  };
+}
+
+var deadlineObject = {
+  timeRemaining: timeRemaining,
+  didTimeout: false
+};
+
+function ensureHostCallbackIsScheduled() {
+  if (isPerformingWork) {
+    // Don't schedule work yet; wait until the next time we yield.
+    return;
+  }
+  // Schedule the host callback using the earliest timeout in the list.
+  var timesOutAt = firstCallbackNode.timesOutAt;
+  if (!isHostCallbackScheduled) {
+    isHostCallbackScheduled = true;
+  } else {
+    // Cancel the existing host callback.
+    cancelCallback();
+  }
+  requestCallback(flushWork, timesOutAt);
+}
+
+function flushFirstCallback(node) {
+  var flushedNode = firstCallbackNode;
+
+  // Remove the node from the list before calling the callback. That way the
+  // list is in a consistent state even if the callback throws.
+  var next = firstCallbackNode.next;
+  if (firstCallbackNode === next) {
+    // This is the last callback in the list.
+    firstCallbackNode = null;
+    next = null;
+  } else {
+    var previous = firstCallbackNode.previous;
+    firstCallbackNode = previous.next = next;
+    next.previous = previous;
+  }
+
+  flushedNode.next = flushedNode.previous = null;
+
+  // Now it's safe to call the callback.
+  var callback = flushedNode.callback;
+  callback(deadlineObject);
+}
+
+function flushWork(didTimeout) {
+  isPerformingWork = true;
+  deadlineObject.didTimeout = didTimeout;
+  try {
+    if (didTimeout) {
+      // Flush all the timed out callbacks without yielding.
+      while (firstCallbackNode !== null) {
+        // Read the current time. Flush all the callbacks that expire at or
+        // earlier than that time. Then read the current time again and repeat.
+        // This optimizes for as few performance.now calls as possible.
+        var currentTime = exports.unstable_now();
+        if (firstCallbackNode.timesOutAt <= currentTime) {
+          do {
+            flushFirstCallback();
+          } while (firstCallbackNode !== null && firstCallbackNode.timesOutAt <= currentTime);
+          continue;
+        }
+        break;
+      }
+    } else {
+      // Keep flushing callbacks until we run out of time in the frame.
+      if (firstCallbackNode !== null) {
+        do {
+          flushFirstCallback();
+        } while (firstCallbackNode !== null && getFrameDeadline() - exports.unstable_now() > 0);
+      }
+    }
+  } finally {
+    isPerformingWork = false;
+    if (firstCallbackNode !== null) {
+      // There's still work remaining. Request another callback.
+      ensureHostCallbackIsScheduled(firstCallbackNode);
+    } else {
+      isHostCallbackScheduled = false;
+    }
+  }
+}
+
+function unstable_scheduleWork(callback, options) {
+  var currentTime = exports.unstable_now();
+
+  var timesOutAt;
+  if (options !== undefined && options !== null && options.timeout !== null && options.timeout !== undefined) {
+    // Check for an explicit timeout
+    timesOutAt = currentTime + options.timeout;
+  } else {
+    // Compute an absolute timeout using the default constant.
+    timesOutAt = currentTime + DEFERRED_TIMEOUT;
+  }
+
+  var newNode = {
+    callback: callback,
+    timesOutAt: timesOutAt,
+    next: null,
+    previous: null
+  };
+
+  // Insert the new callback into the list, sorted by its timeout.
+  if (firstCallbackNode === null) {
+    // This is the first callback in the list.
+    firstCallbackNode = newNode.next = newNode.previous = newNode;
+    ensureHostCallbackIsScheduled(firstCallbackNode);
+  } else {
+    var next = null;
+    var node = firstCallbackNode;
+    do {
+      if (node.timesOutAt > timesOutAt) {
+        // The new callback times out before this one.
+        next = node;
+        break;
+      }
+      node = node.next;
+    } while (node !== firstCallbackNode);
+
+    if (next === null) {
+      // No callback with a later timeout was found, which means the new
+      // callback has the latest timeout in the list.
+      next = firstCallbackNode;
+    } else if (next === firstCallbackNode) {
+      // The new callback has the earliest timeout in the entire list.
+      firstCallbackNode = newNode;
+      ensureHostCallbackIsScheduled(firstCallbackNode);
+    }
+
+    var previous = next.previous;
+    previous.next = next.previous = newNode;
+    newNode.next = next;
+    newNode.previous = previous;
+  }
+
+  return newNode;
+}
+
+function unstable_cancelScheduledWork(callbackNode) {
+  var next = callbackNode.next;
+  if (next === null) {
+    // Already cancelled.
+    return;
+  }
+
+  if (next === callbackNode) {
+    // This is the only scheduled callback. Clear the list.
+    firstCallbackNode = null;
+  } else {
+    // Remove the callback from its position in the list.
+    if (callbackNode === firstCallbackNode) {
+      firstCallbackNode = next;
+    }
+    var previous = callbackNode.previous;
+    previous.next = next;
+    next.previous = previous;
+  }
+
+  callbackNode.next = callbackNode.previous = null;
+}
+
+// The remaining code is essentially a polyfill for requestIdleCallback. It
+// works by scheduling a requestAnimationFrame, storing the time for the start
+// of the frame, then scheduling a postMessage which gets scheduled after paint.
+// Within the postMessage handler do as much work as possible until time + frame
+// rate. By separating the idle call into a separate event tick we ensure that
 // layout, paint and other browser work is counted against the available time.
 // The frame rate is dynamically adjusted.
 
 // We capture a local reference to any global, in case it gets polyfilled after
-// this module is initially evaluated.
-// We want to be using a consistent implementation.
+// this module is initially evaluated. We want to be using a
+// consistent implementation.
 var localDate = Date;
 
-// This initialization code may run even on server environments
-// if a component just imports ReactDOM (e.g. for findDOMNode).
-// Some environments might not have setTimeout or clearTimeout.
-// However, we always expect them to be defined on the client.
-// https://github.com/facebook/react/pull/13088
+// This initialization code may run even on server environments if a component
+// just imports ReactDOM (e.g. for findDOMNode). Some environments might not
+// have setTimeout or clearTimeout. However, we always expect them to be defined
+// on the client. https://github.com/facebook/react/pull/13088
 var localSetTimeout = typeof setTimeout === 'function' ? setTimeout : undefined;
 var localClearTimeout = typeof clearTimeout === 'function' ? clearTimeout : undefined;
 
-// We don't expect either of these to necessarily be defined,
-// but we will error later if they are missing on the client.
+// We don't expect either of these to necessarily be defined, but we will error
+// later if they are missing on the client.
 var localRequestAnimationFrame = typeof requestAnimationFrame === 'function' ? requestAnimationFrame : undefined;
 var localCancelAnimationFrame = typeof cancelAnimationFrame === 'function' ? cancelAnimationFrame : undefined;
 
-var hasNativePerformanceNow = typeof performance === 'object' && typeof performance.now === 'function';
+// requestAnimationFrame does not run when the tab is in the background. If
+// we're backgrounded we prefer for that work to happen so that the page
+// continues to load in the background. So we also schedule a 'setTimeout' as
+// a fallback.
+// TODO: Need a better heuristic for backgrounded work.
+var ANIMATION_FRAME_TIMEOUT = 100;
+var rAFID;
+var rAFTimeoutID;
+var requestAnimationFrameWithTimeout = function (callback) {
+  // schedule rAF and also a setTimeout
+  rAFID = localRequestAnimationFrame(function (timestamp) {
+    // cancel the setTimeout
+    localClearTimeout(rAFTimeoutID);
+    callback(timestamp);
+  });
+  rAFTimeoutID = localSetTimeout(function () {
+    // cancel the requestAnimationFrame
+    localCancelAnimationFrame(rAFID);
+    callback(exports.unstable_now());
+  }, ANIMATION_FRAME_TIMEOUT);
+};
 
-exports.unstable_now = void 0;
 if (hasNativePerformanceNow) {
   var Performance = performance;
   exports.unstable_now = function () {
@@ -8566,80 +8788,46 @@ if (hasNativePerformanceNow) {
   };
 }
 
-exports.unstable_scheduleWork = void 0;
-exports.unstable_cancelScheduledWork = void 0;
+var requestCallback;
+var cancelCallback;
+var getFrameDeadline;
 
-if (!canUseDOM) {
-  var timeoutIds = new Map();
-
-  exports.unstable_scheduleWork = function (callback, options) {
-    // keeping return type consistent
-    var callbackConfig = {
-      scheduledCallback: callback,
-      timeoutTime: 0,
-      next: null,
-      prev: null
-    };
-    var timeoutId = localSetTimeout(function () {
-      callback({
-        timeRemaining: function () {
-          return Infinity;
-        },
-
-        didTimeout: false
-      });
-    });
-    timeoutIds.set(callback, timeoutId);
-    return callbackConfig;
+if (typeof window === 'undefined') {
+  // If this accidentally gets imported in a non-browser environment, fallback
+  // to a naive implementation.
+  var timeoutID = -1;
+  requestCallback = function (callback, absoluteTimeout) {
+    timeoutID = setTimeout(callback, 0, true);
   };
-  exports.unstable_cancelScheduledWork = function (callbackId) {
-    var callback = callbackId.scheduledCallback;
-    var timeoutId = timeoutIds.get(callback);
-    timeoutIds.delete(callbackId);
-    localClearTimeout(timeoutId);
+  cancelCallback = function () {
+    clearTimeout(timeoutID);
   };
+  getFrameDeadline = function () {
+    return 0;
+  };
+} else if (window._schedMock) {
+  // Dynamic injection, only for testing purposes.
+  var impl = window._schedMock;
+  requestCallback = impl[0];
+  cancelCallback = impl[1];
+  getFrameDeadline = impl[2];
 } else {
-  {
-    if (typeof console !== 'undefined') {
-      if (typeof localRequestAnimationFrame !== 'function') {
-        console.error("This browser doesn't support requestAnimationFrame. " + 'Make sure that you load a ' + 'polyfill in older browsers. https://fb.me/react-polyfills');
-      }
-      if (typeof localCancelAnimationFrame !== 'function') {
-        console.error("This browser doesn't support cancelAnimationFrame. " + 'Make sure that you load a ' + 'polyfill in older browsers. https://fb.me/react-polyfills');
-      }
+  if (typeof console !== 'undefined') {
+    if (typeof localRequestAnimationFrame !== 'function') {
+      console.error("This browser doesn't support requestAnimationFrame. " + 'Make sure that you load a ' + 'polyfill in older browsers. https://fb.me/react-polyfills');
+    }
+    if (typeof localCancelAnimationFrame !== 'function') {
+      console.error("This browser doesn't support cancelAnimationFrame. " + 'Make sure that you load a ' + 'polyfill in older browsers. https://fb.me/react-polyfills');
     }
   }
 
-  var headOfPendingCallbacksLinkedList = null;
-  var tailOfPendingCallbacksLinkedList = null;
-
-  // We track what the next soonest timeoutTime is, to be able to quickly tell
-  // if none of the scheduled callbacks have timed out.
-  var nextSoonestTimeoutTime = -1;
-
+  var scheduledCallback = null;
   var isIdleScheduled = false;
+  var timeoutTime = -1;
+
   var isAnimationFrameScheduled = false;
 
-  // requestAnimationFrame does not run when the tab is in the background.
-  // if we're backgrounded we prefer for that work to happen so that the page
-  // continues	to load in the background.
-  // so we also schedule a 'setTimeout' as a fallback.
-  var animationFrameTimeout = 100;
-  var rafID = void 0;
-  var timeoutID = void 0;
-  var scheduleAnimationFrameWithFallbackSupport = function (callback) {
-    // schedule rAF and also a setTimeout
-    rafID = localRequestAnimationFrame(function (timestamp) {
-      // cancel the setTimeout
-      localClearTimeout(timeoutID);
-      callback(timestamp);
-    });
-    timeoutID = localSetTimeout(function () {
-      // cancel the requestAnimationFrame
-      localCancelAnimationFrame(rafID);
-      callback(exports.unstable_now());
-    }, animationFrameTimeout);
-  };
+  var isPerformingIdleWork = false;
 
   var frameDeadline = 0;
   // We start out assuming that we run at 30fps but then the heuristic tracking
@@ -8648,93 +8836,8 @@ if (!canUseDOM) {
   var previousFrameTime = 33;
   var activeFrameTime = 33;
 
-  var frameDeadlineObject = {
-    didTimeout: false,
-    timeRemaining: function () {
-      var remaining = frameDeadline - exports.unstable_now();
-      return remaining > 0 ? remaining : 0;
-    }
-  };
-
-  /**
-   * Handles the case where a callback errors:
-   * - don't catch the error, because this changes debugging behavior
-   * - do start a new postMessage callback, to call any remaining callbacks,
-   * - but only if there is an error, so there is not extra overhead.
-   */
-  var callUnsafely = function (callbackConfig, arg) {
-    var callback = callbackConfig.scheduledCallback;
-    var finishedCalling = false;
-    try {
-      callback(arg);
-      finishedCalling = true;
-    } finally {
-      // always remove it from linked list
-      exports.unstable_cancelScheduledWork(callbackConfig);
-
-      if (!finishedCalling) {
-        // an error must have been thrown
-        isIdleScheduled = true;
-        window.postMessage(messageKey, '*');
-      }
-    }
-  };
-
-  /**
-   * Checks for timed out callbacks, runs them, and then checks again to see if
-   * any more have timed out.
-   * Keeps doing this until there are none which have currently timed out.
-   */
-  var callTimedOutCallbacks = function () {
-    if (headOfPendingCallbacksLinkedList === null) {
-      return;
-    }
-
-    var currentTime = exports.unstable_now();
-    // TODO: this would be more efficient if deferred callbacks are stored in
-    // min heap.
-    // Or in a linked list with links for both timeoutTime order and insertion
-    // order.
-    // For now an easy compromise is the current approach:
-    // Keep a pointer to the soonest timeoutTime, and check that first.
-    // If it has not expired, we can skip traversing the whole list.
-    // If it has expired, then we step through all the callbacks.
-    if (nextSoonestTimeoutTime === -1 || nextSoonestTimeoutTime > currentTime) {
-      // We know that none of them have timed out yet.
-      return;
-    }
-    // NOTE: we intentionally wait to update the nextSoonestTimeoutTime until
-    // after successfully calling any timed out callbacks.
-    // If a timed out callback throws an error, we could get stuck in a state
-    // where the nextSoonestTimeoutTime was set wrong.
-    var updatedNextSoonestTimeoutTime = -1; // we will update nextSoonestTimeoutTime below
-    var timedOutCallbacks = [];
-
-    // iterate once to find timed out callbacks and find nextSoonestTimeoutTime
-    var currentCallbackConfig = headOfPendingCallbacksLinkedList;
-    while (currentCallbackConfig !== null) {
-      var _timeoutTime = currentCallbackConfig.timeoutTime;
-      if (_timeoutTime !== -1 && _timeoutTime <= currentTime) {
-        // it has timed out!
-        timedOutCallbacks.push(currentCallbackConfig);
-      } else {
-        if (_timeoutTime !== -1 && (updatedNextSoonestTimeoutTime === -1 || _timeoutTime < updatedNextSoonestTimeoutTime)) {
-          updatedNextSoonestTimeoutTime = _timeoutTime;
-        }
-      }
-      currentCallbackConfig = currentCallbackConfig.next;
-    }
-
-    if (timedOutCallbacks.length > 0) {
-      frameDeadlineObject.didTimeout = true;
-      for (var i = 0, len = timedOutCallbacks.length; i < len; i++) {
-        callUnsafely(timedOutCallbacks[i], frameDeadlineObject);
-      }
-    }
-
-    // NOTE: we intentionally wait to update the nextSoonestTimeoutTime until
-    // after successfully calling any timed out callbacks.
-    nextSoonestTimeoutTime = updatedNextSoonestTimeoutTime;
+  getFrameDeadline = function () {
+    return frameDeadline;
   };
 
   // We use the postMessage trick to defer idle work until after the repaint.
@@ -8743,29 +8846,40 @@ if (!canUseDOM) {
     if (event.source !== window || event.data !== messageKey) {
       return;
     }
+
     isIdleScheduled = false;
 
-    if (headOfPendingCallbacksLinkedList === null) {
-      return;
-    }
-
-    // First call anything which has timed out, until we have caught up.
-    callTimedOutCallbacks();
-
     var currentTime = exports.unstable_now();
-    // Next, as long as we have idle time, try calling more callbacks.
-    while (frameDeadline - currentTime > 0 && headOfPendingCallbacksLinkedList !== null) {
-      var latestCallbackConfig = headOfPendingCallbacksLinkedList;
-      frameDeadlineObject.didTimeout = false;
-      // callUnsafely will remove it from the head of the linked list
-      callUnsafely(latestCallbackConfig, frameDeadlineObject);
-      currentTime = exports.unstable_now();
+
+    var didTimeout = false;
+    if (frameDeadline - currentTime <= 0) {
+      // There's no time left in this idle period. Check if the callback has
+      // a timeout and whether it's been exceeded.
+      if (timeoutTime !== -1 && timeoutTime <= currentTime) {
+        // Exceeded the timeout. Invoke the callback even though there's no
+        // time left.
+        didTimeout = true;
+      } else {
+        // No timeout.
+        if (!isAnimationFrameScheduled) {
+          // Schedule another animation callback so we retry later.
+          isAnimationFrameScheduled = true;
+          requestAnimationFrameWithTimeout(animationTick);
+        }
+        // Exit without invoking the callback.
+        return;
+      }
     }
-    if (headOfPendingCallbacksLinkedList !== null) {
-      if (!isAnimationFrameScheduled) {
-        // Schedule another animation callback so we retry later.
-        isAnimationFrameScheduled = true;
-        scheduleAnimationFrameWithFallbackSupport(animationTick);
+
+    timeoutTime = -1;
+    var callback = scheduledCallback;
+    scheduledCallback = null;
+    if (callback !== null) {
+      isPerformingIdleWork = true;
+      try {
+        callback(didTimeout);
+      } finally {
+        isPerformingIdleWork = false;
       }
     }
   };
@@ -8800,111 +8914,32 @@ if (!canUseDOM) {
     }
   };
 
-  exports.unstable_scheduleWork = function (callback, options) /* CallbackConfigType */{
-    var timeoutTime = -1;
-    if (options != null && typeof options.timeout === 'number') {
-      timeoutTime = exports.unstable_now() + options.timeout;
-    }
-    if (nextSoonestTimeoutTime === -1 || timeoutTime !== -1 && timeoutTime < nextSoonestTimeoutTime) {
-      nextSoonestTimeoutTime = timeoutTime;
-    }
-
-    var scheduledCallbackConfig = {
-      scheduledCallback: callback,
-      timeoutTime: timeoutTime,
-      prev: null,
-      next: null
-    };
-    if (headOfPendingCallbacksLinkedList === null) {
-      // Make this callback the head and tail of our list
-      headOfPendingCallbacksLinkedList = scheduledCallbackConfig;
-      tailOfPendingCallbacksLinkedList = scheduledCallbackConfig;
-    } else {
-      // Add latest callback as the new tail of the list
-      scheduledCallbackConfig.prev = tailOfPendingCallbacksLinkedList;
-      // renaming for clarity
-      var oldTailOfPendingCallbacksLinkedList = tailOfPendingCallbacksLinkedList;
-      if (oldTailOfPendingCallbacksLinkedList !== null) {
-        oldTailOfPendingCallbacksLinkedList.next = scheduledCallbackConfig;
-      }
-      tailOfPendingCallbacksLinkedList = scheduledCallbackConfig;
-    }
-
-    if (!isAnimationFrameScheduled) {
+  requestCallback = function (callback, absoluteTimeout) {
+    scheduledCallback = callback;
+    timeoutTime = absoluteTimeout;
+    if (isPerformingIdleWork) {
+      // If we're already performing idle work, an error must have been thrown.
+      // Don't wait for the next frame. Continue working ASAP, in a new event.
+      window.postMessage(messageKey, '*');
+    } else if (!isAnimationFrameScheduled) {
       // If rAF didn't already schedule one, we need to schedule a frame.
       // TODO: If this rAF doesn't materialize because the browser throttles, we
-      // might want to still have setTimeout trigger scheduleWork as a backup to ensure
+      // might want to still have setTimeout trigger rIC as a backup to ensure
       // that we keep performing work.
       isAnimationFrameScheduled = true;
-      scheduleAnimationFrameWithFallbackSupport(animationTick);
+      requestAnimationFrameWithTimeout(animationTick);
     }
-    return scheduledCallbackConfig;
   };
 
-  exports.unstable_cancelScheduledWork = function (callbackConfig /* CallbackConfigType */
-  ) {
-    if (callbackConfig.prev === null && headOfPendingCallbacksLinkedList !== callbackConfig) {
-      // this callbackConfig has already been cancelled.
-      // cancelScheduledWork should be idempotent, a no-op after first call.
-      return;
-    }
-
-    /**
-     * There are four possible cases:
-     * - Head/nodeToRemove/Tail -> null
-     *   In this case we set Head and Tail to null.
-     * - Head -> ... middle nodes... -> Tail/nodeToRemove
-     *   In this case we point the middle.next to null and put middle as the new
-     *   Tail.
-     * - Head/nodeToRemove -> ...middle nodes... -> Tail
-     *   In this case we point the middle.prev at null and move the Head to
-     *   middle.
-     * - Head -> ... ?some nodes ... -> nodeToRemove -> ... ?some nodes ... -> Tail
-     *   In this case we point the Head.next to the Tail and the Tail.prev to
-     *   the Head.
-     */
-    var next = callbackConfig.next;
-    var prev = callbackConfig.prev;
-    callbackConfig.next = null;
-    callbackConfig.prev = null;
-    if (next !== null) {
-      // we have a next
-
-      if (prev !== null) {
-        // we have a prev
-
-        // callbackConfig is somewhere in the middle of a list of 3 or more nodes.
-        prev.next = next;
-        next.prev = prev;
-        return;
-      } else {
-        // there is a next but not a previous one;
-        // callbackConfig is the head of a list of 2 or more other nodes.
-        next.prev = null;
-        headOfPendingCallbacksLinkedList = next;
-        return;
-      }
-    } else {
-      // there is no next callback config; this must the tail of the list
-
-      if (prev !== null) {
-        // we have a prev
-
-        // callbackConfig is the tail of a list of 2 or more other nodes.
-        prev.next = null;
-        tailOfPendingCallbacksLinkedList = prev;
-        return;
-      } else {
-        // there is no previous callback config;
-        // callbackConfig is the only thing in the linked list,
-        // so both head and tail point to it.
-        headOfPendingCallbacksLinkedList = null;
-        tailOfPendingCallbacksLinkedList = null;
-        return;
-      }
-    }
+  cancelCallback = function () {
+    scheduledCallback = null;
+    isIdleScheduled = false;
+    timeoutTime = -1;
   };
 }
+
+exports.unstable_scheduleWork = unstable_scheduleWork;
+exports.unstable_cancelScheduledWork = unstable_cancelScheduledWork;
   })();
 }
 
@@ -8915,7 +8950,7 @@ if (!canUseDOM) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/** @license React v16.5.1
+/* WEBPACK VAR INJECTION */(function(process) {/** @license React v16.5.2
  * react-dom.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -8936,7 +8971,11 @@ var React = __webpack_require__(2);
 var _assign = __webpack_require__(5);
 var checkPropTypes = __webpack_require__(11);
 var schedule = __webpack_require__(21);
+<<<<<<< HEAD
 var tracking = __webpack_require__(49);
+=======
+var tracing = __webpack_require__(299);
+>>>>>>> e30bf7f8eaed4824c8b5c65da31f5fa422a1c63a
 
 /**
  * Use invariant() to assert state which your program assumes to be true.
@@ -12095,8 +12134,8 @@ var warnAboutLegacyContextAPI = false;
 // Gather advanced timing metrics for Profiler subtrees.
 var enableProfilerTimer = true;
 
-// Track which interactions trigger each commit.
-var enableSchedulerTracking = true;
+// Trace which interactions trigger each commit.
+var enableSchedulerTracing = true;
 
 // Only used in www builds.
 
@@ -14211,7 +14250,7 @@ function getModernOffsetsFromPoints(outerNode, anchorNode, anchorOffset, focusNo
  */
 function setOffsets(node, offsets) {
   var doc = node.ownerDocument || document;
-  var win = doc ? doc.defaultView : window;
+  var win = doc && doc.defaultView || window;
   var selection = win.getSelection();
   var length = node.textContent.length;
   var start = Math.min(offsets.start, length);
@@ -14895,6 +14934,7 @@ function initWrapperState$2(element, props) {
 function updateWrapper$1(element, props) {
   var node = element;
   var value = getToStringValue(props.value);
+  var defaultValue = getToStringValue(props.defaultValue);
   if (value != null) {
     // Cast `value` to a string to ensure the value is set correctly. While
     // browsers typically do this as necessary, jsdom doesn't.
@@ -14903,12 +14943,12 @@ function updateWrapper$1(element, props) {
     if (newValue !== node.value) {
       node.value = newValue;
     }
-    if (props.defaultValue == null) {
+    if (props.defaultValue == null && node.defaultValue !== newValue) {
       node.defaultValue = newValue;
     }
   }
-  if (props.defaultValue != null) {
-    node.defaultValue = toString(getToStringValue(props.defaultValue));
+  if (defaultValue != null) {
+    node.defaultValue = toString(defaultValue);
   }
 }
 
@@ -18993,17 +19033,17 @@ function assignFiberPropertiesInDEV(target, source) {
 // TODO: This should be lifted into the renderer.
 
 
-// The following attributes are only used by interaction tracking builds.
+// The following attributes are only used by interaction tracing builds.
 // They enable interactions to be associated with their async work,
 // And expose interaction metadata to the React DevTools Profiler plugin.
-// Note that these attributes are only defined when the enableSchedulerTracking flag is enabled.
+// Note that these attributes are only defined when the enableSchedulerTracing flag is enabled.
 
 
 // Exported FiberRoot type includes all properties,
 // To avoid requiring potentially error-prone :any casts throughout the project.
-// Profiling properties are only safe to access in profiling builds (when enableSchedulerTracking is true).
+// Profiling properties are only safe to access in profiling builds (when enableSchedulerTracing is true).
 // The types are defined separately within this file to ensure they stay in sync.
-// (We don't have to use an inline :any cast when enableSchedulerTracking is disabled.)
+// (We don't have to use an inline :any cast when enableSchedulerTracing is disabled.)
 
 /* eslint-enable no-use-before-define */
 
@@ -19013,7 +19053,7 @@ function createFiberRoot(containerInfo, isAsync, hydrate) {
   var uninitializedFiber = createHostRootFiber(isAsync);
 
   var root = void 0;
-  if (enableSchedulerTracking) {
+  if (enableSchedulerTracing) {
     root = {
       current: uninitializedFiber,
       containerInfo: containerInfo,
@@ -19038,7 +19078,7 @@ function createFiberRoot(containerInfo, isAsync, hydrate) {
       firstBatch: null,
       nextScheduledRoot: null,
 
-      interactionThreadID: tracking.unstable_getThreadID(),
+      interactionThreadID: tracing.unstable_getThreadID(),
       memoizedInteractions: new Set(),
       pendingInteractionMap: new Map()
     };
@@ -19072,8 +19112,8 @@ function createFiberRoot(containerInfo, isAsync, hydrate) {
   uninitializedFiber.stateNode = root;
 
   // The reason for the way the Flow types are structured in this file,
-  // Is to avoid needing :any casts everywhere interaction tracking fields are used.
-  // Unfortunately that requires an :any cast for non-interaction tracking capable builds.
+  // Is to avoid needing :any casts everywhere interaction tracing fields are used.
+  // Unfortunately that requires an :any cast for non-interaction tracing capable builds.
   // $FlowFixMe Remove this :any cast and replace it with something better.
   return root;
 }
@@ -23669,7 +23709,7 @@ function commitLifeCycles(finishedRoot, current$$1, finishedWork, committedExpir
         if (enableProfilerTimer) {
           var onRender = finishedWork.memoizedProps.onRender;
 
-          if (enableSchedulerTracking) {
+          if (enableSchedulerTracing) {
             onRender(finishedWork.memoizedProps.id, current$$1 === null ? 'mount' : 'update', finishedWork.actualDuration, finishedWork.treeBaseDuration, finishedWork.actualStartTime, getCommitTime(), finishedRoot.memoizedInteractions);
           } else {
             onRender(finishedWork.memoizedProps.id, current$$1 === null ? 'mount' : 'update', finishedWork.actualDuration, finishedWork.treeBaseDuration, finishedWork.actualStartTime, getCommitTime());
@@ -24525,10 +24565,10 @@ var didWarnSetStateChildContext = void 0;
 var warnAboutUpdateOnUnmounted = void 0;
 var warnAboutInvalidUpdates = void 0;
 
-if (enableSchedulerTracking) {
+if (enableSchedulerTracing) {
   // Provide explicit error message when production+profiling bundle of e.g. react-dom
-  // is used with production (non-profiling) bundle of schedule/tracking
-  !(tracking.__interactionsRef != null && tracking.__interactionsRef.current != null) ? invariant(false, 'It is not supported to run the profiling version of a renderer (for example, `react-dom/profiling`) without also replacing the `schedule/tracking` module with `schedule/tracking-profiling`. Your bundler might have a setting for aliasing both modules. Learn more at http://fb.me/react-profiling') : void 0;
+  // is used with production (non-profiling) bundle of schedule/tracing
+  !(tracing.__interactionsRef != null && tracing.__interactionsRef.current != null) ? invariant(false, 'It is not supported to run the profiling version of a renderer (for example, `react-dom/profiling`) without also replacing the `schedule/tracing` module with `schedule/tracing-profiling`. Your bundler might have a setting for aliasing both modules. Learn more at http://fb.me/react-profiling') : void 0;
 }
 
 {
@@ -24869,12 +24909,12 @@ function commitRoot(root, finishedWork) {
   markCommittedPriorityLevels(root, earliestRemainingTimeBeforeCommit);
 
   var prevInteractions = null;
-  var committedInteractions = enableSchedulerTracking ? [] : null;
-  if (enableSchedulerTracking) {
+  var committedInteractions = enableSchedulerTracing ? [] : null;
+  if (enableSchedulerTracing) {
     // Restore any pending interactions at this point,
     // So that cascading work triggered during the render phase will be accounted for.
-    prevInteractions = tracking.__interactionsRef.current;
-    tracking.__interactionsRef.current = root.memoizedInteractions;
+    prevInteractions = tracing.__interactionsRef.current;
+    tracing.__interactionsRef.current = root.memoizedInteractions;
 
     // We are potentially finished with the current batch of interactions.
     // So we should clear them out of the pending interaction map.
@@ -25022,13 +25062,13 @@ function commitRoot(root, finishedWork) {
   }
   onCommit(root, earliestRemainingTimeAfterCommit);
 
-  if (enableSchedulerTracking) {
-    tracking.__interactionsRef.current = prevInteractions;
+  if (enableSchedulerTracing) {
+    tracing.__interactionsRef.current = prevInteractions;
 
     var subscriber = void 0;
 
     try {
-      subscriber = tracking.__subscriberRef.current;
+      subscriber = tracing.__subscriberRef.current;
       if (subscriber !== null && root.memoizedInteractions.size > 0) {
         var threadID = computeThreadID(committedExpirationTime, root.interactionThreadID);
         subscriber.onWorkStopped(root.memoizedInteractions, threadID);
@@ -25385,11 +25425,11 @@ function renderRoot(root, isYieldy, isExpired) {
   var expirationTime = root.nextExpirationTimeToWorkOn;
 
   var prevInteractions = null;
-  if (enableSchedulerTracking) {
-    // We're about to start new tracked work.
+  if (enableSchedulerTracing) {
+    // We're about to start new traced work.
     // Restore pending interactions so cascading work triggered during the render phase will be accounted for.
-    prevInteractions = tracking.__interactionsRef.current;
-    tracking.__interactionsRef.current = root.memoizedInteractions;
+    prevInteractions = tracing.__interactionsRef.current;
+    tracing.__interactionsRef.current = root.memoizedInteractions;
   }
 
   // Check if we're starting from a fresh stack, or if we're resuming from
@@ -25402,7 +25442,7 @@ function renderRoot(root, isYieldy, isExpired) {
     nextUnitOfWork = createWorkInProgress(nextRoot.current, null, nextRenderExpirationTime);
     root.pendingCommitExpirationTime = NoWork;
 
-    if (enableSchedulerTracking) {
+    if (enableSchedulerTracing) {
       // Determine which interactions this batch of work currently includes,
       // So that we can accurately attribute time spent working on it,
       var interactions = new Set();
@@ -25421,13 +25461,13 @@ function renderRoot(root, isYieldy, isExpired) {
       root.memoizedInteractions = interactions;
 
       if (interactions.size > 0) {
-        var subscriber = tracking.__subscriberRef.current;
+        var subscriber = tracing.__subscriberRef.current;
         if (subscriber !== null) {
           var threadID = computeThreadID(expirationTime, root.interactionThreadID);
           try {
             subscriber.onWorkStarted(interactions, threadID);
           } catch (error) {
-            // Work thrown by an interaction tracking subscriber should be rethrown,
+            // Work thrown by an interaction tracing subscriber should be rethrown,
             // But only once it's safe (to avoid leaveing the scheduler in an invalid state).
             // Store the error for now and we'll re-throw in finishRendering().
             if (!hasUnhandledError) {
@@ -25490,9 +25530,9 @@ function renderRoot(root, isYieldy, isExpired) {
     break;
   } while (true);
 
-  if (enableSchedulerTracking) {
-    // Tracked work is done for now; restore the previous interactions.
-    tracking.__interactionsRef.current = prevInteractions;
+  if (enableSchedulerTracing) {
+    // Traced work is done for now; restore the previous interactions.
+    tracing.__interactionsRef.current = prevInteractions;
   }
 
   // We're done performing work. Time to clean up.
@@ -25743,15 +25783,15 @@ function retrySuspendedRoot(root, fiber, suspendedTime) {
     scheduleWorkToRoot(fiber, retryTime);
     var rootExpirationTime = root.expirationTime;
     if (rootExpirationTime !== NoWork) {
-      if (enableSchedulerTracking) {
+      if (enableSchedulerTracing) {
         // Restore previous interactions so that new work is associated with them.
-        var prevInteractions = tracking.__interactionsRef.current;
-        tracking.__interactionsRef.current = root.memoizedInteractions;
+        var prevInteractions = tracing.__interactionsRef.current;
+        tracing.__interactionsRef.current = root.memoizedInteractions;
         // Because suspense timeouts do not decrement the interaction count,
         // Continued suspense work should also not increment the count.
         storeInteractionsForExpirationTime(root, rootExpirationTime, false);
         requestWork(root, rootExpirationTime);
-        tracking.__interactionsRef.current = prevInteractions;
+        tracing.__interactionsRef.current = prevInteractions;
       } else {
         requestWork(root, rootExpirationTime);
       }
@@ -25792,11 +25832,11 @@ function scheduleWorkToRoot(fiber, expirationTime) {
 }
 
 function storeInteractionsForExpirationTime(root, expirationTime, updateInteractionCounts) {
-  if (!enableSchedulerTracking) {
+  if (!enableSchedulerTracing) {
     return;
   }
 
-  var interactions = tracking.__interactionsRef.current;
+  var interactions = tracing.__interactionsRef.current;
   if (interactions.size > 0) {
     var pendingInteractions = root.pendingInteractionMap.get(expirationTime);
     if (pendingInteractions != null) {
@@ -25819,7 +25859,7 @@ function storeInteractionsForExpirationTime(root, expirationTime, updateInteract
       }
     }
 
-    var subscriber = tracking.__subscriberRef.current;
+    var subscriber = tracing.__subscriberRef.current;
     if (subscriber !== null) {
       var threadID = computeThreadID(expirationTime, root.interactionThreadID);
       subscriber.onWorkScheduled(interactions, threadID);
@@ -25845,7 +25885,7 @@ function scheduleWork(fiber, expirationTime) {
     return;
   }
 
-  if (enableSchedulerTracking) {
+  if (enableSchedulerTracing) {
     storeInteractionsForExpirationTime(root, expirationTime, true);
   }
 
@@ -25986,7 +26026,7 @@ function onTimeout(root, finishedWork, suspendedExpirationTime) {
     recomputeCurrentRendererTime();
     currentSchedulerTime = currentRendererTime;
 
-    if (enableSchedulerTracking) {
+    if (enableSchedulerTracing) {
       // Don't update pending interaction counts for suspense timeouts,
       // Because we know we still need to do more work in this case.
       suspenseDidTimeout = true;
@@ -26492,7 +26532,7 @@ function flushControlled(fn) {
   } finally {
     isBatchingUpdates = previousIsBatchingUpdates;
     if (!isBatchingUpdates && !isRendering) {
-      performWork(Sync, null);
+      performSyncWork();
     }
   }
 }
@@ -26669,7 +26709,7 @@ implementation) {
 
 // TODO: this is special because it gets imported during build.
 
-var ReactVersion = '16.5.1';
+var ReactVersion = '16.5.2';
 
 // TODO: This type is shared between the reconciler and ReactDOM, but will
 // eventually be lifted out to the renderer.
@@ -27177,473 +27217,9 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(50);
-} else {
-  module.exports = __webpack_require__(51);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/** @license React v16.5.1
- * schedule-tracking.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-Object.defineProperty(exports,"__esModule",{value:!0});var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unstable_clear=function(a){return a()};exports.unstable_getCurrent=function(){return null};exports.unstable_getThreadID=function(){return++b};exports.unstable_track=function(a,d,c){return c()};exports.unstable_wrap=function(a){return a};exports.unstable_subscribe=function(){};exports.unstable_unsubscribe=function(){};
-
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/** @license React v16.5.1
- * schedule-tracking.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-
-
-if (process.env.NODE_ENV !== "production") {
-  (function() {
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-// Exports ReactDOM.createRoot
-
-
-// Experimental error-boundary API that can recover from errors within a single
-// render phase
-
-// Suspense
-
-// Helps identify side effects in begin-phase lifecycle hooks and setState reducers:
-
-
-// In some cases, StrictMode should also double-render lifecycles.
-// This can be confusing for tests though,
-// And it can be bad for performance in production.
-// This feature flag can be used to control the behavior:
-
-
-// To preserve the "Pause on caught exceptions" behavior of the debugger, we
-// replay the begin phase of a failed component inside invokeGuardedCallback.
-
-
-// Warn about deprecated, async-unsafe lifecycles; relates to RFC #6:
-
-
-// Warn about legacy context API
-
-
-// Gather advanced timing metrics for Profiler subtrees.
-
-
-// Track which interactions trigger each commit.
-var enableSchedulerTracking = true;
-
-// Only used in www builds.
-
-
-// Only used in www builds.
-
-
-// React Fire: prevent the value and checked attributes from syncing
-// with their related DOM properties
-
-var DEFAULT_THREAD_ID = 0;
-
-// Counters used to generate unique IDs.
-var interactionIDCounter = 0;
-var threadIDCounter = 0;
-
-// Set of currently tracked interactions.
-// Interactions "stack"–
-// Meaning that newly tracked interactions are appended to the previously active set.
-// When an interaction goes out of scope, the previous set (if any) is restored.
-exports.__interactionsRef = null;
-
-// Listener(s) to notify when interactions begin and end.
-exports.__subscriberRef = null;
-
-if (enableSchedulerTracking) {
-  exports.__interactionsRef = {
-    current: new Set()
-  };
-  exports.__subscriberRef = {
-    current: null
-  };
-}
-
-function unstable_clear(callback) {
-  if (!enableSchedulerTracking) {
-    return callback();
-  }
-
-  var prevInteractions = exports.__interactionsRef.current;
-  exports.__interactionsRef.current = new Set();
-
-  try {
-    return callback();
-  } finally {
-    exports.__interactionsRef.current = prevInteractions;
-  }
-}
-
-function unstable_getCurrent() {
-  if (!enableSchedulerTracking) {
-    return null;
-  } else {
-    return exports.__interactionsRef.current;
-  }
-}
-
-function unstable_getThreadID() {
-  return ++threadIDCounter;
-}
-
-function unstable_track(name, timestamp, callback) {
-  var threadID = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : DEFAULT_THREAD_ID;
-
-  if (!enableSchedulerTracking) {
-    return callback();
-  }
-
-  var interaction = {
-    __count: 1,
-    id: interactionIDCounter++,
-    name: name,
-    timestamp: timestamp
-  };
-
-  var prevInteractions = exports.__interactionsRef.current;
-
-  // Tracked interactions should stack/accumulate.
-  // To do that, clone the current interactions.
-  // The previous set will be restored upon completion.
-  var interactions = new Set(prevInteractions);
-  interactions.add(interaction);
-  exports.__interactionsRef.current = interactions;
-
-  var subscriber = exports.__subscriberRef.current;
-  var returnValue = void 0;
-
-  try {
-    if (subscriber !== null) {
-      subscriber.onInteractionTracked(interaction);
-    }
-  } finally {
-    try {
-      if (subscriber !== null) {
-        subscriber.onWorkStarted(interactions, threadID);
-      }
-    } finally {
-      try {
-        returnValue = callback();
-      } finally {
-        exports.__interactionsRef.current = prevInteractions;
-
-        try {
-          if (subscriber !== null) {
-            subscriber.onWorkStopped(interactions, threadID);
-          }
-        } finally {
-          interaction.__count--;
-
-          // If no async work was scheduled for this interaction,
-          // Notify subscribers that it's completed.
-          if (subscriber !== null && interaction.__count === 0) {
-            subscriber.onInteractionScheduledWorkCompleted(interaction);
-          }
-        }
-      }
-    }
-  }
-
-  return returnValue;
-}
-
-function unstable_wrap(callback) {
-  var threadID = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : DEFAULT_THREAD_ID;
-
-  if (!enableSchedulerTracking) {
-    return callback;
-  }
-
-  var wrappedInteractions = exports.__interactionsRef.current;
-
-  var subscriber = exports.__subscriberRef.current;
-  if (subscriber !== null) {
-    subscriber.onWorkScheduled(wrappedInteractions, threadID);
-  }
-
-  // Update the pending async work count for the current interactions.
-  // Update after calling subscribers in case of error.
-  wrappedInteractions.forEach(function (interaction) {
-    interaction.__count++;
-  });
-
-  var hasRun = false;
-
-  function wrapped() {
-    var prevInteractions = exports.__interactionsRef.current;
-    exports.__interactionsRef.current = wrappedInteractions;
-
-    subscriber = exports.__subscriberRef.current;
-
-    try {
-      var returnValue = void 0;
-
-      try {
-        if (subscriber !== null) {
-          subscriber.onWorkStarted(wrappedInteractions, threadID);
-        }
-      } finally {
-        try {
-          returnValue = callback.apply(undefined, arguments);
-        } finally {
-          exports.__interactionsRef.current = prevInteractions;
-
-          if (subscriber !== null) {
-            subscriber.onWorkStopped(wrappedInteractions, threadID);
-          }
-        }
-      }
-
-      return returnValue;
-    } finally {
-      if (!hasRun) {
-        // We only expect a wrapped function to be executed once,
-        // But in the event that it's executed more than once–
-        // Only decrement the outstanding interaction counts once.
-        hasRun = true;
-
-        // Update pending async counts for all wrapped interactions.
-        // If this was the last scheduled async work for any of them,
-        // Mark them as completed.
-        wrappedInteractions.forEach(function (interaction) {
-          interaction.__count--;
-
-          if (subscriber !== null && interaction.__count === 0) {
-            subscriber.onInteractionScheduledWorkCompleted(interaction);
-          }
-        });
-      }
-    }
-  }
-
-  wrapped.cancel = function cancel() {
-    subscriber = exports.__subscriberRef.current;
-
-    try {
-      if (subscriber !== null) {
-        subscriber.onWorkCanceled(wrappedInteractions, threadID);
-      }
-    } finally {
-      // Update pending async counts for all wrapped interactions.
-      // If this was the last scheduled async work for any of them,
-      // Mark them as completed.
-      wrappedInteractions.forEach(function (interaction) {
-        interaction.__count--;
-
-        if (subscriber && interaction.__count === 0) {
-          subscriber.onInteractionScheduledWorkCompleted(interaction);
-        }
-      });
-    }
-  };
-
-  return wrapped;
-}
-
-var subscribers = null;
-if (enableSchedulerTracking) {
-  subscribers = new Set();
-}
-
-function unstable_subscribe(subscriber) {
-  if (enableSchedulerTracking) {
-    subscribers.add(subscriber);
-
-    if (subscribers.size === 1) {
-      exports.__subscriberRef.current = {
-        onInteractionScheduledWorkCompleted: onInteractionScheduledWorkCompleted,
-        onInteractionTracked: onInteractionTracked,
-        onWorkCanceled: onWorkCanceled,
-        onWorkScheduled: onWorkScheduled,
-        onWorkStarted: onWorkStarted,
-        onWorkStopped: onWorkStopped
-      };
-    }
-  }
-}
-
-function unstable_unsubscribe(subscriber) {
-  if (enableSchedulerTracking) {
-    subscribers.delete(subscriber);
-
-    if (subscribers.size === 0) {
-      exports.__subscriberRef.current = null;
-    }
-  }
-}
-
-function onInteractionTracked(interaction) {
-  var didCatchError = false;
-  var caughtError = null;
-
-  subscribers.forEach(function (subscriber) {
-    try {
-      subscriber.onInteractionTracked(interaction);
-    } catch (error) {
-      if (!didCatchError) {
-        didCatchError = true;
-        caughtError = error;
-      }
-    }
-  });
-
-  if (didCatchError) {
-    throw caughtError;
-  }
-}
-
-function onInteractionScheduledWorkCompleted(interaction) {
-  var didCatchError = false;
-  var caughtError = null;
-
-  subscribers.forEach(function (subscriber) {
-    try {
-      subscriber.onInteractionScheduledWorkCompleted(interaction);
-    } catch (error) {
-      if (!didCatchError) {
-        didCatchError = true;
-        caughtError = error;
-      }
-    }
-  });
-
-  if (didCatchError) {
-    throw caughtError;
-  }
-}
-
-function onWorkScheduled(interactions, threadID) {
-  var didCatchError = false;
-  var caughtError = null;
-
-  subscribers.forEach(function (subscriber) {
-    try {
-      subscriber.onWorkScheduled(interactions, threadID);
-    } catch (error) {
-      if (!didCatchError) {
-        didCatchError = true;
-        caughtError = error;
-      }
-    }
-  });
-
-  if (didCatchError) {
-    throw caughtError;
-  }
-}
-
-function onWorkStarted(interactions, threadID) {
-  var didCatchError = false;
-  var caughtError = null;
-
-  subscribers.forEach(function (subscriber) {
-    try {
-      subscriber.onWorkStarted(interactions, threadID);
-    } catch (error) {
-      if (!didCatchError) {
-        didCatchError = true;
-        caughtError = error;
-      }
-    }
-  });
-
-  if (didCatchError) {
-    throw caughtError;
-  }
-}
-
-function onWorkStopped(interactions, threadID) {
-  var didCatchError = false;
-  var caughtError = null;
-
-  subscribers.forEach(function (subscriber) {
-    try {
-      subscriber.onWorkStopped(interactions, threadID);
-    } catch (error) {
-      if (!didCatchError) {
-        didCatchError = true;
-        caughtError = error;
-      }
-    }
-  });
-
-  if (didCatchError) {
-    throw caughtError;
-  }
-}
-
-function onWorkCanceled(interactions, threadID) {
-  var didCatchError = false;
-  var caughtError = null;
-
-  subscribers.forEach(function (subscriber) {
-    try {
-      subscriber.onWorkCanceled(interactions, threadID);
-    } catch (error) {
-      if (!didCatchError) {
-        didCatchError = true;
-        caughtError = error;
-      }
-    }
-  });
-
-  if (didCatchError) {
-    throw caughtError;
-  }
-}
-
-exports.unstable_clear = unstable_clear;
-exports.unstable_getCurrent = unstable_getCurrent;
-exports.unstable_getThreadID = unstable_getThreadID;
-exports.unstable_track = unstable_track;
-exports.unstable_wrap = unstable_wrap;
-exports.unstable_subscribe = unstable_subscribe;
-exports.unstable_unsubscribe = unstable_unsubscribe;
-  })();
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
+/* 49 */,
+/* 50 */,
+/* 51 */,
 /* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -29573,8 +29149,8 @@ var App = function (_React$Component) {
       authentication: false
 
       // this.getComics = this.getComics.bind(this)
-    };_this.getArticles = _this.getArticles.bind(_this);
-    _this.getQuote = _this.getQuote.bind(_this);
+      // this.getArticles = this.getArticles.bind(this)
+    };_this.getQuote = _this.getQuote.bind(_this);
     _this.getQuoteNames = _this.getQuoteNames.bind(_this);
     // this.getAdvertising = this.getAdvertising.bind(this)
     _this.getAuthentication = _this.getAuthentication.bind(_this);
@@ -29592,7 +29168,7 @@ var App = function (_React$Component) {
     key: 'refresh',
     value: function refresh() {
       // this.getComics()
-      this.getArticles();
+      // this.getArticles()
       this.getQuote();
       this.getQuoteNames();
       // this.getAdvertising()
@@ -29607,25 +29183,23 @@ var App = function (_React$Component) {
     //   })
     // }
 
-  }, {
-    key: 'getArticles',
-    value: function getArticles() {
-      var _this2 = this;
+    // getArticles() {
+    //   getArticles()
+    //   .then(res => {
+    //     this.setState({
+    //       article: res.body,
 
-      (0, _FoxApiClient.getArticles)().then(function (res) {
-        _this2.setState({
-          article: res.body
+    //     })
+    //   })
+    // }
 
-        });
-      });
-    }
   }, {
     key: 'getQuote',
     value: function getQuote() {
-      var _this3 = this;
+      var _this2 = this;
 
       (0, _FoxApiClient.getQuote)().then(function (res) {
-        _this3.setState({
+        _this2.setState({
           quote: res.body
 
         });
@@ -29634,10 +29208,10 @@ var App = function (_React$Component) {
   }, {
     key: 'getQuoteNames',
     value: function getQuoteNames() {
-      var _this4 = this;
+      var _this3 = this;
 
       (0, _FoxApiClient.getQuoteNames)().then(function (res) {
-        _this4.setState({
+        _this3.setState({
           names: res.body
 
         });
@@ -29656,10 +29230,10 @@ var App = function (_React$Component) {
   }, {
     key: 'getAuthentication',
     value: function getAuthentication() {
-      var _this5 = this;
+      var _this4 = this;
 
       (0, _FoxApiClient.getAuthentication)().then(function (res) {
-        _this5.setState({
+        _this4.setState({
           authentication: res.body
         });
       });
@@ -29674,7 +29248,7 @@ var App = function (_React$Component) {
   }, {
     key: 'renderTheRest',
     value: function renderTheRest() {
-      var _this6 = this;
+      var _this5 = this;
 
       return _react2.default.createElement(
         'div',
@@ -29682,7 +29256,7 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
-              return _this6.refresh();
+              return _this5.refresh();
             } },
           'Refresh Page'
         ),
@@ -29790,6 +29364,7 @@ var ArticleWithFox = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.props.dispatch((0, _actions.fetchFoxImage)());
+      this.props.dispatch((0, _actions.fetchArticle)());
     }
   }, {
     key: 'render',
@@ -29820,7 +29395,10 @@ var ArticleWithFox = function (_React$Component) {
 }(_react2.default.Component);
 
 function mapStateToProps(state) {
-  return { foxImage: state.foxImage };
+  return {
+    foxImage: state.foxImage,
+    article: state.article
+  };
 }
 
 // const mapDispatchToProps = (dispatch) => {
@@ -37009,6 +36587,652 @@ function getAuthentication() {
   return _superagent2.default.get('/register');
 }
 
+<<<<<<< HEAD
+=======
+/***/ }),
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(300);
+} else {
+  module.exports = __webpack_require__(301);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 300 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/** @license React v16.5.2
+ * schedule-tracing.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+Object.defineProperty(exports,"__esModule",{value:!0});var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unstable_clear=function(a){return a()};exports.unstable_getCurrent=function(){return null};exports.unstable_getThreadID=function(){return++b};exports.unstable_trace=function(a,d,c){return c()};exports.unstable_wrap=function(a){return a};exports.unstable_subscribe=function(){};exports.unstable_unsubscribe=function(){};
+
+
+/***/ }),
+/* 301 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/** @license React v16.5.2
+ * schedule-tracing.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+if (process.env.NODE_ENV !== "production") {
+  (function() {
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+// Exports ReactDOM.createRoot
+
+
+// Experimental error-boundary API that can recover from errors within a single
+// render phase
+
+// Suspense
+
+// Helps identify side effects in begin-phase lifecycle hooks and setState reducers:
+
+
+// In some cases, StrictMode should also double-render lifecycles.
+// This can be confusing for tests though,
+// And it can be bad for performance in production.
+// This feature flag can be used to control the behavior:
+
+
+// To preserve the "Pause on caught exceptions" behavior of the debugger, we
+// replay the begin phase of a failed component inside invokeGuardedCallback.
+
+
+// Warn about deprecated, async-unsafe lifecycles; relates to RFC #6:
+
+
+// Warn about legacy context API
+
+
+// Gather advanced timing metrics for Profiler subtrees.
+
+
+// Trace which interactions trigger each commit.
+var enableSchedulerTracing = true;
+
+// Only used in www builds.
+
+
+// Only used in www builds.
+
+
+// React Fire: prevent the value and checked attributes from syncing
+// with their related DOM properties
+
+var DEFAULT_THREAD_ID = 0;
+
+// Counters used to generate unique IDs.
+var interactionIDCounter = 0;
+var threadIDCounter = 0;
+
+// Set of currently traced interactions.
+// Interactions "stack"–
+// Meaning that newly traced interactions are appended to the previously active set.
+// When an interaction goes out of scope, the previous set (if any) is restored.
+exports.__interactionsRef = null;
+
+// Listener(s) to notify when interactions begin and end.
+exports.__subscriberRef = null;
+
+if (enableSchedulerTracing) {
+  exports.__interactionsRef = {
+    current: new Set()
+  };
+  exports.__subscriberRef = {
+    current: null
+  };
+}
+
+function unstable_clear(callback) {
+  if (!enableSchedulerTracing) {
+    return callback();
+  }
+
+  var prevInteractions = exports.__interactionsRef.current;
+  exports.__interactionsRef.current = new Set();
+
+  try {
+    return callback();
+  } finally {
+    exports.__interactionsRef.current = prevInteractions;
+  }
+}
+
+function unstable_getCurrent() {
+  if (!enableSchedulerTracing) {
+    return null;
+  } else {
+    return exports.__interactionsRef.current;
+  }
+}
+
+function unstable_getThreadID() {
+  return ++threadIDCounter;
+}
+
+function unstable_trace(name, timestamp, callback) {
+  var threadID = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : DEFAULT_THREAD_ID;
+
+  if (!enableSchedulerTracing) {
+    return callback();
+  }
+
+  var interaction = {
+    __count: 1,
+    id: interactionIDCounter++,
+    name: name,
+    timestamp: timestamp
+  };
+
+  var prevInteractions = exports.__interactionsRef.current;
+
+  // Traced interactions should stack/accumulate.
+  // To do that, clone the current interactions.
+  // The previous set will be restored upon completion.
+  var interactions = new Set(prevInteractions);
+  interactions.add(interaction);
+  exports.__interactionsRef.current = interactions;
+
+  var subscriber = exports.__subscriberRef.current;
+  var returnValue = void 0;
+
+  try {
+    if (subscriber !== null) {
+      subscriber.onInteractionTraced(interaction);
+    }
+  } finally {
+    try {
+      if (subscriber !== null) {
+        subscriber.onWorkStarted(interactions, threadID);
+      }
+    } finally {
+      try {
+        returnValue = callback();
+      } finally {
+        exports.__interactionsRef.current = prevInteractions;
+
+        try {
+          if (subscriber !== null) {
+            subscriber.onWorkStopped(interactions, threadID);
+          }
+        } finally {
+          interaction.__count--;
+
+          // If no async work was scheduled for this interaction,
+          // Notify subscribers that it's completed.
+          if (subscriber !== null && interaction.__count === 0) {
+            subscriber.onInteractionScheduledWorkCompleted(interaction);
+          }
+        }
+      }
+    }
+  }
+
+  return returnValue;
+}
+
+function unstable_wrap(callback) {
+  var threadID = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : DEFAULT_THREAD_ID;
+
+  if (!enableSchedulerTracing) {
+    return callback;
+  }
+
+  var wrappedInteractions = exports.__interactionsRef.current;
+
+  var subscriber = exports.__subscriberRef.current;
+  if (subscriber !== null) {
+    subscriber.onWorkScheduled(wrappedInteractions, threadID);
+  }
+
+  // Update the pending async work count for the current interactions.
+  // Update after calling subscribers in case of error.
+  wrappedInteractions.forEach(function (interaction) {
+    interaction.__count++;
+  });
+
+  var hasRun = false;
+
+  function wrapped() {
+    var prevInteractions = exports.__interactionsRef.current;
+    exports.__interactionsRef.current = wrappedInteractions;
+
+    subscriber = exports.__subscriberRef.current;
+
+    try {
+      var returnValue = void 0;
+
+      try {
+        if (subscriber !== null) {
+          subscriber.onWorkStarted(wrappedInteractions, threadID);
+        }
+      } finally {
+        try {
+          returnValue = callback.apply(undefined, arguments);
+        } finally {
+          exports.__interactionsRef.current = prevInteractions;
+
+          if (subscriber !== null) {
+            subscriber.onWorkStopped(wrappedInteractions, threadID);
+          }
+        }
+      }
+
+      return returnValue;
+    } finally {
+      if (!hasRun) {
+        // We only expect a wrapped function to be executed once,
+        // But in the event that it's executed more than once–
+        // Only decrement the outstanding interaction counts once.
+        hasRun = true;
+
+        // Update pending async counts for all wrapped interactions.
+        // If this was the last scheduled async work for any of them,
+        // Mark them as completed.
+        wrappedInteractions.forEach(function (interaction) {
+          interaction.__count--;
+
+          if (subscriber !== null && interaction.__count === 0) {
+            subscriber.onInteractionScheduledWorkCompleted(interaction);
+          }
+        });
+      }
+    }
+  }
+
+  wrapped.cancel = function cancel() {
+    subscriber = exports.__subscriberRef.current;
+
+    try {
+      if (subscriber !== null) {
+        subscriber.onWorkCanceled(wrappedInteractions, threadID);
+      }
+    } finally {
+      // Update pending async counts for all wrapped interactions.
+      // If this was the last scheduled async work for any of them,
+      // Mark them as completed.
+      wrappedInteractions.forEach(function (interaction) {
+        interaction.__count--;
+
+        if (subscriber && interaction.__count === 0) {
+          subscriber.onInteractionScheduledWorkCompleted(interaction);
+        }
+      });
+    }
+  };
+
+  return wrapped;
+}
+
+var subscribers = null;
+if (enableSchedulerTracing) {
+  subscribers = new Set();
+}
+
+function unstable_subscribe(subscriber) {
+  if (enableSchedulerTracing) {
+    subscribers.add(subscriber);
+
+    if (subscribers.size === 1) {
+      exports.__subscriberRef.current = {
+        onInteractionScheduledWorkCompleted: onInteractionScheduledWorkCompleted,
+        onInteractionTraced: onInteractionTraced,
+        onWorkCanceled: onWorkCanceled,
+        onWorkScheduled: onWorkScheduled,
+        onWorkStarted: onWorkStarted,
+        onWorkStopped: onWorkStopped
+      };
+    }
+  }
+}
+
+function unstable_unsubscribe(subscriber) {
+  if (enableSchedulerTracing) {
+    subscribers.delete(subscriber);
+
+    if (subscribers.size === 0) {
+      exports.__subscriberRef.current = null;
+    }
+  }
+}
+
+function onInteractionTraced(interaction) {
+  var didCatchError = false;
+  var caughtError = null;
+
+  subscribers.forEach(function (subscriber) {
+    try {
+      subscriber.onInteractionTraced(interaction);
+    } catch (error) {
+      if (!didCatchError) {
+        didCatchError = true;
+        caughtError = error;
+      }
+    }
+  });
+
+  if (didCatchError) {
+    throw caughtError;
+  }
+}
+
+function onInteractionScheduledWorkCompleted(interaction) {
+  var didCatchError = false;
+  var caughtError = null;
+
+  subscribers.forEach(function (subscriber) {
+    try {
+      subscriber.onInteractionScheduledWorkCompleted(interaction);
+    } catch (error) {
+      if (!didCatchError) {
+        didCatchError = true;
+        caughtError = error;
+      }
+    }
+  });
+
+  if (didCatchError) {
+    throw caughtError;
+  }
+}
+
+function onWorkScheduled(interactions, threadID) {
+  var didCatchError = false;
+  var caughtError = null;
+
+  subscribers.forEach(function (subscriber) {
+    try {
+      subscriber.onWorkScheduled(interactions, threadID);
+    } catch (error) {
+      if (!didCatchError) {
+        didCatchError = true;
+        caughtError = error;
+      }
+    }
+  });
+
+  if (didCatchError) {
+    throw caughtError;
+  }
+}
+
+function onWorkStarted(interactions, threadID) {
+  var didCatchError = false;
+  var caughtError = null;
+
+  subscribers.forEach(function (subscriber) {
+    try {
+      subscriber.onWorkStarted(interactions, threadID);
+    } catch (error) {
+      if (!didCatchError) {
+        didCatchError = true;
+        caughtError = error;
+      }
+    }
+  });
+
+  if (didCatchError) {
+    throw caughtError;
+  }
+}
+
+function onWorkStopped(interactions, threadID) {
+  var didCatchError = false;
+  var caughtError = null;
+
+  subscribers.forEach(function (subscriber) {
+    try {
+      subscriber.onWorkStopped(interactions, threadID);
+    } catch (error) {
+      if (!didCatchError) {
+        didCatchError = true;
+        caughtError = error;
+      }
+    }
+  });
+
+  if (didCatchError) {
+    throw caughtError;
+  }
+}
+
+function onWorkCanceled(interactions, threadID) {
+  var didCatchError = false;
+  var caughtError = null;
+
+  subscribers.forEach(function (subscriber) {
+    try {
+      subscriber.onWorkCanceled(interactions, threadID);
+    } catch (error) {
+      if (!didCatchError) {
+        didCatchError = true;
+        caughtError = error;
+      }
+    }
+  });
+
+  if (didCatchError) {
+    throw caughtError;
+  }
+}
+
+exports.unstable_clear = unstable_clear;
+exports.unstable_getCurrent = unstable_getCurrent;
+exports.unstable_getThreadID = unstable_getThreadID;
+exports.unstable_trace = unstable_trace;
+exports.unstable_wrap = unstable_wrap;
+exports.unstable_subscribe = unstable_subscribe;
+exports.unstable_unsubscribe = unstable_unsubscribe;
+  })();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+>>>>>>> e30bf7f8eaed4824c8b5c65da31f5fa422a1c63a
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map
