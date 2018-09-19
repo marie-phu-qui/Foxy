@@ -8,7 +8,7 @@ import Login from './Login'
 import Secret from './Secret'
 
 
-import {getComics, getQuote, getArticles, getQuoteNames, getAuthentication} from '../FoxApi-client'
+import {getQuote, getQuoteNames, getAuthentication} from '../FoxApi-client'
 
 class App extends React.Component {
   constructor(props) {
@@ -24,11 +24,8 @@ class App extends React.Component {
       authentication:false
     }
 
-    // this.getComics = this.getComics.bind(this)
-    // this.getArticles = this.getArticles.bind(this)
     this.getQuote = this.getQuote.bind(this)
     this.getQuoteNames = this.getQuoteNames.bind(this)
-    // this.getAdvertising = this.getAdvertising.bind(this)
     this.getAuthentication = this.getAuthentication.bind(this)
     this.renderFoxVideo = this.renderFoxVideo.bind(this)
 
@@ -39,31 +36,9 @@ class App extends React.Component {
   }
 
   refresh(){
-    // this.getComics()
-    // this.getArticles()
     this.getQuote()
     this.getQuoteNames()
-    // this.getAdvertising()
   }
-
-  // getComics() {
-  //   getComics()
-  //   .then(res => {
-  //     this.setState({
-  //       comics: res.body
-  //     })
-  //   })
-  // }
-
-  // getArticles() {
-  //   getArticles()
-  //   .then(res => {
-  //     this.setState({
-  //       article: res.body,
-              
-  //     })
-  //   })
-  // }
 
   getQuote() {
     getQuote()
@@ -84,15 +59,6 @@ class App extends React.Component {
       })
     })
   }
-
-  // getAdvertising() {
-  //   getAdvertising()
-  //   .then(res => {
-  //     this.setState({
-  //       add: res.body
-  //     })
-  //   })
-  // }
 
   getAuthentication() {
     getAuthentication()

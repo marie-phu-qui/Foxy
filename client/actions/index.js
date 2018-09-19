@@ -53,8 +53,9 @@ export function fetchArticle () {
   return (dispatch) => {
     dispatch(requestDATA())
     return request
-      .get(`/article`)
+      .get(`/articles`)
       .then(res => {
+        console.log(res)
         dispatch(receiveARTICLE(res.body))
       })
       .catch(err => {
@@ -94,19 +95,14 @@ export const receiveCOMICS = (comics) => {
 }
 
 export function fetchCOMICS () {
-  console.log('hello2')
   return (dispatch) => {
-    console.log('hello3')
     dispatch(requestDATA())
-    console.log('hello4')
     return request
       .get(`/comics`)
       .then(res => {
-        console.log(res.body[0].comicImage)
         dispatch(receiveCOMICS(res.body[Math.floor(Math.random()*25)].comicImage))
       })
       .catch(err => {
-        console.log('HelloERR');        
         dispatch(showError(err.message))
       })
   }

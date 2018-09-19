@@ -62,7 +62,7 @@ server.get('/comics', (req, res) => {
   })
 })
 
-server.get('/articles/', (req, res) => {
+server.get('/articles', (req, res) => {
   db.getArticles()
   .then(articles => { 
      res.json(articles[Math.floor(Math.random()*23)].article)
