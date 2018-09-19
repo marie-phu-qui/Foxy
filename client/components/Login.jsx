@@ -38,8 +38,10 @@ class Login extends React.Component {
         <form onSubmit={(e)=> {
           e.preventDefault()
           this.handleSubmit()}}>
-          <button value="submit">I am new - be nice</button>
-          <button value="submit">I have been here before</button>
+          <div id = "register">
+          <button id = "signin" value="submit">I am new - be nice</button>
+          <button id = "login" value="submit">I have been here before</button>
+          </div>
         </form>
       </div>
           

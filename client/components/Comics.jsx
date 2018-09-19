@@ -3,12 +3,11 @@ import {connect} from 'react-redux'
 import {fetchCOMICS} from '../actions'
 
 const Comics = (props) => {
-  console.log(props)
   return (
   <div id='comics'>
     <h4>GARFIIIELD where are you?</h4>
-    {props.comics.length > 0 && <img id='garfields' src={props.comics}/>}
-      {/* [Math.floor(Math.random()*25)].comicImage}/>} */}
+    {console.log(props.comics)}
+    <img id='garfields' src={props.comics}/>
   </div>
   )
 }

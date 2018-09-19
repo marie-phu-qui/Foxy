@@ -4,11 +4,12 @@ import {fetchAD} from '../actions'
 
 
 const Advertising = ({ad}) => {
-
+console.log(ad)
+console.log({ad})
       return (
       <div>
         <h3>Desperate Advertising</h3>
-        {ad.length>0 ?  <p>{ad}</p> : console.log('empty')}
+        {<p>{ad}</p>}
         <button id ="ad" onClick={() => mapDispatchToProps()}>I am not interested</button>
       </div>
     )

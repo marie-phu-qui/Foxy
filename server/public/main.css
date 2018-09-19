@@ -101,3 +101,20 @@ h1 {
 #ad {
   width: 25%;
 }
+
+#register {
+  float: right;
+  flex-wrap: wrap; 
+
+}
+
+#signin {
+  width: 50%;
+  padding: 8px;
+
+}
+#login {
+  width: 50%;
+  padding: 8px;
+
+}

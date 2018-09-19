@@ -22,6 +22,8 @@
     ]
   },
   "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
     "setupFiles": [
       "./tests/setup.js"
     ]
