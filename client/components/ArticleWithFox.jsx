@@ -42,4 +42,4 @@ function mapStateToProps(state){
 //  }
 
 
-export default connect (mapStateToProps)(ArticleWithFox)
+export default connect(mapStateToProps)(ArticleWithFox)
