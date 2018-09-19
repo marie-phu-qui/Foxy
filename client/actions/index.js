@@ -42,6 +42,27 @@ export function fetchFoxImage () {
   }
 }
 
+export const receiveARTICLE = (article) => {
+  return {
+    type: "RECEIVE_ARTICLE",
+    article: article
+  }
+}
+
+export function fetchArticle () {
+  return (dispatch) => {
+    dispatch(requestDATA())
+    return request
+      .get(`/article`)
+      .then(res => {
+        dispatch(receiveARTICLE(res.body))
+      })
+      .catch(err => {
+        dispatch(showError(err.message))
+      })
+  }
+}
+
 export const receiveAD = (ad) => {
   // console.log("receive: ", ad)
   return {
