@@ -83,7 +83,7 @@ h1 {
    border-radius: 7px
  }
 
-form{
+.chat-form{
   padding-left: 15%;
   padding-bottom:2%
 }
@@ -93,3 +93,11 @@ form{
    height: 10%;
    margin: 2% 0% 0% 1%;
  }
+
+.title-form{
+  margin:0px
+}
+
+#ad {
+  width: 25%;
+}

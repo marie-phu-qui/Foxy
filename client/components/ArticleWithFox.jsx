@@ -1,6 +1,19 @@
 import React from 'react'
+import {connect} from 'react-redux'
+//import {getFoxApi} from '../FoxApi-client/'
+import {fetchFoxImage} from '../actions'
 
 class ArticleWithFox extends React.Component {
+
+  constructor(props){
+    super(props)
+  }
+
+ componentDidMount() {
+   this.props.dispatch(fetchFoxImage())
+ }
+
+
   render() {
     return (
       <React.Fragment>
@@ -14,4 +27,15 @@ class ArticleWithFox extends React.Component {
   }
 }
 
-export default ArticleWithFox
+function mapStateToProps(state){
+  return {foxImage:state.foxImage}
+}
+
+
+// const mapDispatchToProps = (dispatch) => {
+//   return { 
+
+//  }
+
+
+export default connect (mapStateToProps)(ArticleWithFox)
