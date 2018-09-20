@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-//import {getFoxApi} from '../FoxApi-client/'
 import {fetchFoxImage, fetchArticle} from '../actions'
 
 class ArticleWithFox extends React.Component {
@@ -34,12 +33,5 @@ function mapStateToProps(state){
     article: state.article
   }
 }
-
-
-// const mapDispatchToProps = (dispatch) => {
-//   return { 
-
-//  }
-
 
 export default connect(mapStateToProps)(ArticleWithFox)

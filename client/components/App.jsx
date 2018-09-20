@@ -79,7 +79,7 @@ class App extends React.Component {
   renderTheRest(){
     return (
       <div id ="main">
-      <button onClick={() => this.refresh()}>Refresh Page</button>
+      <button onClick={() => Router.refresh()}>Refresh Page</button>
         <div id= "article">
           <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article}/>
         </div>  
@@ -109,9 +109,7 @@ class App extends React.Component {
       <Comics comics={this.state.comics}/>
     </div>  
     </React.Fragment>
-      
-
-    )
+      )
   }
 }
 
