@@ -72,17 +72,15 @@ server.get('/ad', (req, res) => {
     })
 })
 
-// let io = require ('socket.io')(http);
+// let io = require('socket.io')(http);
 
-// io.on('connection', function(socket){
-//   socket.on('new-message', function(msg){
+// io.on('connection', function (socket) {
+//   socket.on('new-message', function (msg) {
 //     io.emit('receive-message', msg);
 //   })
 // })
 
-let router = 'hi'
 
 module.exports = {
-  server,
-  router
+  server
 }

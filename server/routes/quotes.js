@@ -16,7 +16,8 @@ router.get('/', (req, res) => {
 router.get('/names', (req, res) => {
     db.getQuoteNames()
         .then(names => {
-            res.json(names[Math.floor(Math.random() * 21)].trumps)
+            let randomPerson = names[Math.floor(Math.random() * 20)]
+            res.json(randomPerson.trumps)
         })
 })
 

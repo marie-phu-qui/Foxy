@@ -4,11 +4,11 @@ const request = require('superagent')
 const db = require('../db/db')
 
 
-
 router.get('/', (req, res) => {
   db.getArticles()
     .then(articles => {
-      res.json(articles[Math.floor(Math.random() * 23)].article)
+      let randomArticleObject = articles[Math.floor(Math.random() * 22)]
+      res.json(randomArticleObject.article)
     })
 })
 
