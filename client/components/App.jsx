@@ -66,7 +66,6 @@ class App extends React.Component {
       })
   }
 
-
   renderFoxVideo() {
     this.setState({
       authentication: true
@@ -98,10 +97,7 @@ class App extends React.Component {
       <React.Fragment>
         <div id="header"><img src="images/foxy.png" /></div>
         <div id='login-thing'><Login authentication={this.renderFoxVideo} /></div>
-
-
         <div>{this.state.authentication == true ? <Secret /> : this.renderTheRest()}</div>
-
         <div id="comic">
           <Comics comics={this.state.comics} />
         </div>

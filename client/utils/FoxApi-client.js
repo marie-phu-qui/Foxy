@@ -1,7 +1,7 @@
 import request from 'superagent'
 
 export function getFoxApi() {
-  return request.get('/fox')
+  return request.get('/article/fox')
 }
 
 export function getComics() {
@@ -9,7 +9,7 @@ export function getComics() {
 }
 
 export function getArticles() {
-  return request.get('/articles')
+  return request.get('/article')
 }
 
 export function getQuote() {

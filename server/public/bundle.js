@@ -2424,14 +2424,6 @@ var _superagent2 = _interopRequireDefault(_superagent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import foxImage from '../reducers/foxImage'
-// import ad from '../reducers/ad'
-
-
-// export const SHOW_ERROR = 'SHOW_ERROR'
-// export const RECEIVE_FOX = 'RECEIVE_FOX'
-// export const REQUEST_FOX = 'REQUEST_FOX'
-
 var requestDATA = exports.requestDATA = function requestDATA() {
   return {
     type: "REQUEST_DATA"
@@ -2455,7 +2447,7 @@ var receiveFOX = exports.receiveFOX = function receiveFOX(fox) {
 function fetchFoxImage() {
   return function (dispatch) {
     dispatch(requestDATA());
-    return _superagent2.default.get("/fox").then(function (res) {
+    return _superagent2.default.get("/article/fox").then(function (res) {
       dispatch(receiveFOX(res.body));
     }).catch(function (err) {
       dispatch(showError(err.message));
@@ -2473,7 +2465,7 @@ var receiveARTICLE = exports.receiveARTICLE = function receiveARTICLE(article) {
 function fetchArticle() {
   return function (dispatch) {
     dispatch(requestDATA());
-    return _superagent2.default.get("/articles").then(function (res) {
+    return _superagent2.default.get("/article").then(function (res) {
       dispatch(receiveARTICLE(res.body));
     }).catch(function (err) {
       dispatch(showError(err.message));
@@ -29692,7 +29684,7 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
-              return Router.refresh();
+              return refresh();
             } },
           'Refresh Page'
         ),
@@ -36981,7 +36973,7 @@ var _superagent2 = _interopRequireDefault(_superagent);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getFoxApi() {
-  return _superagent2.default.get('/fox');
+  return _superagent2.default.get('/article/fox');
 }
 
 function getComics() {
@@ -36989,17 +36981,11 @@ function getComics() {
 }
 
 function getArticles() {
-  return _superagent2.default.get('/articles');
+  return _superagent2.default.get('/article');
 }
 
 function getQuote() {
   return _superagent2.default.get('/quote');
-  _superagent2.default.get('https://api.whatdoestrumpthink.com/api/v1/quotes/random').then(function (ApiRes) {
-    console.log(ApiRes);
-    res.json(ApiRes.body.message);
-  }).catch(function (err) {
-    console.log(err);
-  });
 }
 
 function getQuoteNames() {
