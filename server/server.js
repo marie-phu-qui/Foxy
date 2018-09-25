@@ -13,6 +13,7 @@ server.use(express.static(path.join(__dirname, './public')))
 
 
 server.use('/quote', require('./routes/quotes'))
+server.use('/article', require('./routes/article'))
 
 
 // server.use('/auth', auth)
@@ -46,16 +47,6 @@ server.post('/register', (req, res) => {
 })
 
 
-server.get('/fox', (req, res) => {
-  request.get('https://randomfox.ca/floof/')
-    .then(ApiRes => {
-      res.json(ApiRes.body.image)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-})
-
 server.get('/comics', (req, res) => {
   db.getComics()
     .then(comics => {
@@ -65,14 +56,6 @@ server.get('/comics', (req, res) => {
       console.log(err)
     })
 })
-
-server.get('/articles', (req, res) => {
-  db.getArticles()
-    .then(articles => {
-      res.json(articles[Math.floor(Math.random() * 23)].article)
-    })
-})
-
 
 
 server.get('/ad', (req, res) => {
