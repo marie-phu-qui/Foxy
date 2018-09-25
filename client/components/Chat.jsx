@@ -69,7 +69,7 @@ class ChatApp extends React.Component {
                 <ul>
                     {this.renderMessages()}
                 </ul>
-                <form  onSubmit={this.submitMessage}>
+                <form className='chat-form' onSubmit={this.submitMessage}>
                     <input  id="message" type="text" value={this.state.currentMessage} onChange={this.handleChange}/><input type='submit'/></form>
             </div>
         )

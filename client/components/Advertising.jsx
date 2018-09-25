@@ -1,15 +1,29 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {fetchAD} from '../actions'
 
-class Advertising extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
 
+const Advertising = ({ad}) => {
+console.log(ad)
+console.log({ad})
+      return (
+      <div>
         <h3>Desperate Advertising</h3>
-        <p>{this.props.add}</p>
-      </React.Fragment>
+        {<p>{ad}</p>}
+        <button id ="ad" onClick={() => mapDispatchToProps()}>I am not interested</button>
+      </div>
     )
-  }
 }
 
-export default Advertising
+
+function mapStateToProps(state){
+  return {
+    ad: state.ad
+  }
+} 
+
+const mapDispatchToProps=(dispatch)=>{
+  dispatch(fetchAD())
+  return {}
+} 
+export default connect (mapStateToProps, mapDispatchToProps)(Advertising)
