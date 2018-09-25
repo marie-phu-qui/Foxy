@@ -1,6 +1,8 @@
+// const connection = require('./connection')
 const environment = process.env.NODE_ENV || 'development'
 const config = require('../../knexfile')[environment]
 const db = require('knex')(config)
+const hash = require('../routes/auth')
 
 
 
@@ -24,9 +26,31 @@ return db('mainwords').select()
 
 //  server.get('/comics', (req, res) => {
 //  }
+// server/db/users.js
+
+
+function createUser (users, password) {
+  const passwordHashed = hash.generate(password)
+  console.log('Hi 22');
+  return db('users')
+    .insert({users, hash: passwordHashed})
+}
+
+function userExists (users) {
+  return db('users')
+    .count('id as n')
+    .where('users', users)
+    .then(count => {
+      return count[0].n > 0
+    })
+}
+
 
 module.exports = {
   getComics,
   getArticles,
-  getQuoteNames
+  getQuoteNames,
+  createUser,
+  userExists
+  
 }

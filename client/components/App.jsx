@@ -4,8 +4,11 @@ import Comics from './Comics'
 import TrumpQuote from './TrumpQuote'
 import ChatApp from './Chat'
 import Advertising from './Advertising'
+import Login from './Login'
+import Secret from './Secret'
 
-import {getFox, getComics, getQuote, getArticles, getQuoteNames, getAdvertising} from '../FoxApi-client'
+
+import { getQuote, getQuoteNames, getAuthentication } from '../utils/FoxApi-client'
 
 class App extends React.Component {
   constructor(props) {
@@ -13,118 +16,92 @@ class App extends React.Component {
 
     this.state = {
       foxImage: '',
-      comics:'',
-      article:'',
+      comics: '',
+      article: '',
       quote: '',
       names: '',
-      add : ''
+      ad: '',
+      authentication: false
     }
 
-    this.getFox = this.getFox.bind(this)
-    this.getComics = this.getComics.bind(this)
-    this.getArticles = this.getArticles.bind(this)
     this.getQuote = this.getQuote.bind(this)
     this.getQuoteNames = this.getQuoteNames.bind(this)
-    this.getAdvertising = this.getAdvertising.bind(this)
+    this.getAuthentication = this.getAuthentication.bind(this)
+    this.renderFoxVideo = this.renderFoxVideo.bind(this)
   }
 
   componentDidMount() {
     this.refresh()
   }
 
-  refresh(){
-    this.getFox()
-    this.getComics()
-    this.getArticles()
+  refresh() {
     this.getQuote()
     this.getQuoteNames()
-    this.getAdvertising()
-  }
-
-  getComics() {
-    getComics()
-    .then(res => {
-      this.setState({
-        comics: res.body
-      })
-    })
-  }
-
-  getArticles() {
-    getArticles()
-    .then(res => {
-      this.setState({
-        article: res.body,
-              
-      })
-    })
-  }
-
-  getFox() {
-    getFox()
-    .then(res => {
-      this.setState({
-        foxImage: res.body,
-              
-      })
-    })
   }
 
   getQuote() {
     getQuote()
-    .then(res => {
-      this.setState({
-        quote: res.body
-        
+      .then(res => {
+        this.setState({
+          quote: res.body
+        })
       })
-    })
   }
 
-  getQuoteNames(){
+  getQuoteNames() {
     getQuoteNames()
-    .then(res => {
-      this.setState({
-        names: res.body
-        
+      .then(res => {
+        this.setState({
+          names: res.body
+        })
       })
+  }
+
+  getAuthentication() {
+    getAuthentication()
+      .then(res => {
+        this.setState({
+          authentication: res.body
+        })
+      })
+  }
+
+  renderFoxVideo() {
+    this.setState({
+      authentication: true
     })
   }
 
-  getAdvertising() {
-    getAdvertising()
-    .then(res => {
-      this.setState({
-        add: res.body
-      })
-    })
+  renderTheRest() {
+    return (
+      <div id="main">
+        <button onClick={() => Router.refresh()}>Refresh Page</button>
+        <div id="article">
+          <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article} />
+        </div>
+        <div id="sidebar">
+          <i>Chat to me, sweetie!<ChatApp /></i>
+          <br />
+          <TrumpQuote quote={this.state.quote} names={this.state.names} />
+          <br />
+          <div>
+            <Advertising ad={this.state.ad} />
+          </div>
+        </div>
+      </div>
+    )
   }
 
   render() {
     return (
-    <React.Fragment>
-    <div id="header"><img src="images/foxy.png"/></div>
-    <div id ="main">
-    {console.log(this.refresh)}
-    <button onClick={() => this.refresh()}>Refresh Page</button>
-      <div id= "article">
-        <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article}/>
-      </div>  
-      <div id="sidebar">
-        <i>Chat to me, sweetie!<ChatApp/></i>
-        <br />
-        <TrumpQuote quote={this.state.quote} names={this.state.names}/>
-        <br />
-        <div>
-        <Advertising add={this.state.add}/>
+      <React.Fragment>
+        <div id="header"><img src="images/foxy.png" /></div>
+        <div id='login-thing'><Login authentication={this.renderFoxVideo} /></div>
+        <div>{this.state.authentication == true ? <Secret /> : this.renderTheRest()}</div>
+        <div id="comic">
+          <Comics comics={this.state.comics} />
         </div>
-      </div>
-    </div>
-    <div id= "comic">
-      <Comics comics={this.state.comics}/>
-    </div>  
-    </React.Fragment>
-      
-
+      </React.Fragment>
     )
   }
 }
