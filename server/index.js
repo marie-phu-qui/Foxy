@@ -11,9 +11,7 @@ http.listen(port, function () {
 
 
 io.on('connection', function(socket){
-  console.log('new connection')
   socket.on('new-message', function(msg){
-    console.log('New Message')
     io.emit('receive-message', msg);
   })
 })

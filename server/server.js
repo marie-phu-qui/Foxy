@@ -1,15 +1,19 @@
 const path = require('path')
 const express = require('express')
 const request = require('superagent')
-const db = require('../db/db')
+const db = require('./db/db')
 // const auth = require('./routes/auth')
 const server = express()
-const {userExists, createUser}  = require('../db/db')
+const {userExists, createUser}  = require('./db/db')
 // const sodium = require('sodium').api
 
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
+
+
+server.use('/quote', require('./routes/quotes'))
+
 
 // server.use('/auth', auth)
 
@@ -68,22 +72,7 @@ server.get('/articles', (req, res) => {
      res.json(articles[Math.floor(Math.random()*23)].article)
   })
   })   
-server.get('/quote', (req, res) => {
-  request.get('https://api.whatdoestrumpthink.com/api/v1/quotes/random')
-  .then(ApiRes => { 
-     res.json(ApiRes.body.message)
-  })
-  .catch(err => {
-    console.log(err)
-  })
-})
 
-server.get('/quotenames/', (req, res) => {
-  db.getQuoteNames()
-  .then(names => { 
-     res.json(names[Math.floor(Math.random()*21)].trumps)
-  })
-})
 
 
 server.get('/ad', (req, res) => {

@@ -55,7 +55,6 @@ export function fetchArticle () {
     return request
       .get(`/articles`)
       .then(res => {
-        console.log(res)
         dispatch(receiveARTICLE(res.body))
       })
       .catch(err => {
@@ -65,7 +64,6 @@ export function fetchArticle () {
 }
 
 export const receiveAD = (ad) => {
-  // console.log("receive: ", ad)
   return {
     type: "RECEIVE_AD",
     ad: ad

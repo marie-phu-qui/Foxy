@@ -2474,7 +2474,6 @@ function fetchArticle() {
   return function (dispatch) {
     dispatch(requestDATA());
     return _superagent2.default.get("/articles").then(function (res) {
-      console.log(res);
       dispatch(receiveARTICLE(res.body));
     }).catch(function (err) {
       dispatch(showError(err.message));
@@ -2483,7 +2482,6 @@ function fetchArticle() {
 }
 
 var receiveAD = exports.receiveAD = function receiveAD(ad) {
-  // console.log("receive: ", ad)
   return {
     type: "RECEIVE_AD",
     ad: ad
@@ -29691,15 +29689,14 @@ var App = function (_React$Component) {
   }, {
     key: 'renderTheRest',
     value: function renderTheRest() {
-      var _this5 = this;
-
+      console.log(this.state.quote, this.state.names);
       return _react2.default.createElement(
         'div',
         { id: 'main' },
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
-              return _this5.refresh();
+              return Router.refresh();
             } },
           'Refresh Page'
         ),
@@ -37004,7 +37001,7 @@ function getQuote() {
 }
 
 function getQuoteNames() {
-  return _superagent2.default.get('/quotenames');
+  return _superagent2.default.get('/quote/names');
 }
 
 function getAdvertising() {

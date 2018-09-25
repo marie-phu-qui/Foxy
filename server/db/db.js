@@ -1,8 +1,8 @@
 // const connection = require('./connection')
 const environment = process.env.NODE_ENV || 'development'
-const config = require('../knexfile')[environment]
+const config = require('../../knexfile')[environment]
 const db = require('knex')(config)
-const hash = require('../server/routes/auth')
+const hash = require('../routes/auth')
 
 
 

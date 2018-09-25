@@ -8,7 +8,7 @@ import Login from './Login'
 import Secret from './Secret'
 
 
-import {getQuote, getQuoteNames, getAuthentication} from '../FoxApi-client'
+import {getQuote, getQuoteNames, getAuthentication} from '../utils/FoxApi-client'
 
 class App extends React.Component {
   constructor(props) {
@@ -43,6 +43,8 @@ class App extends React.Component {
   getQuote() {
     getQuote()
     .then(res => {
+      console.log(res);
+      
       this.setState({
         quote: res.body
         
@@ -77,6 +79,7 @@ class App extends React.Component {
   }
 
   renderTheRest(){
+    console.log(this.state.quote, this.state.names)
     return (
       <div id ="main">
       <button onClick={() => Router.refresh()}>Refresh Page</button>

@@ -17,7 +17,7 @@ export function getQuote() {
 }
 
 export function getQuoteNames(){
-  return request.get('/quotenames')
+  return request.get('/quote/names')
 }
 
 export function getAdvertising(){
