@@ -8,7 +8,7 @@ import Login from './Login'
 import Secret from './Secret'
 
 
-import {getQuote, getQuoteNames, getAuthentication} from '../utils/FoxApi-client'
+import { getQuote, getQuoteNames, getAuthentication } from '../utils/FoxApi-client'
 
 class App extends React.Component {
   constructor(props) {
@@ -16,83 +16,77 @@ class App extends React.Component {
 
     this.state = {
       foxImage: '',
-      comics:'',
-      article:'',
+      comics: '',
+      article: '',
       quote: '',
       names: '',
-      ad : '',
-      authentication:false
+      ad: '',
+      authentication: false
     }
 
     this.getQuote = this.getQuote.bind(this)
     this.getQuoteNames = this.getQuoteNames.bind(this)
     this.getAuthentication = this.getAuthentication.bind(this)
     this.renderFoxVideo = this.renderFoxVideo.bind(this)
-
   }
 
   componentDidMount() {
     this.refresh()
   }
 
-  refresh(){
+  refresh() {
     this.getQuote()
     this.getQuoteNames()
   }
 
   getQuote() {
     getQuote()
-    .then(res => {
-      console.log(res);
-      
-      this.setState({
-        quote: res.body
-        
+      .then(res => {
+        this.setState({
+          quote: res.body
+        })
       })
-    })
   }
 
-  getQuoteNames(){
+  getQuoteNames() {
     getQuoteNames()
-    .then(res => {
-      this.setState({
-        names: res.body
-        
+      .then(res => {
+        this.setState({
+          names: res.body
+        })
       })
-    })
   }
 
   getAuthentication() {
     getAuthentication()
-    .then(res => {
-      this.setState({
-        authentication: res.body
+      .then(res => {
+        this.setState({
+          authentication: res.body
+        })
       })
-    })
   }
 
-    
-  renderFoxVideo(){
+
+  renderFoxVideo() {
     this.setState({
-      authentication:true
+      authentication: true
     })
   }
 
-  renderTheRest(){
-    console.log(this.state.quote, this.state.names)
+  renderTheRest() {
     return (
-      <div id ="main">
-      <button onClick={() => Router.refresh()}>Refresh Page</button>
-        <div id= "article">
-          <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article}/>
-        </div>  
+      <div id="main">
+        <button onClick={() => Router.refresh()}>Refresh Page</button>
+        <div id="article">
+          <ArticleWithFox foxImage={this.state.foxImage} article={this.state.article} />
+        </div>
         <div id="sidebar">
-          <i>Chat to me, sweetie!<ChatApp/></i>
+          <i>Chat to me, sweetie!<ChatApp /></i>
           <br />
-          <TrumpQuote quote={this.state.quote} names={this.state.names}/>
+          <TrumpQuote quote={this.state.quote} names={this.state.names} />
           <br />
           <div>
-          <Advertising ad={this.state.ad}/>
+            <Advertising ad={this.state.ad} />
           </div>
         </div>
       </div>
@@ -101,18 +95,18 @@ class App extends React.Component {
 
   render() {
     return (
-    <React.Fragment>
-    <div id="header"><img src="images/foxy.png"/></div>
-    <div id='login-thing'><Login authentication={this.renderFoxVideo} /></div>
+      <React.Fragment>
+        <div id="header"><img src="images/foxy.png" /></div>
+        <div id='login-thing'><Login authentication={this.renderFoxVideo} /></div>
 
 
-    <div>{this.state.authentication == true ? <Secret /> : this.renderTheRest()}</div> 
-   
-    <div id= "comic">
-      <Comics comics={this.state.comics}/>
-    </div>  
-    </React.Fragment>
-      )
+        <div>{this.state.authentication == true ? <Secret /> : this.renderTheRest()}</div>
+
+        <div id="comic">
+          <Comics comics={this.state.comics} />
+        </div>
+      </React.Fragment>
+    )
   }
 }
 

@@ -29629,7 +29629,6 @@ var App = function (_React$Component) {
     _this.getQuoteNames = _this.getQuoteNames.bind(_this);
     _this.getAuthentication = _this.getAuthentication.bind(_this);
     _this.renderFoxVideo = _this.renderFoxVideo.bind(_this);
-
     return _this;
   }
 
@@ -29652,7 +29651,6 @@ var App = function (_React$Component) {
       (0, _FoxApiClient.getQuote)().then(function (res) {
         _this2.setState({
           quote: res.body
-
         });
       });
     }
@@ -29664,7 +29662,6 @@ var App = function (_React$Component) {
       (0, _FoxApiClient.getQuoteNames)().then(function (res) {
         _this3.setState({
           names: res.body
-
         });
       });
     }
@@ -29689,7 +29686,6 @@ var App = function (_React$Component) {
   }, {
     key: 'renderTheRest',
     value: function renderTheRest() {
-      console.log(this.state.quote, this.state.names);
       return _react2.default.createElement(
         'div',
         { id: 'main' },
@@ -36998,6 +36994,12 @@ function getArticles() {
 
 function getQuote() {
   return _superagent2.default.get('/quote');
+  _superagent2.default.get('https://api.whatdoestrumpthink.com/api/v1/quotes/random').then(function (ApiRes) {
+    console.log(ApiRes);
+    res.json(ApiRes.body.message);
+  }).catch(function (err) {
+    console.log(err);
+  });
 }
 
 function getQuoteNames() {
