@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node server",
     "postinstall": "webpack",
-    "dev": "nodemon server & webpack --watch",
+    "webpack": "webpack --watch",
+    "dev": "nodemon server",
     "test": "jest --watchAll"
   },
   "babel": {
@@ -22,6 +23,8 @@
     ]
   },
   "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
     "setupFiles": [
       "./tests/setup.js"
     ]
@@ -36,16 +39,20 @@
     "http": "^0.0.0",
     "knex": "^0.15.2",
     "pg": "^7.4.3",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.0",
+    "react-dom": "^16.0",
+    "react-redux": "^5.0.7",
+    "react-thunk": "^1",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "socket.io": "^2.1.1",
     "socket.io-client": "^2.1.1",
+    "sodium": "^2.0.3",
     "superagent": "^3.8.3",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack": "^3.0"
   },
   "devDependencies": {
-    "enzyme": "^3.3.0",
+    "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^22.1.4",
     "nodemon": "^1.18.4",
