@@ -1,29 +1,29 @@
 import request from 'superagent'
 
 export function getFoxApi() {
- return request.get('/fox')
+  return request.get('/article/fox')
 }
 
 export function getComics() {
-return request.get('/comics')
+  return request.get('/comics')
 }
 
 export function getArticles() {
-return request.get('/articles')
+  return request.get('/article')
 }
 
 export function getQuote() {
   return request.get('/quote')
 }
 
-export function getQuoteNames(){
+export function getQuoteNames() {
   return request.get('/quote/names')
 }
 
-export function getAdvertising(){
+export function getAdvertising() {
   return request.get('/ad')
 }
 
-export function getAuthentication(){
+export function getAuthentication() {
   return request.get('/register')
 }

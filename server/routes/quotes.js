@@ -1,8 +1,9 @@
 const router = require('express').Router()
 const db = require('../db/db')
 
+const request = require('superagent')
 
-router.get('/quote', (req, res) => {
+router.get('/', (req, res) => {
     request.get('https://api.whatdoestrumpthink.com/api/v1/quotes/random')
         .then(ApiRes => {
             res.json(ApiRes.body.message)
@@ -12,10 +13,11 @@ router.get('/quote', (req, res) => {
         })
 })
 
-router.get('/quote/names/', (req, res) => {
+router.get('/names', (req, res) => {
     db.getQuoteNames()
         .then(names => {
-            res.json(names[Math.floor(Math.random() * 21)].trumps)
+            let randomPerson = names[Math.floor(Math.random() * 20)]
+            res.json(randomPerson.trumps)
         })
 })
 

@@ -1,11 +1,5 @@
 import request from 'superagent'
-// import foxImage from '../reducers/foxImage'
-// import ad from '../reducers/ad'
 
-
-// export const SHOW_ERROR = 'SHOW_ERROR'
-// export const RECEIVE_FOX = 'RECEIVE_FOX'
-// export const REQUEST_FOX = 'REQUEST_FOX'
 
 export const requestDATA = () => {
   return {
@@ -28,11 +22,11 @@ export const receiveFOX = (fox) => {
   }
 }
 
-export function fetchFoxImage () {
+export function fetchFoxImage() {
   return (dispatch) => {
     dispatch(requestDATA())
     return request
-      .get(`/fox`)
+      .get(`/article/fox`)
       .then(res => {
         dispatch(receiveFOX(res.body))
       })
@@ -49,11 +43,11 @@ export const receiveARTICLE = (article) => {
   }
 }
 
-export function fetchArticle () {
+export function fetchArticle() {
   return (dispatch) => {
     dispatch(requestDATA())
     return request
-      .get(`/articles`)
+      .get(`/article`)
       .then(res => {
         dispatch(receiveARTICLE(res.body))
       })
@@ -70,7 +64,7 @@ export const receiveAD = (ad) => {
   }
 }
 
-export function fetchAD () {
+export function fetchAD() {
   return (dispatch) => {
     dispatch(requestDATA())
     return request
@@ -92,13 +86,13 @@ export const receiveCOMICS = (comics) => {
   }
 }
 
-export function fetchCOMICS () {
+export function fetchCOMICS() {
   return (dispatch) => {
     dispatch(requestDATA())
     return request
       .get(`/comics`)
       .then(res => {
-        dispatch(receiveCOMICS(res.body[Math.floor(Math.random()*25)].comicImage))
+        dispatch(receiveCOMICS(res.body[Math.floor(Math.random() * 25)].comicImage))
       })
       .catch(err => {
         dispatch(showError(err.message))
