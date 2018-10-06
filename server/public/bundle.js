@@ -29665,10 +29665,10 @@ var App = function (_React$Component) {
     }
   }, {
     key: 'refresh',
-    value: function refresh() {
-      this.getQuote();
-      this.getQuoteNames();
-    }
+    value: function refresh() {}
+    // this.getQuote()
+    // this.getQuoteNames()
+
 
     // getQuote() {
     //   getQuote()

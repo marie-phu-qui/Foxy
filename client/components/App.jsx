@@ -26,8 +26,8 @@ class App extends React.Component {
   }
 
   refresh() {
-    this.getQuote()
-    this.getQuoteNames()
+    // this.getQuote()
+    // this.getQuoteNames()
   }
 
   // getQuote() {

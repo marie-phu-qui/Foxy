@@ -1,4 +1,3 @@
-// const connection = require('./connection')
 const environment = process.env.NODE_ENV || 'development'
 const config = require('../../knexfile')[environment]
 const db = require('knex')(config)
@@ -7,12 +6,6 @@ const hash = require('../routes/auth')
 
 
 function getComics() {
-  // return request.get('/comics'){
-    // console.log(db('comics').select(comicImage))
-    // return db('comics').select()
-    // res.body
-  // }
-
   return db('comics').select()
  }
 
@@ -24,9 +17,6 @@ return db('mainwords').select()
    return db('dtwords').select()
  }
 
-//  server.get('/comics', (req, res) => {
-//  }
-// server/db/users.js
 
 
 function createUser (users, password) {
