@@ -19,7 +19,6 @@ class Login extends React.Component {
       request.post('/register')
       .send({ users: thisUser, password: thisPassword })
       .then(() => {
-        console.log('send')  
         this.props.authentication()
       })
       .catch((err) => {
@@ -40,7 +39,6 @@ class Login extends React.Component {
           <input id ="name"name='users' type='text' placeholder='your pretty name'/>
           <input id="password" name='password' type='text' placeholder='your secret code'/>
           <button id = "signin" value='submit'>I am new - be nice</button>
-          {/* <button id = "login" value="submit">I have been here before</button> */}
           </div>
         </form>
       </div>

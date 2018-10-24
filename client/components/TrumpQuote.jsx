@@ -27,7 +27,6 @@ class TrumpQuote extends React.Component {
   getQuoteNames() {
     getQuoteNames()
       .then(res => {
-        console.log(res)
         this.setState({
           names: res.body
         })
@@ -35,7 +34,6 @@ class TrumpQuote extends React.Component {
   }
 
   render() {
-    console.log('helloooo  ', this.state)
     return (
       <React.Fragment>
         <div id='quotes'>

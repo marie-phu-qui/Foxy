@@ -8,7 +8,6 @@ import Advertising from './Advertising'
 
 
 const UnregisteredHome = (props) => {
-  console.log(props)
   return (
     <div id="main">
       <button onClick={() => Router.refresh()}>Refresh Page</button>

@@ -72,14 +72,6 @@ server.get('/ad', (req, res) => {
     })
 })
 
-// let io = require('socket.io')(http);
-
-// io.on('connection', function (socket) {
-//   socket.on('new-message', function (msg) {
-//     io.emit('receive-message', msg);
-//   })
-// })
-
 
 module.exports = {
   server

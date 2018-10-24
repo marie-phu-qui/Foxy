@@ -4,8 +4,6 @@ import {fetchAD} from '../actions'
 
 
 const Advertising = ({ad}) => {
-console.log(ad)
-console.log({ad})
       return (
       <div>
         <h3>Desperate Advertising</h3>

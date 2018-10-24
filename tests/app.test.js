@@ -37,17 +37,11 @@ test('<App /> includes a <Login /> component', () => {
 })
 
 
-// wrap.simulate('click') -- simulate a click
-
 test('<ArticleWithFox /> has a foxImage state', () => {
   // Arrange
   const expected = true
   // Act
-  // console.log(wrapper)
   const wrapper = shallow(<ArticleWithFox />);
-  console.log(wrapper.state())
   expect(wrapper.state().foo).to.equal(10);
-  // const wrapper = shallow(<ArticleWithFox />);
-  // Assert
-  // expect(wrapper.props().foxImage).toEqual(expected)
+
 })

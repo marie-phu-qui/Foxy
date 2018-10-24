@@ -11,42 +11,21 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      // quote: '',
-      // names: '',
+
       authentication: false
     }
-    // this.getQuote = this.getQuote.bind(this)
-    // this.getQuoteNames = this.getQuoteNames.bind(this)
+
     this.getAuthentication = this.getAuthentication.bind(this)
     this.renderFoxVideo = this.renderFoxVideo.bind(this)
   }
 
-  componentDidMount() {
-    this.refresh()
-  }
-
-  refresh() {
-    // this.getQuote()
-    // this.getQuoteNames()
-  }
-
-  // getQuote() {
-  //   getQuote()
-  //     .then(res => {
-  //       this.setState({
-  //         quote: res.body
-  //       })
-  //     })
+  // componentDidMount() {
+  //   this.refresh()
   // }
 
-  // getQuoteNames() {
-  //   getQuoteNames()
-  //     .then(res => {
-  //       this.setState({
-  //         names: res.body
-  //       })
-  //     })
+  // refresh() {
   // }
+
 
   getAuthentication() {
     getAuthentication()

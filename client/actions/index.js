@@ -79,7 +79,6 @@ export function fetchAD() {
 }
 
 export const receiveCOMICS = (comics) => {
-  console.log(comics)
   return {
     type: "RECEIVE_COMICS",
     comics: comics
