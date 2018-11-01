@@ -30,6 +30,4 @@ describe('<App />', () => {
     expect(wrapper.text()).toContain(expected)
   })
 
-  test('includes a <Login /> component 2', () => {
-  })
 });
