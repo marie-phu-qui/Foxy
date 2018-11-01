@@ -10,11 +10,15 @@ describe('<App />', () => {
   test('renders without crashing', () => {
     shallow(<App />);
   });
-
+  test(`habe the authentificaion sate set as false`, () => {
+    const expected = false
+    const wrapper = shallow(<App />)
+    console.log(wrapper.state('authentication'))
+    expect(wrapper.state('authentication')).toBe(expected)
+  })
   test('contains all : <Login/>" component on landing page', () => {
     const expected = '<Login />';
     const wrapper = shallow(<App />);
-    console.log(wrapper.text())
     expect(wrapper.text()).toMatch(expected);
 });
 
@@ -28,6 +32,11 @@ describe('<App />', () => {
     const expected = '<Login />Refresh Page<Connect(ArticleWithFox) />Chat to me, sweetie!<ChatApp /><TrumpQuote /><Connect(Advertising) /><Connect(Comics) />'
     const wrapper = shallow(<App />)
     expect(wrapper.text()).toContain(expected)
+  })
+  test(`have state of foxImage, comics, article, quote, names, ad and authentication`, () => {
+    const expected = '{\"foxImage\":\"\",\"comics\":\"\",\"article\":\"\",\"quote\":\"\",\"names\":\"\",\"ad\":\"\",\"authentication\":false}'
+    const wrapper = shallow(<App />)
+    expect(JSON.stringify(wrapper.state())).toMatch(expected)
   })
 
 });
