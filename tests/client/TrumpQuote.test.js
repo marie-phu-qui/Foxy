@@ -9,4 +9,9 @@ describe('<TrumpQuote />', () => {
   test('renders without crashing', () => {
     shallow(<TrumpQuote />);
   });
+  test('display `inspirational quotes`', () => {
+    const expected = 'Inspirational Quotes'
+    const wrapper = shallow(<TrumpQuote />);
+    expect(wrapper.text()).toEqual(expected)
+  });
 })
