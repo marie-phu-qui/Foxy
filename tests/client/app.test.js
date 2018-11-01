@@ -3,25 +3,29 @@ import {shallow, mount} from 'enzyme'
 import '../setup.js'; // Setup Enzyme & Adapter
 
 import App from '../../client/components/App'
-import Login from '../../client/components/Login'
+import Secret from '../../client/components/Secret'
 
 describe('<App />', () => {
 
   test('renders without crashing', () => {
     shallow(<App />);
   });
-  test(`habe the authentificaion sate set as false`, () => {
+  test(`have the authentication state set as false`, () => {
     const expected = false
     const wrapper = shallow(<App />)
-    console.log(wrapper.state('authentication'))
     expect(wrapper.state('authentication')).toBe(expected)
   })
   test('contains all : <Login/>" component on landing page', () => {
     const expected = '<Login />';
     const wrapper = shallow(<App />);
     expect(wrapper.text()).toMatch(expected);
-});
-
+  });
+  test('renders <Secret /> on authentication', () => {
+    const expected = '<Secret />';
+    const wrapper = shallow(<App />);
+    wrapper.setState({ authentication: true })
+    expect(wrapper.text()).toMatch(expected);
+  });
   test(`contains 'Refresh page'`, () => {
     const expected = 'Refresh Page'
     const wrapper = shallow(<App />)

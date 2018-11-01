@@ -9,4 +9,5 @@ describe('<Chat />', () => {
   test('renders without crashing', () => {
     shallow(<Chat />);
   });
+
 })
