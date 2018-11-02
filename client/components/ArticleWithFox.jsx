@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchFoxImage, fetchArticle} from '../actions'
 
-class ArticleWithFox extends React.Component {
+export class ArticleWithFox extends React.Component {
 
   constructor(props){
     super(props)
